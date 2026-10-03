@@ -1,0 +1,54 @@
+# Local configuration and credentials; examples are safe to commit.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.codex/
+.agents/
+
+# Local runtimes, dependencies, and Python caches.
+.tools/
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Builds, deployment state, logs, and local verification artifacts.
+.next/
+out/
+build/
+dist/
+.vercel/
+coverage/
+*.tsbuildinfo
+*.log
+.artifacts/
+
+# Data and generated models stay local; keep the directory placeholders.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.onnx
+*.keras
+ml/models/
+
+# OS/editor local state.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
