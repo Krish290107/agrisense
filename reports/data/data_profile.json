@@ -1,0 +1,4416 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-04T17:22:11.118781Z",
+  "kind": "historical",
+  "status": "profiled",
+  "imported_file_count": 2,
+  "row_count": 39634,
+  "input_files": [
+    {
+      "original_filename": "2025.csv",
+      "sha256": "0070d5c0fd8f95a2268420eaa3f9b712f74bbb179e8c09025c4f32d4999bb45a",
+      "row_count": 5819482,
+      "bytes": 573676886,
+      "original_headers": [
+        "State",
+        "District",
+        "Market",
+        "Commodity",
+        "Variety",
+        "Grade",
+        "Arrival_Date",
+        "Min_Price",
+        "Max_Price",
+        "Modal_Price",
+        "Commodity_Code"
+      ],
+      "observed_date_range": {
+        "earliest": "2025-01-01",
+        "latest": "2025-12-30",
+        "distinct_observation_dates": 342,
+        "missing": 0,
+        "parse_failures": 0,
+        "date_format": "%Y-%m-%d"
+      },
+      "source_url": "https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india",
+      "publisher": "Manas Khandelwal (Kaggle republisher; upstream Government of India Open Data Platform per publisher)",
+      "license_attribution_status": "Publisher description states GODL-India; Kaggle license field is Other (specified in description). Retain attribution to publisher and upstream OGD; local file version not independently matched.",
+      "price_unit": "INR/quintal",
+      "quantity_unit": "unverified"
+    },
+    {
+      "original_filename": "2024.csv",
+      "sha256": "59794b7a4dad2fa5e3f1a116851b584368ca99ce44a9fe90b2638e8a5faf7a60",
+      "row_count": 5544500,
+      "bytes": 532414234,
+      "original_headers": [
+        "State",
+        "District",
+        "Market",
+        "Commodity",
+        "Variety",
+        "Grade",
+        "Arrival_Date",
+        "Min_Price",
+        "Max_Price",
+        "Modal_Price",
+        "Commodity_Code"
+      ],
+      "observed_date_range": {
+        "earliest": "2024-01-01",
+        "latest": "2024-12-31",
+        "distinct_observation_dates": 366,
+        "missing": 0,
+        "parse_failures": 0,
+        "date_format": "%Y-%m-%d"
+      },
+      "source_url": "https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india",
+      "publisher": "Manas Khandelwal (Kaggle republisher; upstream Government of India Open Data Platform per publisher)",
+      "license_attribution_status": "Publisher description states GODL-India; Kaggle license field is Other (specified in description). Retain attribution to publisher and upstream OGD; local file version not independently matched.",
+      "price_unit": "INR/quintal",
+      "quantity_unit": "unverified"
+    }
+  ],
+  "input_row_count": 11363982,
+  "source_state_counts": {
+    "Tamil Nadu": 3077050,
+    "Uttar Pradesh": 1841135,
+    "Kerala": 1158195,
+    "Maharashtra": 697280,
+    "Madhya Pradesh": 676401,
+    "Gujarat": 523868,
+    "West Bengal": 359501,
+    "Punjab": 598999,
+    "Karnataka": 239866,
+    "Haryana": 469379,
+    "Rajasthan": 406360,
+    "Himachal Pradesh": 266416,
+    "Telangana": 201807,
+    "Odisha": 187481,
+    "Chattisgarh": 97284,
+    "Tripura": 131482,
+    "Uttrakhand": 122153,
+    "Assam": 42894,
+    "Jammu and Kashmir": 81010,
+    "NCT of Delhi": 56957,
+    "Bihar": 12913,
+    "Manipur": 22956,
+    "Andhra Pradesh": 31464,
+    "Meghalaya": 11485,
+    "Goa": 15726,
+    "Chandigarh": 6058,
+    "Nagaland": 24025,
+    "Pondicherry": 930,
+    "Arunachal Pradesh": 13,
+    "Uttarakhand": 1782,
+    "Andaman and Nicobar": 1112
+  },
+  "filters": {
+    "state": "Gujarat",
+    "commodities": [
+      "Onion",
+      "Potato",
+      "Tomato"
+    ]
+  },
+  "statistics_scope": "Quality/duplicates/series counts apply only to filtered rows; input inventory and state audit are separately labeled.",
+  "state_audit": {
+    "state": "Gujarat",
+    "rows": 523868,
+    "earliest": "2024-01-01",
+    "latest": "2025-12-29",
+    "distinct_observation_dates": 707,
+    "missing_dates": 0,
+    "date_parse_failures": 0,
+    "commodities": {
+      "Ajwan": {
+        "rows": 3288,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 600,
+        "district_market_combinations": 35
+      },
+      "Alasande Gram": {
+        "rows": 110,
+        "earliest": "2024-04-29",
+        "latest": "2025-08-22",
+        "observation_days": 106,
+        "district_market_combinations": 2
+      },
+      "Amaranthus": {
+        "rows": 304,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-01",
+        "observation_days": 286,
+        "district_market_combinations": 2
+      },
+      "Ambada Seed": {
+        "rows": 6,
+        "earliest": "2025-03-28",
+        "latest": "2025-09-13",
+        "observation_days": 6,
+        "district_market_combinations": 1
+      },
+      "Amla (Nelli Kai)": {
+        "rows": 509,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-28",
+        "observation_days": 353,
+        "district_market_combinations": 5
+      },
+      "Apple": {
+        "rows": 1206,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 599,
+        "district_market_combinations": 9
+      },
+      "Arhar (Tur/Red Gram)(Whole)": {
+        "rows": 12180,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 656,
+        "district_market_combinations": 96
+      },
+      "Arhar Dal (Tur Dal)": {
+        "rows": 293,
+        "earliest": "2024-02-14",
+        "latest": "2025-12-27",
+        "observation_days": 245,
+        "district_market_combinations": 5
+      },
+      "Asalia": {
+        "rows": 68,
+        "earliest": "2024-02-22",
+        "latest": "2025-12-18",
+        "observation_days": 67,
+        "district_market_combinations": 3
+      },
+      "Bajra (Pearl Millet/Cumbu)": {
+        "rows": 22986,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 642,
+        "district_market_combinations": 157
+      },
+      "Banana": {
+        "rows": 3054,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 654,
+        "district_market_combinations": 19
+      },
+      "Banana - Green": {
+        "rows": 1895,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 631,
+        "district_market_combinations": 11
+      },
+      "Barley (Jau)": {
+        "rows": 355,
+        "earliest": "2024-01-08",
+        "latest": "2025-12-26",
+        "observation_days": 239,
+        "district_market_combinations": 14
+      },
+      "Beans": {
+        "rows": 1145,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 535,
+        "district_market_combinations": 16
+      },
+      "Beetroot": {
+        "rows": 1849,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 650,
+        "district_market_combinations": 10
+      },
+      "Bengal Gram (Gram)(Whole)": {
+        "rows": 11477,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 595,
+        "district_market_combinations": 73
+      },
+      "Ber (Zizyphus/Borehannu)": {
+        "rows": 12,
+        "earliest": "2025-12-02",
+        "latest": "2025-12-29",
+        "observation_days": 12,
+        "district_market_combinations": 2
+      },
+      "Bhindi (Ladies Finger)": {
+        "rows": 14017,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 702,
+        "district_market_combinations": 74
+      },
+      "Bitter gourd": {
+        "rows": 4794,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 685,
+        "district_market_combinations": 30
+      },
+      "Black Gram (Urd Beans)(Whole)": {
+        "rows": 8033,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 589,
+        "district_market_combinations": 103
+      },
+      "Black Gram Dal (Urd Dal)": {
+        "rows": 4,
+        "earliest": "2024-06-19",
+        "latest": "2024-12-03",
+        "observation_days": 4,
+        "district_market_combinations": 3
+      },
+      "Bottle gourd": {
+        "rows": 10394,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 697,
+        "district_market_combinations": 48
+      },
+      "Brinjal": {
+        "rows": 12644,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 701,
+        "district_market_combinations": 60
+      },
+      "Cabbage": {
+        "rows": 11440,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 701,
+        "district_market_combinations": 54
+      },
+      "Capsicum": {
+        "rows": 2536,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 678,
+        "district_market_combinations": 13
+      },
+      "Carrot": {
+        "rows": 4244,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 687,
+        "district_market_combinations": 31
+      },
+      "Castor Seed": {
+        "rows": 25815,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 657,
+        "district_market_combinations": 170
+      },
+      "Cauliflower": {
+        "rows": 10748,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 700,
+        "district_market_combinations": 54
+      },
+      "Chikoos (Sapota)": {
+        "rows": 2185,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 603,
+        "district_market_combinations": 26
+      },
+      "Chili Red": {
+        "rows": 419,
+        "earliest": "2024-01-01",
+        "latest": "2025-06-09",
+        "observation_days": 255,
+        "district_market_combinations": 5
+      },
+      "Cluster beans": {
+        "rows": 2367,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 650,
+        "district_market_combinations": 12
+      },
+      "Coconut Seed": {
+        "rows": 2,
+        "earliest": "2024-01-12",
+        "latest": "2024-10-04",
+        "observation_days": 2,
+        "district_market_combinations": 1
+      },
+      "Colacasia": {
+        "rows": 719,
+        "earliest": "2024-01-07",
+        "latest": "2025-12-27",
+        "observation_days": 459,
+        "district_market_combinations": 5
+      },
+      "Coriander (Leaves)": {
+        "rows": 6971,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 693,
+        "district_market_combinations": 33
+      },
+      "Corriander seed": {
+        "rows": 8428,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 579,
+        "district_market_combinations": 59
+      },
+      "Cotton": {
+        "rows": 19395,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 678,
+        "district_market_combinations": 155
+      },
+      "Cotton Seed": {
+        "rows": 61,
+        "earliest": "2024-05-27",
+        "latest": "2025-12-27",
+        "observation_days": 53,
+        "district_market_combinations": 9
+      },
+      "Cowpea (Lobia/Karamani)": {
+        "rows": 241,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 201,
+        "district_market_combinations": 7
+      },
+      "Cowpea (Veg)": {
+        "rows": 2028,
+        "earliest": "2024-04-26",
+        "latest": "2025-12-29",
+        "observation_days": 561,
+        "district_market_combinations": 10
+      },
+      "Cucumbar (Kheera)": {
+        "rows": 5618,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 695,
+        "district_market_combinations": 29
+      },
+      "Cummin Seed (Jeera)": {
+        "rows": 14856,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 624,
+        "district_market_combinations": 99
+      },
+      "Drumstick": {
+        "rows": 3107,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 674,
+        "district_market_combinations": 14
+      },
+      "Dry Chillies": {
+        "rows": 769,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 366,
+        "district_market_combinations": 8
+      },
+      "Elephant Yam (Suran)": {
+        "rows": 2150,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-05",
+        "observation_days": 630,
+        "district_market_combinations": 6
+      },
+      "Elephant Yam (Suran)/Amorphophallus": {
+        "rows": 38,
+        "earliest": "2025-11-29",
+        "latest": "2025-12-29",
+        "observation_days": 23,
+        "district_market_combinations": 6
+      },
+      "Field Pea": {
+        "rows": 53,
+        "earliest": "2024-11-20",
+        "latest": "2025-06-18",
+        "observation_days": 53,
+        "district_market_combinations": 1
+      },
+      "Foxtail Millet (Navane)": {
+        "rows": 73,
+        "earliest": "2025-05-20",
+        "latest": "2025-12-18",
+        "observation_days": 73,
+        "district_market_combinations": 2
+      },
+      "French Beans (Frasbean)": {
+        "rows": 1774,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 645,
+        "district_market_combinations": 11
+      },
+      "Garlic": {
+        "rows": 3863,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 670,
+        "district_market_combinations": 24
+      },
+      "Ginger (Green)": {
+        "rows": 5339,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 695,
+        "district_market_combinations": 28
+      },
+      "Gram Raw (Chholia)": {
+        "rows": 920,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-25",
+        "observation_days": 555,
+        "district_market_combinations": 7
+      },
+      "Grapes": {
+        "rows": 399,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-28",
+        "observation_days": 266,
+        "district_market_combinations": 5
+      },
+      "Green Chilli": {
+        "rows": 11127,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 697,
+        "district_market_combinations": 50
+      },
+      "Green Gram (Moong)(Whole)": {
+        "rows": 7867,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 596,
+        "district_market_combinations": 97
+      },
+      "Green Gram Dal (Moong Dal)": {
+        "rows": 3,
+        "earliest": "2024-12-10",
+        "latest": "2025-07-07",
+        "observation_days": 3,
+        "district_market_combinations": 2
+      },
+      "Green Peas": {
+        "rows": 93,
+        "earliest": "2024-01-05",
+        "latest": "2025-12-22",
+        "observation_days": 93,
+        "district_market_combinations": 3
+      },
+      "Ground Nut Seed": {
+        "rows": 2791,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 544,
+        "district_market_combinations": 28
+      },
+      "Groundnut": {
+        "rows": 18993,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 607,
+        "district_market_combinations": 134
+      },
+      "Groundnut (Split)": {
+        "rows": 1221,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 525,
+        "district_market_combinations": 11
+      },
+      "Groundnut pods (raw)": {
+        "rows": 734,
+        "earliest": "2024-06-06",
+        "latest": "2025-11-05",
+        "observation_days": 349,
+        "district_market_combinations": 3
+      },
+      "Guar": {
+        "rows": 7352,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 690,
+        "district_market_combinations": 52
+      },
+      "Guar Seed (Cluster Beans Seed)": {
+        "rows": 5304,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 576,
+        "district_market_combinations": 63
+      },
+      "Guava": {
+        "rows": 663,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 364,
+        "district_market_combinations": 14
+      },
+      "Indian Beans (Seam)": {
+        "rows": 1163,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 623,
+        "district_market_combinations": 6
+      },
+      "Isabgul (Psyllium)": {
+        "rows": 2671,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 548,
+        "district_market_combinations": 40
+      },
+      "Jamun (Narale Hannu)": {
+        "rows": 4,
+        "earliest": "2024-07-09",
+        "latest": "2024-07-15",
+        "observation_days": 4,
+        "district_market_combinations": 1
+      },
+      "Jowar (Sorghum)": {
+        "rows": 10195,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 637,
+        "district_market_combinations": 97
+      },
+      "Kabuli Chana (Chickpeas-White)": {
+        "rows": 1201,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 513,
+        "district_market_combinations": 15
+      },
+      "Kartali (Kantola)": {
+        "rows": 568,
+        "earliest": "2024-06-06",
+        "latest": "2025-11-05",
+        "observation_days": 244,
+        "district_market_combinations": 5
+      },
+      "Kodo Millet (Varagu)": {
+        "rows": 1,
+        "earliest": "2025-02-11",
+        "latest": "2025-02-11",
+        "observation_days": 1,
+        "district_market_combinations": 1
+      },
+      "Kulthi (Horse Gram)": {
+        "rows": 1773,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 548,
+        "district_market_combinations": 19
+      },
+      "Lak (Teora)": {
+        "rows": 58,
+        "earliest": "2024-01-01",
+        "latest": "2025-01-17",
+        "observation_days": 58,
+        "district_market_combinations": 1
+      },
+      "Leafy Vegetable": {
+        "rows": 370,
+        "earliest": "2024-01-03",
+        "latest": "2025-12-07",
+        "observation_days": 329,
+        "district_market_combinations": 4
+      },
+      "Lemon": {
+        "rows": 9438,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 698,
+        "district_market_combinations": 45
+      },
+      "Lentil (Masur)(Whole)": {
+        "rows": 8,
+        "earliest": "2024-05-10",
+        "latest": "2024-10-10",
+        "observation_days": 8,
+        "district_market_combinations": 2
+      },
+      "Little gourd (Kundru)": {
+        "rows": 1663,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 675,
+        "district_market_combinations": 7
+      },
+      "Long Melon (Kakri)": {
+        "rows": 20,
+        "earliest": "2025-12-01",
+        "latest": "2025-12-28",
+        "observation_days": 16,
+        "district_market_combinations": 2
+      },
+      "Maize": {
+        "rows": 9104,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 656,
+        "district_market_combinations": 86
+      },
+      "Mango": {
+        "rows": 3846,
+        "earliest": "2024-01-03",
+        "latest": "2025-12-21",
+        "observation_days": 467,
+        "district_market_combinations": 24
+      },
+      "Mango (Raw-Ripe)": {
+        "rows": 1396,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 572,
+        "district_market_combinations": 11
+      },
+      "Mataki": {
+        "rows": 113,
+        "earliest": "2024-01-17",
+        "latest": "2025-12-18",
+        "observation_days": 103,
+        "district_market_combinations": 7
+      },
+      "Methi (Leaves)": {
+        "rows": 2347,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 665,
+        "district_market_combinations": 22
+      },
+      "Methi Seeds": {
+        "rows": 4013,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 561,
+        "district_market_combinations": 49
+      },
+      "Millets": {
+        "rows": 485,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 469,
+        "district_market_combinations": 3
+      },
+      "Mint (Pudina)": {
+        "rows": 1137,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-28",
+        "observation_days": 654,
+        "district_market_combinations": 7
+      },
+      "Moath Dal": {
+        "rows": 409,
+        "earliest": "2024-01-01",
+        "latest": "2025-07-17",
+        "observation_days": 223,
+        "district_market_combinations": 8
+      },
+      "Mousambi (Sweet Lime)": {
+        "rows": 922,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 527,
+        "district_market_combinations": 9
+      },
+      "Mustard": {
+        "rows": 12592,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 579,
+        "district_market_combinations": 95
+      },
+      "Onion": {
+        "rows": 12667,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 694,
+        "district_market_combinations": 57
+      },
+      "Onion Green": {
+        "rows": 2302,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 665,
+        "district_market_combinations": 16
+      },
+      "Orange": {
+        "rows": 511,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 418,
+        "district_market_combinations": 7
+      },
+      "Paddy (Common)": {
+        "rows": 183,
+        "earliest": "2025-12-03",
+        "latest": "2025-12-29",
+        "observation_days": 25,
+        "district_market_combinations": 34
+      },
+      "Paddy (Dhan)(Basmati)": {
+        "rows": 70,
+        "earliest": "2024-09-06",
+        "latest": "2024-12-31",
+        "observation_days": 67,
+        "district_market_combinations": 2
+      },
+      "Paddy (Dhan)(Common)": {
+        "rows": 8770,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-05",
+        "observation_days": 647,
+        "district_market_combinations": 54
+      },
+      "Papaya": {
+        "rows": 994,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 517,
+        "district_market_combinations": 12
+      },
+      "Papaya (Raw)": {
+        "rows": 1030,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 573,
+        "district_market_combinations": 7
+      },
+      "Peas (Dry)": {
+        "rows": 8,
+        "earliest": "2024-04-20",
+        "latest": "2025-04-21",
+        "observation_days": 8,
+        "district_market_combinations": 2
+      },
+      "Peas Wet": {
+        "rows": 1312,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-28",
+        "observation_days": 617,
+        "district_market_combinations": 6
+      },
+      "Peas cod": {
+        "rows": 1058,
+        "earliest": "2024-01-05",
+        "latest": "2025-12-29",
+        "observation_days": 501,
+        "district_market_combinations": 10
+      },
+      "Pegeon Pea (Arhar Fali)": {
+        "rows": 1958,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 660,
+        "district_market_combinations": 14
+      },
+      "Pineapple": {
+        "rows": 198,
+        "earliest": "2024-11-19",
+        "latest": "2025-12-15",
+        "observation_days": 179,
+        "district_market_combinations": 3
+      },
+      "Pointed gourd (Parval)": {
+        "rows": 4561,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 685,
+        "district_market_combinations": 22
+      },
+      "Pomegranate": {
+        "rows": 842,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 511,
+        "district_market_combinations": 7
+      },
+      "Potato": {
+        "rows": 13002,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 699,
+        "district_market_combinations": 50
+      },
+      "Pumpkin": {
+        "rows": 2509,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 674,
+        "district_market_combinations": 11
+      },
+      "Raddish": {
+        "rows": 1065,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 446,
+        "district_market_combinations": 18
+      },
+      "Rajgir": {
+        "rows": 2442,
+        "earliest": "2024-01-03",
+        "latest": "2025-12-27",
+        "observation_days": 520,
+        "district_market_combinations": 21
+      },
+      "Rat Tail Radish (Mogari)": {
+        "rows": 282,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 197,
+        "district_market_combinations": 5
+      },
+      "Raya": {
+        "rows": 11,
+        "earliest": "2024-07-09",
+        "latest": "2025-08-30",
+        "observation_days": 11,
+        "district_market_combinations": 2
+      },
+      "Red Gram": {
+        "rows": 16,
+        "earliest": "2025-12-03",
+        "latest": "2025-12-29",
+        "observation_days": 13,
+        "district_market_combinations": 3
+      },
+      "Rice": {
+        "rows": 703,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 476,
+        "district_market_combinations": 5
+      },
+      "Ridgeguard (Tori)": {
+        "rows": 1607,
+        "earliest": "2024-01-04",
+        "latest": "2025-12-27",
+        "observation_days": 584,
+        "district_market_combinations": 12
+      },
+      "Round gourd": {
+        "rows": 416,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-28",
+        "observation_days": 415,
+        "district_market_combinations": 3
+      },
+      "Sabu Dan": {
+        "rows": 5,
+        "earliest": "2025-06-18",
+        "latest": "2025-10-14",
+        "observation_days": 5,
+        "district_market_combinations": 1
+      },
+      "Seetapal": {
+        "rows": 95,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 83,
+        "district_market_combinations": 5
+      },
+      "Sesamum (Sesame,Gingelly,Til)": {
+        "rows": 16418,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 621,
+        "district_market_combinations": 113
+      },
+      "Snakeguard": {
+        "rows": 143,
+        "earliest": "2024-07-04",
+        "latest": "2025-12-27",
+        "observation_days": 143,
+        "district_market_combinations": 2
+      },
+      "Soanf": {
+        "rows": 4963,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 564,
+        "district_market_combinations": 44
+      },
+      "Soyabean": {
+        "rows": 9448,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 600,
+        "district_market_combinations": 84
+      },
+      "Spinach": {
+        "rows": 1985,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 634,
+        "district_market_combinations": 13
+      },
+      "Sponge gourd": {
+        "rows": 935,
+        "earliest": "2024-04-26",
+        "latest": "2025-12-27",
+        "observation_days": 413,
+        "district_market_combinations": 7
+      },
+      "Sunflower": {
+        "rows": 4,
+        "earliest": "2024-05-10",
+        "latest": "2025-04-15",
+        "observation_days": 4,
+        "district_market_combinations": 3
+      },
+      "Sunhemp": {
+        "rows": 1,
+        "earliest": "2025-12-13",
+        "latest": "2025-12-13",
+        "observation_days": 1,
+        "district_market_combinations": 1
+      },
+      "Surat Beans (Papadi)": {
+        "rows": 1323,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-28",
+        "observation_days": 610,
+        "district_market_combinations": 10
+      },
+      "Suva (Dill Seed)": {
+        "rows": 2675,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-27",
+        "observation_days": 546,
+        "district_market_combinations": 35
+      },
+      "Sweet Potato": {
+        "rows": 1897,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 636,
+        "district_market_combinations": 19
+      },
+      "Tamarind Fruit": {
+        "rows": 8,
+        "earliest": "2024-03-06",
+        "latest": "2025-03-06",
+        "observation_days": 8,
+        "district_market_combinations": 1
+      },
+      "Taramira": {
+        "rows": 184,
+        "earliest": "2024-01-16",
+        "latest": "2025-12-29",
+        "observation_days": 173,
+        "district_market_combinations": 3
+      },
+      "Tinda": {
+        "rows": 2088,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 644,
+        "district_market_combinations": 15
+      },
+      "Tobacco": {
+        "rows": 101,
+        "earliest": "2025-04-03",
+        "latest": "2025-06-12",
+        "observation_days": 46,
+        "district_market_combinations": 8
+      },
+      "Tomato": {
+        "rows": 13965,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 702,
+        "district_market_combinations": 61
+      },
+      "Turmeric (raw)": {
+        "rows": 920,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 579,
+        "district_market_combinations": 6
+      },
+      "Turnip": {
+        "rows": 39,
+        "earliest": "2024-01-06",
+        "latest": "2025-12-18",
+        "observation_days": 39,
+        "district_market_combinations": 3
+      },
+      "Water Melon": {
+        "rows": 690,
+        "earliest": "2024-03-13",
+        "latest": "2025-12-24",
+        "observation_days": 348,
+        "district_market_combinations": 8
+      },
+      "Wheat": {
+        "rows": 37255,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 671,
+        "district_market_combinations": 199
+      },
+      "White Peas": {
+        "rows": 253,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-22",
+        "observation_days": 252,
+        "district_market_combinations": 3
+      },
+      "Yam (Ratalu)": {
+        "rows": 1130,
+        "earliest": "2024-01-01",
+        "latest": "2025-12-29",
+        "observation_days": 603,
+        "district_market_combinations": 8
+      }
+    }
+  },
+  "files": [
+    {
+      "sha256": "0070d5c0fd8f95a2268420eaa3f9b712f74bbb179e8c09025c4f32d4999bb45a",
+      "kind": "historical",
+      "rows": 19534,
+      "original_headers": [
+        "State",
+        "District",
+        "Market",
+        "Commodity",
+        "Variety",
+        "Grade",
+        "Arrival_Date",
+        "Min_Price",
+        "Max_Price",
+        "Modal_Price",
+        "Commodity_Code"
+      ],
+      "column_mapping": {
+        "state": "State",
+        "district": "District",
+        "market": "Market",
+        "commodity": "Commodity",
+        "variety": "Variety",
+        "grade": "Grade",
+        "date": "Arrival_Date",
+        "min_price": "Min_Price",
+        "max_price": "Max_Price",
+        "modal_price": "Modal_Price"
+      },
+      "unmapped_headers": [
+        "Commodity_Code"
+      ],
+      "missing_by_original_column": {
+        "State": 0,
+        "District": 0,
+        "Market": 0,
+        "Commodity": 0,
+        "Variety": 0,
+        "Grade": 0,
+        "Arrival_Date": 0,
+        "Min_Price": 0,
+        "Max_Price": 0,
+        "Modal_Price": 0,
+        "Commodity_Code": 0
+      },
+      "absent_canonical_fields": [
+        "arrivals",
+        "price_unit",
+        "quantity_unit",
+        "unit"
+      ],
+      "dates": {
+        "earliest": "2025-01-01",
+        "latest": "2025-12-29",
+        "distinct_observation_dates": 338,
+        "missing": 0,
+        "parse_failures": 0,
+        "date_format": "%Y-%m-%d"
+      },
+      "numeric_parse_failures": {
+        "min_price": 0,
+        "modal_price": 0,
+        "max_price": 0,
+        "arrivals": 0
+      },
+      "exact_duplicate_rows_beyond_first": 1,
+      "declared_price_unit": "INR/quintal",
+      "declared_quantity_unit": "unverified"
+    },
+    {
+      "sha256": "59794b7a4dad2fa5e3f1a116851b584368ca99ce44a9fe90b2638e8a5faf7a60",
+      "kind": "historical",
+      "rows": 20100,
+      "original_headers": [
+        "State",
+        "District",
+        "Market",
+        "Commodity",
+        "Variety",
+        "Grade",
+        "Arrival_Date",
+        "Min_Price",
+        "Max_Price",
+        "Modal_Price",
+        "Commodity_Code"
+      ],
+      "column_mapping": {
+        "state": "State",
+        "district": "District",
+        "market": "Market",
+        "commodity": "Commodity",
+        "variety": "Variety",
+        "grade": "Grade",
+        "date": "Arrival_Date",
+        "min_price": "Min_Price",
+        "max_price": "Max_Price",
+        "modal_price": "Modal_Price"
+      },
+      "unmapped_headers": [
+        "Commodity_Code"
+      ],
+      "missing_by_original_column": {
+        "State": 0,
+        "District": 0,
+        "Market": 0,
+        "Commodity": 0,
+        "Variety": 0,
+        "Grade": 0,
+        "Arrival_Date": 0,
+        "Min_Price": 0,
+        "Max_Price": 0,
+        "Modal_Price": 0,
+        "Commodity_Code": 0
+      },
+      "absent_canonical_fields": [
+        "arrivals",
+        "price_unit",
+        "quantity_unit",
+        "unit"
+      ],
+      "dates": {
+        "earliest": "2024-01-01",
+        "latest": "2024-12-31",
+        "distinct_observation_dates": 366,
+        "missing": 0,
+        "parse_failures": 0,
+        "date_format": "%Y-%m-%d"
+      },
+      "numeric_parse_failures": {
+        "min_price": 0,
+        "modal_price": 0,
+        "max_price": 0,
+        "arrivals": 0
+      },
+      "exact_duplicate_rows_beyond_first": 0,
+      "declared_price_unit": "INR/quintal",
+      "declared_quantity_unit": "unverified"
+    }
+  ],
+  "files_truncated": false,
+  "all_file_profiles_local": "local/file_profiles.json",
+  "sample_local_only": "local/samples.json",
+  "coverage_local_only": "local/series_coverage.csv",
+  "definitions": {
+    "missing": [
+      "",
+      "na",
+      "n/a",
+      "null",
+      "nan",
+      "-",
+      "--"
+    ],
+    "date_policy": "Explicit import date format or profile override; otherwise strict ISO YYYY-MM-DD only. No day/month guessing.",
+    "missing_variety_grade": "Separate unknown buckets (null), never merged with known values; excluded from automatic scope selection.",
+    "missing_identity": "Rows lacking state, district, market, or commodity are counted but excluded from keys and series coverage.",
+    "coverage": "Unique parsed dates divided by inclusive first-to-last calendar span, per state/district/market/commodity/variety/grade.",
+    "gaps": "Internal calendar gaps only; no zero fill, no inferred leading/trailing gaps. Closures/non-reporting are possible.",
+    "numbers": "Temporary parsing only. Nonfinite values fail; currency signs and comma thousands separators are not guessed.",
+    "units": "Explicit per-row units or user-confirmed provenance declaration; generic Unit is reported separately and never assigned automatically."
+  },
+  "next_import_command": ".\\.venv\\Scripts\\python.exe scripts\\import_market_data.py \"C:\\path\\to\\official-history.csv\" --source enam_agmarknet --kind historical --date-format \"%d/%m/%Y\"",
+  "dates": {
+    "earliest": "2024-01-01",
+    "latest": "2025-12-29",
+    "distinct_observation_dates": 704,
+    "missing_rows": 0,
+    "parse_failures": 0
+  },
+  "dimensions": {
+    "state": {
+      "count": 1,
+      "values": [
+        "Gujarat"
+      ],
+      "values_truncated": false,
+      "missing_rows": 0
+    },
+    "district": {
+      "count": 22,
+      "values": [
+        "Ahmedabad",
+        "Amreli",
+        "Anand",
+        "Banaskanth",
+        "Bharuch",
+        "Bhavnagar",
+        "Dahod",
+        "Gandhinagar",
+        "Gir Somnath",
+        "Jamnagar",
+        "Junagarh",
+        "Kachchh",
+        "Kheda",
+        "Mehsana",
+        "Morbi",
+        "Navsari",
+        "Patan",
+        "Porbandar",
+        "Rajkot",
+        "Surat",
+        "Surendranagar",
+        "Vadodara (Baroda)"
+      ],
+      "values_truncated": false,
+      "missing_rows": 0
+    },
+    "market": {
+      "count": 81,
+      "values": [
+        "Ahmedabad",
+        "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "Ahmedabad APMC",
+        "Anand (Veg,Yard,Anand)",
+        "Anand (Veg,Yard,Anand) APMC",
+        "Ankleshwar",
+        "Ankleshwar APMC",
+        "Bharuch",
+        "Bharuch APMC",
+        "Bhavnagar",
+        "Bhavnagar APMC",
+        "Bhuj",
+        "Bhuj APMC",
+        "Bilimora",
+        "Bilimora APMC",
+        "Dahod (Veg. Market)",
+        "Dahod (Veg. Market) APMC",
+        "Damnagar",
+        "Damnagar APMC",
+        "Deesa (Deesa Veg Yard)",
+        "Deesa (Deesa Veg Yard) APMC",
+        "Dhoraji",
+        "Dhoraji APMC",
+        "Gondal",
+        "Gondal (Veg.market Gondal)",
+        "Gondal (Veg.market Gondal) APMC",
+        "Gondal APMC",
+        "Jamnagar",
+        "Jamnagar APMC"
+      ],
+      "values_truncated": true,
+      "missing_rows": 0
+    },
+    "commodity": {
+      "count": 3,
+      "values": [
+        "Onion",
+        "Potato",
+        "Tomato"
+      ],
+      "values_truncated": false,
+      "missing_rows": 0
+    },
+    "variety": {
+      "count": 16,
+      "values": [
+        "(Red Nanital)",
+        "Chips",
+        "Deshi",
+        "Desi",
+        "Hybrid",
+        "Jalander",
+        "Local",
+        "Nasik",
+        "Onion",
+        "Other",
+        "Potato",
+        "Red",
+        "Red Nanital",
+        "Small",
+        "Tomato",
+        "White"
+      ],
+      "values_truncated": false,
+      "missing_rows": 0
+    },
+    "grade": {
+      "count": 6,
+      "values": [
+        "FAQ",
+        "Grade A",
+        "Grade B",
+        "Local",
+        "Medium",
+        "Non-FAQ"
+      ],
+      "values_truncated": false,
+      "missing_rows": 0
+    }
+  },
+  "missing_by_canonical_field": {
+    "state": 0,
+    "district": 0,
+    "market": 0,
+    "commodity": 0,
+    "variety": 0,
+    "grade": 0,
+    "date": 0,
+    "min_price": 0,
+    "max_price": 0,
+    "modal_price": 0,
+    "arrivals": 39634,
+    "price_unit": 39634,
+    "quantity_unit": 39634,
+    "unit": 39634
+  },
+  "numeric_parse_failures": {
+    "min_price": 0,
+    "modal_price": 0,
+    "max_price": 0,
+    "arrivals": 0
+  },
+  "exact_duplicate_rows_beyond_first": 1,
+  "candidate_business_keys": {
+    "fields": [
+      "state",
+      "district",
+      "market",
+      "commodity",
+      "variety",
+      "grade",
+      "parsed_date"
+    ],
+    "eligible_rows": 39634,
+    "excluded_missing_identity_or_date_rows": 0,
+    "repeated_keys": 1,
+    "rows_in_repeated_keys": 2,
+    "rows_beyond_first_per_key": 1,
+    "conflicting_keys": 0,
+    "rows_in_conflicting_keys": 0,
+    "conflict_definition": "Same identity and parsed date but different original price/arrivals or unit payload; nothing is discarded"
+  },
+  "nonpositive_prices": {
+    "min_price": 1,
+    "modal_price": 0,
+    "max_price": 2
+  },
+  "price_order_violation_rows": 2,
+  "price_order_uncheckable_rows": 0,
+  "rows_missing_series_identity": 0,
+  "units": {
+    "price": {
+      "count": 1,
+      "values": [
+        "INR/quintal"
+      ],
+      "values_truncated": false,
+      "missing_rows": 0
+    },
+    "quantity": {
+      "count": 0,
+      "values": [],
+      "values_truncated": false,
+      "missing_rows": 39634
+    },
+    "generic_unassigned_unit": {
+      "count": 0,
+      "values": [],
+      "values_truncated": false,
+      "missing_rows": 39634
+    },
+    "price_declaration_conflict_rows": 0,
+    "quantity_declaration_conflict_rows": 0,
+    "series_with_conflicting_units": 0
+  },
+  "series_count": 229,
+  "series_preview": [
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad",
+        "commodity": "Tomato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "series_id": "7fba647c5b9bd675",
+      "rows": 505,
+      "earliest": "2024-01-01",
+      "latest": "2025-11-03",
+      "observation_days": 505,
+      "positive_modal_observation_days": 505,
+      "calendar_span_days": 673,
+      "calendar_coverage": 0.750371,
+      "missing_calendar_days": 168,
+      "gap_intervals_count": 122,
+      "longest_gap_days": 11,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-03",
+          "before": "2024-01-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-19",
+          "before": "2024-01-23",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-29",
+          "before": "2024-01-31",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-16",
+          "before": "2024-02-19",
+          "missing_calendar_days": 2
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Onion",
+        "variety": "Local",
+        "grade": "FAQ"
+      },
+      "series_id": "cb877d1175b82ec1",
+      "rows": 430,
+      "earliest": "2024-01-01",
+      "latest": "2025-10-17",
+      "observation_days": 430,
+      "positive_modal_observation_days": 430,
+      "calendar_span_days": 656,
+      "calendar_coverage": 0.655488,
+      "missing_calendar_days": 226,
+      "gap_intervals_count": 110,
+      "longest_gap_days": 41,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-02",
+          "before": "2024-01-04",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-18",
+          "before": "2024-01-20",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-23",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-17",
+          "before": "2024-02-19",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Onion",
+        "variety": "Nasik",
+        "grade": "FAQ"
+      },
+      "series_id": "2d0120628353ad55",
+      "rows": 495,
+      "earliest": "2024-01-01",
+      "latest": "2025-11-03",
+      "observation_days": 495,
+      "positive_modal_observation_days": 495,
+      "calendar_span_days": 673,
+      "calendar_coverage": 0.735513,
+      "missing_calendar_days": 178,
+      "gap_intervals_count": 124,
+      "longest_gap_days": 8,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-02",
+          "before": "2024-01-04",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-18",
+          "before": "2024-01-20",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-23",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-17",
+          "before": "2024-02-19",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Potato",
+        "variety": "Chips",
+        "grade": "FAQ"
+      },
+      "series_id": "34322af5d415b5c7",
+      "rows": 487,
+      "earliest": "2024-01-01",
+      "latest": "2025-11-04",
+      "observation_days": 487,
+      "positive_modal_observation_days": 487,
+      "calendar_span_days": 674,
+      "calendar_coverage": 0.722552,
+      "missing_calendar_days": 187,
+      "gap_intervals_count": 132,
+      "longest_gap_days": 5,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-02",
+          "before": "2024-01-04",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-08",
+          "before": "2024-01-10",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-18",
+          "before": "2024-01-20",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-23",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Potato",
+        "variety": "Desi",
+        "grade": "FAQ"
+      },
+      "series_id": "9e904855db9a5305",
+      "rows": 500,
+      "earliest": "2024-01-01",
+      "latest": "2025-10-29",
+      "observation_days": 500,
+      "positive_modal_observation_days": 499,
+      "calendar_span_days": 668,
+      "calendar_coverage": 0.748503,
+      "missing_calendar_days": 168,
+      "gap_intervals_count": 122,
+      "longest_gap_days": 5,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-08",
+          "before": "2024-01-10",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-18",
+          "before": "2024-01-20",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-23",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-17",
+          "before": "2024-02-19",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 1,
+      "price_order_violation_rows": 1,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Potato",
+        "variety": "Desi",
+        "grade": "Non-FAQ"
+      },
+      "series_id": "1537463885ce25c7",
+      "rows": 1,
+      "earliest": "2025-07-08",
+      "latest": "2025-07-08",
+      "observation_days": 1,
+      "positive_modal_observation_days": 1,
+      "calendar_span_days": 1,
+      "calendar_coverage": 1.0,
+      "missing_calendar_days": 0,
+      "gap_intervals_count": 0,
+      "longest_gap_days": 0,
+      "first_gap_intervals": [],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Potato",
+        "variety": "Jalander",
+        "grade": "FAQ"
+      },
+      "series_id": "cb71fcf3b313cb69",
+      "rows": 183,
+      "earliest": "2024-01-01",
+      "latest": "2025-06-09",
+      "observation_days": 183,
+      "positive_modal_observation_days": 183,
+      "calendar_span_days": 526,
+      "calendar_coverage": 0.347909,
+      "missing_calendar_days": 343,
+      "gap_intervals_count": 66,
+      "longest_gap_days": 151,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-02",
+          "before": "2024-01-04",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-08",
+          "before": "2024-01-10",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-18",
+          "before": "2024-01-20",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-23",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana)",
+        "commodity": "Potato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "series_id": "a382236e35a14abc",
+      "rows": 208,
+      "earliest": "2024-01-01",
+      "latest": "2025-11-03",
+      "observation_days": 208,
+      "positive_modal_observation_days": 208,
+      "calendar_span_days": 673,
+      "calendar_coverage": 0.309064,
+      "missing_calendar_days": 465,
+      "gap_intervals_count": 72,
+      "longest_gap_days": 84,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-08",
+          "before": "2024-01-10",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-15",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-18",
+          "before": "2024-01-20",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-23",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-30",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-17",
+          "missing_calendar_days": 13
+        },
+        {
+          "after": "2024-02-17",
+          "before": "2024-02-19",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-19",
+          "before": "2024-03-28",
+          "missing_calendar_days": 37
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Onion",
+        "variety": "Local",
+        "grade": "FAQ"
+      },
+      "series_id": "f176db0db47d6d1b",
+      "rows": 4,
+      "earliest": "2025-12-04",
+      "latest": "2025-12-27",
+      "observation_days": 4,
+      "positive_modal_observation_days": 4,
+      "calendar_span_days": 24,
+      "calendar_coverage": 0.166667,
+      "missing_calendar_days": 20,
+      "gap_intervals_count": 3,
+      "longest_gap_days": 10,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-04",
+          "before": "2025-12-15",
+          "missing_calendar_days": 10
+        },
+        {
+          "after": "2025-12-15",
+          "before": "2025-12-19",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2025-12-19",
+          "before": "2025-12-27",
+          "missing_calendar_days": 7
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Onion",
+        "variety": "Nasik",
+        "grade": "FAQ"
+      },
+      "series_id": "4b731fe3662e6b03",
+      "rows": 10,
+      "earliest": "2025-12-05",
+      "latest": "2025-12-27",
+      "observation_days": 10,
+      "positive_modal_observation_days": 10,
+      "calendar_span_days": 23,
+      "calendar_coverage": 0.434783,
+      "missing_calendar_days": 13,
+      "gap_intervals_count": 5,
+      "longest_gap_days": 4,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-06",
+          "before": "2025-12-10",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2025-12-10",
+          "before": "2025-12-15",
+          "missing_calendar_days": 4
+        },
+        {
+          "after": "2025-12-15",
+          "before": "2025-12-17",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-19",
+          "before": "2025-12-22",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-22",
+          "before": "2025-12-26",
+          "missing_calendar_days": 3
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Onion",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "series_id": "f80516686f55944c",
+      "rows": 5,
+      "earliest": "2025-12-17",
+      "latest": "2025-12-27",
+      "observation_days": 5,
+      "positive_modal_observation_days": 5,
+      "calendar_span_days": 11,
+      "calendar_coverage": 0.454545,
+      "missing_calendar_days": 6,
+      "gap_intervals_count": 3,
+      "longest_gap_days": 3,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-18",
+          "before": "2025-12-22",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2025-12-22",
+          "before": "2025-12-24",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-24",
+          "before": "2025-12-27",
+          "missing_calendar_days": 2
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Potato",
+        "variety": "Chips",
+        "grade": "FAQ"
+      },
+      "series_id": "94932c9c4589eaac",
+      "rows": 9,
+      "earliest": "2025-12-01",
+      "latest": "2025-12-27",
+      "observation_days": 9,
+      "positive_modal_observation_days": 9,
+      "calendar_span_days": 27,
+      "calendar_coverage": 0.333333,
+      "missing_calendar_days": 18,
+      "gap_intervals_count": 6,
+      "longest_gap_days": 6,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-01",
+          "before": "2025-12-05",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2025-12-06",
+          "before": "2025-12-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-08",
+          "before": "2025-12-15",
+          "missing_calendar_days": 6
+        },
+        {
+          "after": "2025-12-15",
+          "before": "2025-12-17",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-17",
+          "before": "2025-12-22",
+          "missing_calendar_days": 4
+        },
+        {
+          "after": "2025-12-22",
+          "before": "2025-12-26",
+          "missing_calendar_days": 3
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Potato",
+        "variety": "Desi",
+        "grade": "FAQ"
+      },
+      "series_id": "be48071863fb626b",
+      "rows": 5,
+      "earliest": "2025-12-10",
+      "latest": "2025-12-29",
+      "observation_days": 5,
+      "positive_modal_observation_days": 5,
+      "calendar_span_days": 20,
+      "calendar_coverage": 0.25,
+      "missing_calendar_days": 15,
+      "gap_intervals_count": 4,
+      "longest_gap_days": 7,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-10",
+          "before": "2025-12-16",
+          "missing_calendar_days": 5
+        },
+        {
+          "after": "2025-12-16",
+          "before": "2025-12-19",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-19",
+          "before": "2025-12-27",
+          "missing_calendar_days": 7
+        },
+        {
+          "after": "2025-12-27",
+          "before": "2025-12-29",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Potato",
+        "variety": "Jalander",
+        "grade": "FAQ"
+      },
+      "series_id": "9695e1d7620e25cb",
+      "rows": 10,
+      "earliest": "2025-12-03",
+      "latest": "2025-12-29",
+      "observation_days": 10,
+      "positive_modal_observation_days": 10,
+      "calendar_span_days": 27,
+      "calendar_coverage": 0.37037,
+      "missing_calendar_days": 17,
+      "gap_intervals_count": 6,
+      "longest_gap_days": 6,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-03",
+          "before": "2025-12-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-06",
+          "before": "2025-12-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-08",
+          "before": "2025-12-11",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-11",
+          "before": "2025-12-17",
+          "missing_calendar_days": 5
+        },
+        {
+          "after": "2025-12-19",
+          "before": "2025-12-26",
+          "missing_calendar_days": 6
+        },
+        {
+          "after": "2025-12-26",
+          "before": "2025-12-29",
+          "missing_calendar_days": 2
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad (Chimanbhai Patal Market Vasana) APMC",
+        "commodity": "Potato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "series_id": "740b2e7663ab44da",
+      "rows": 5,
+      "earliest": "2025-12-06",
+      "latest": "2025-12-27",
+      "observation_days": 5,
+      "positive_modal_observation_days": 5,
+      "calendar_span_days": 22,
+      "calendar_coverage": 0.227273,
+      "missing_calendar_days": 17,
+      "gap_intervals_count": 4,
+      "longest_gap_days": 11,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-06",
+          "before": "2025-12-09",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-09",
+          "before": "2025-12-12",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-12",
+          "before": "2025-12-24",
+          "missing_calendar_days": 11
+        },
+        {
+          "after": "2025-12-24",
+          "before": "2025-12-27",
+          "missing_calendar_days": 2
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Ahmedabad",
+        "market": "Ahmedabad APMC",
+        "commodity": "Tomato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "series_id": "4b509655d5d8cb88",
+      "rows": 7,
+      "earliest": "2025-12-05",
+      "latest": "2025-12-27",
+      "observation_days": 7,
+      "positive_modal_observation_days": 7,
+      "calendar_span_days": 23,
+      "calendar_coverage": 0.304348,
+      "missing_calendar_days": 16,
+      "gap_intervals_count": 6,
+      "longest_gap_days": 5,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-05",
+          "before": "2025-12-08",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-08",
+          "before": "2025-12-12",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2025-12-12",
+          "before": "2025-12-15",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-15",
+          "before": "2025-12-17",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-17",
+          "before": "2025-12-23",
+          "missing_calendar_days": 5
+        },
+        {
+          "after": "2025-12-23",
+          "before": "2025-12-27",
+          "missing_calendar_days": 3
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Amreli",
+        "market": "Damnagar",
+        "commodity": "Tomato",
+        "variety": "Local",
+        "grade": "FAQ"
+      },
+      "series_id": "c0ceea0f0a64b776",
+      "rows": 344,
+      "earliest": "2024-01-01",
+      "latest": "2025-03-23",
+      "observation_days": 344,
+      "positive_modal_observation_days": 344,
+      "calendar_span_days": 448,
+      "calendar_coverage": 0.767857,
+      "missing_calendar_days": 104,
+      "gap_intervals_count": 51,
+      "longest_gap_days": 30,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-09",
+          "before": "2024-01-12",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-12",
+          "before": "2024-01-15",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-21",
+          "before": "2024-01-23",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-24",
+          "before": "2024-01-26",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-08",
+          "before": "2024-02-10",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-17",
+          "before": "2024-02-19",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-23",
+          "before": "2024-02-27",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2024-03-08",
+          "before": "2024-03-11",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-03-16",
+          "before": "2024-03-18",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-03-24",
+          "before": "2024-03-26",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Amreli",
+        "market": "Damnagar",
+        "commodity": "Tomato",
+        "variety": "Local",
+        "grade": "Non-FAQ"
+      },
+      "series_id": "e497eabd0f00211c",
+      "rows": 211,
+      "earliest": "2025-02-05",
+      "latest": "2025-11-02",
+      "observation_days": 211,
+      "positive_modal_observation_days": 211,
+      "calendar_span_days": 271,
+      "calendar_coverage": 0.778598,
+      "missing_calendar_days": 60,
+      "gap_intervals_count": 27,
+      "longest_gap_days": 8,
+      "first_gap_intervals": [
+        {
+          "after": "2025-02-05",
+          "before": "2025-02-13",
+          "missing_calendar_days": 7
+        },
+        {
+          "after": "2025-02-13",
+          "before": "2025-02-21",
+          "missing_calendar_days": 7
+        },
+        {
+          "after": "2025-02-26",
+          "before": "2025-02-28",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-03-13",
+          "before": "2025-03-16",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-03-22",
+          "before": "2025-03-24",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-03-28",
+          "before": "2025-03-30",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-04-11",
+          "before": "2025-04-15",
+          "missing_calendar_days": 3
+        },
+        {
+          "after": "2025-05-11",
+          "before": "2025-05-13",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-05-26",
+          "before": "2025-05-28",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-06-10",
+          "before": "2025-06-12",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Amreli",
+        "market": "Damnagar APMC",
+        "commodity": "Tomato",
+        "variety": "Local",
+        "grade": "Local"
+      },
+      "series_id": "9a6cd2c4ed9acebe",
+      "rows": 12,
+      "earliest": "2025-12-05",
+      "latest": "2025-12-27",
+      "observation_days": 12,
+      "positive_modal_observation_days": 12,
+      "calendar_span_days": 23,
+      "calendar_coverage": 0.521739,
+      "missing_calendar_days": 11,
+      "gap_intervals_count": 5,
+      "longest_gap_days": 4,
+      "first_gap_intervals": [
+        {
+          "after": "2025-12-05",
+          "before": "2025-12-07",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2025-12-09",
+          "before": "2025-12-12",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-14",
+          "before": "2025-12-17",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-17",
+          "before": "2025-12-20",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2025-12-20",
+          "before": "2025-12-25",
+          "missing_calendar_days": 4
+        }
+      ],
+      "gap_intervals_truncated": false,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    },
+    {
+      "series": {
+        "state": "Gujarat",
+        "district": "Anand",
+        "market": "Anand (Veg,Yard,Anand)",
+        "commodity": "Onion",
+        "variety": "Onion",
+        "grade": "FAQ"
+      },
+      "series_id": "2dcf34847467d26c",
+      "rows": 468,
+      "earliest": "2024-01-01",
+      "latest": "2025-11-05",
+      "observation_days": 468,
+      "positive_modal_observation_days": 468,
+      "calendar_span_days": 675,
+      "calendar_coverage": 0.693333,
+      "missing_calendar_days": 207,
+      "gap_intervals_count": 126,
+      "longest_gap_days": 11,
+      "first_gap_intervals": [
+        {
+          "after": "2024-01-06",
+          "before": "2024-01-08",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-13",
+          "before": "2024-01-16",
+          "missing_calendar_days": 2
+        },
+        {
+          "after": "2024-01-17",
+          "before": "2024-01-19",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-20",
+          "before": "2024-01-22",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-25",
+          "before": "2024-01-27",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-01-27",
+          "before": "2024-01-29",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-03",
+          "before": "2024-02-05",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-10",
+          "before": "2024-02-12",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-17",
+          "before": "2024-02-19",
+          "missing_calendar_days": 1
+        },
+        {
+          "after": "2024-02-24",
+          "before": "2024-02-26",
+          "missing_calendar_days": 1
+        }
+      ],
+      "gap_intervals_truncated": true,
+      "invalid_or_missing_date_rows": 0,
+      "nonpositive_price_rows": 0,
+      "price_order_violation_rows": 0,
+      "incomplete_or_unparseable_price_rows": 0,
+      "conflicting_key_rows": 0,
+      "price_units": [
+        "INR/quintal"
+      ],
+      "quantity_units": [],
+      "missing_price_unit_rows": 0,
+      "missing_quantity_unit_with_arrivals_rows": 0,
+      "unit_conflict": false,
+      "missing_variety_or_grade": false
+    }
+  ],
+  "series_preview_truncated": true,
+  "scope_recommendation": {
+    "status": "provisional_shorter_history",
+    "policy": {
+      "preferred_state": "Gujarat",
+      "candidate_commodities": [
+        "Onion",
+        "Potato",
+        "Tomato"
+      ],
+      "desired_commodities": 3,
+      "min_combinations": 10,
+      "max_combinations": 15,
+      "minimum_span_days": 600,
+      "minimum_observation_days": 365,
+      "minimum_calendar_coverage": 0.5,
+      "maximum_internal_gap_days": 45,
+      "require_known_variety_and_grade": true,
+      "require_verified_price_unit": true,
+      "interpretation": "Conservative project screening choices, not forecasting-accuracy guarantees. Calendar gaps may be closures or non-reporting.",
+      "required_state": "Gujarat",
+      "shorter_history_minimum_span_days": 600,
+      "shorter_history_reason": "Actual Gujarat variety/grade series span at most 675 days. Preserve the strict 700-day result and offer a separately labeled 600-day-minimum scope without joining grades."
+    },
+    "eligible_series_count": 60,
+    "rejection_reason_counts": {
+      "unresolved data quality flags": 3,
+      "history shorter than screening span": 160,
+      "too few positive modal observation days": 164,
+      "calendar coverage below screening threshold": 110,
+      "long internal calendar gap requires review": 24
+    },
+    "state": "Gujarat",
+    "commodities": [
+      "Tomato",
+      "Potato",
+      "Onion"
+    ],
+    "selected_series": [
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Dahod",
+          "market": "Dahod (Veg. Market)",
+          "commodity": "Tomato",
+          "variety": "Tomato",
+          "grade": "FAQ"
+        },
+        "series_id": "518f332aced6b913",
+        "rows": 633,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-03",
+        "observation_days": 633,
+        "positive_modal_observation_days": 633,
+        "calendar_span_days": 673,
+        "calendar_coverage": 0.940565,
+        "missing_calendar_days": 40,
+        "gap_intervals_count": 32,
+        "longest_gap_days": 3,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-15",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-23",
+            "before": "2024-02-25",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-05",
+            "before": "2024-03-07",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-07",
+            "before": "2024-03-09",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-10",
+            "before": "2024-03-12",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-12",
+            "before": "2024-03-14",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-23",
+            "before": "2024-03-26",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-03-28",
+            "before": "2024-03-30",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-04-08",
+            "before": "2024-04-10",
+            "missing_calendar_days": 1
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Dahod",
+          "market": "Dahod (Veg. Market)",
+          "commodity": "Potato",
+          "variety": "Potato",
+          "grade": "FAQ"
+        },
+        "series_id": "314b4dfffac5b7bc",
+        "rows": 627,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-03",
+        "observation_days": 627,
+        "positive_modal_observation_days": 627,
+        "calendar_span_days": 673,
+        "calendar_coverage": 0.931649,
+        "missing_calendar_days": 46,
+        "gap_intervals_count": 40,
+        "longest_gap_days": 3,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-15",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-23",
+            "before": "2024-02-25",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-05",
+            "before": "2024-03-07",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-07",
+            "before": "2024-03-09",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-10",
+            "before": "2024-03-12",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-12",
+            "before": "2024-03-14",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-23",
+            "before": "2024-03-26",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-03-28",
+            "before": "2024-03-30",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-04-08",
+            "before": "2024-04-10",
+            "missing_calendar_days": 1
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Dahod",
+          "market": "Dahod (Veg. Market)",
+          "commodity": "Onion",
+          "variety": "Onion",
+          "grade": "FAQ"
+        },
+        "series_id": "240bef14621574cd",
+        "rows": 612,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-04",
+        "observation_days": 612,
+        "positive_modal_observation_days": 612,
+        "calendar_span_days": 674,
+        "calendar_coverage": 0.908012,
+        "missing_calendar_days": 62,
+        "gap_intervals_count": 51,
+        "longest_gap_days": 4,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-15",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-23",
+            "before": "2024-02-25",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-05",
+            "before": "2024-03-07",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-07",
+            "before": "2024-03-09",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-10",
+            "before": "2024-03-12",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-12",
+            "before": "2024-03-14",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-23",
+            "before": "2024-03-26",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-03-28",
+            "before": "2024-03-30",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-04-01",
+            "before": "2024-04-03",
+            "missing_calendar_days": 1
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Navsari",
+          "market": "Navsari",
+          "commodity": "Tomato",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "a756f343bb8d8ca0",
+        "rows": 559,
+        "earliest": "2024-01-03",
+        "latest": "2025-11-05",
+        "observation_days": 559,
+        "positive_modal_observation_days": 559,
+        "calendar_span_days": 673,
+        "calendar_coverage": 0.830609,
+        "missing_calendar_days": 114,
+        "gap_intervals_count": 65,
+        "longest_gap_days": 7,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-03",
+            "before": "2024-01-05",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-09",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-16",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-24",
+            "before": "2024-01-29",
+            "missing_calendar_days": 4
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-08",
+            "before": "2024-02-12",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-13",
+            "before": "2024-02-15",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-17",
+            "before": "2024-02-19",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-19",
+            "before": "2024-02-21",
+            "missing_calendar_days": 1
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Navsari",
+          "market": "Bilimora",
+          "commodity": "Potato",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "deff683fe4455392",
+        "rows": 547,
+        "earliest": "2024-01-11",
+        "latest": "2025-11-05",
+        "observation_days": 547,
+        "positive_modal_observation_days": 547,
+        "calendar_span_days": 665,
+        "calendar_coverage": 0.822556,
+        "missing_calendar_days": 118,
+        "gap_intervals_count": 54,
+        "longest_gap_days": 18,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-12",
+            "before": "2024-01-31",
+            "missing_calendar_days": 18
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-06",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-09",
+            "before": "2024-02-13",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-14",
+            "before": "2024-02-16",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-17",
+            "before": "2024-02-19",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-20",
+            "before": "2024-02-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-23",
+            "before": "2024-02-26",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-26",
+            "before": "2024-02-28",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-28",
+            "before": "2024-03-04",
+            "missing_calendar_days": 4
+          },
+          {
+            "after": "2024-03-06",
+            "before": "2024-03-12",
+            "missing_calendar_days": 5
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Navsari",
+          "market": "Bilimora",
+          "commodity": "Onion",
+          "variety": "Nasik",
+          "grade": "FAQ"
+        },
+        "series_id": "106cbf2f08373602",
+        "rows": 552,
+        "earliest": "2024-01-11",
+        "latest": "2025-11-05",
+        "observation_days": 552,
+        "positive_modal_observation_days": 552,
+        "calendar_span_days": 665,
+        "calendar_coverage": 0.830075,
+        "missing_calendar_days": 113,
+        "gap_intervals_count": 52,
+        "longest_gap_days": 18,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-12",
+            "before": "2024-01-31",
+            "missing_calendar_days": 18
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-06",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-09",
+            "before": "2024-02-13",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-14",
+            "before": "2024-02-16",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-17",
+            "before": "2024-02-19",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-20",
+            "before": "2024-02-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-23",
+            "before": "2024-02-26",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-26",
+            "before": "2024-02-28",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-28",
+            "before": "2024-03-04",
+            "missing_calendar_days": 4
+          },
+          {
+            "after": "2024-03-06",
+            "before": "2024-03-12",
+            "missing_calendar_days": 5
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Navsari",
+          "market": "Bilimora",
+          "commodity": "Tomato",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "f17a4491dc2d8470",
+        "rows": 558,
+        "earliest": "2024-01-11",
+        "latest": "2025-11-05",
+        "observation_days": 558,
+        "positive_modal_observation_days": 558,
+        "calendar_span_days": 665,
+        "calendar_coverage": 0.839098,
+        "missing_calendar_days": 107,
+        "gap_intervals_count": 43,
+        "longest_gap_days": 18,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-12",
+            "before": "2024-01-31",
+            "missing_calendar_days": 18
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-06",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-09",
+            "before": "2024-02-13",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-14",
+            "before": "2024-02-16",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-17",
+            "before": "2024-02-19",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-20",
+            "before": "2024-02-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-23",
+            "before": "2024-02-26",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-26",
+            "before": "2024-02-28",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-28",
+            "before": "2024-03-04",
+            "missing_calendar_days": 4
+          },
+          {
+            "after": "2024-03-06",
+            "before": "2024-03-12",
+            "missing_calendar_days": 5
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Kheda",
+          "market": "Kapadvanj",
+          "commodity": "Potato",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "d6e713530bb54f8c",
+        "rows": 540,
+        "earliest": "2024-01-04",
+        "latest": "2025-11-04",
+        "observation_days": 540,
+        "positive_modal_observation_days": 540,
+        "calendar_span_days": 671,
+        "calendar_coverage": 0.804769,
+        "missing_calendar_days": 131,
+        "gap_intervals_count": 66,
+        "longest_gap_days": 12,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-16",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-18",
+            "before": "2024-01-20",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-24",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-25",
+            "before": "2024-01-27",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-27",
+            "before": "2024-01-30",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-31",
+            "before": "2024-02-02",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-10",
+            "before": "2024-02-12",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-16",
+            "before": "2024-02-20",
+            "missing_calendar_days": 3
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Kheda",
+          "market": "Kapadvanj",
+          "commodity": "Onion",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "a71c104fe631e8bb",
+        "rows": 526,
+        "earliest": "2024-01-03",
+        "latest": "2025-11-04",
+        "observation_days": 526,
+        "positive_modal_observation_days": 526,
+        "calendar_span_days": 672,
+        "calendar_coverage": 0.782738,
+        "missing_calendar_days": 146,
+        "gap_intervals_count": 76,
+        "longest_gap_days": 9,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-12",
+            "before": "2024-01-16",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-18",
+            "before": "2024-01-20",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-24",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-25",
+            "before": "2024-01-27",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-27",
+            "before": "2024-01-30",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-31",
+            "before": "2024-02-02",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-10",
+            "before": "2024-02-13",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-16",
+            "before": "2024-02-20",
+            "missing_calendar_days": 3
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Kheda",
+          "market": "Kapadvanj",
+          "commodity": "Tomato",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "d1d741904e0897f0",
+        "rows": 540,
+        "earliest": "2024-01-03",
+        "latest": "2025-11-03",
+        "observation_days": 540,
+        "positive_modal_observation_days": 540,
+        "calendar_span_days": 671,
+        "calendar_coverage": 0.804769,
+        "missing_calendar_days": 131,
+        "gap_intervals_count": 67,
+        "longest_gap_days": 8,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-16",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-18",
+            "before": "2024-01-20",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-24",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-25",
+            "before": "2024-01-27",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-27",
+            "before": "2024-01-30",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-31",
+            "before": "2024-02-02",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-10",
+            "before": "2024-02-12",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-16",
+            "before": "2024-02-20",
+            "missing_calendar_days": 3
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Bharuch",
+          "market": "Ankleshwar",
+          "commodity": "Potato",
+          "variety": "Potato",
+          "grade": "FAQ"
+        },
+        "series_id": "4fb024087ad3ceaf",
+        "rows": 529,
+        "earliest": "2024-01-02",
+        "latest": "2025-11-03",
+        "observation_days": 529,
+        "positive_modal_observation_days": 529,
+        "calendar_span_days": 672,
+        "calendar_coverage": 0.787202,
+        "missing_calendar_days": 143,
+        "gap_intervals_count": 91,
+        "longest_gap_days": 11,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-03",
+            "before": "2024-01-05",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-11",
+            "before": "2024-01-15",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-15",
+            "before": "2024-01-17",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-19",
+            "before": "2024-01-23",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-25",
+            "before": "2024-01-29",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-03",
+            "before": "2024-02-06",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-06",
+            "before": "2024-02-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-09",
+            "before": "2024-02-12",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-14",
+            "before": "2024-02-16",
+            "missing_calendar_days": 1
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Kheda",
+          "market": "Nadiyad (Piplag)",
+          "commodity": "Onion",
+          "variety": "Onion",
+          "grade": "FAQ"
+        },
+        "series_id": "6cbcdce792d0f92f",
+        "rows": 518,
+        "earliest": "2024-01-02",
+        "latest": "2025-11-05",
+        "observation_days": 518,
+        "positive_modal_observation_days": 518,
+        "calendar_span_days": 674,
+        "calendar_coverage": 0.768546,
+        "missing_calendar_days": 156,
+        "gap_intervals_count": 92,
+        "longest_gap_days": 8,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-05",
+            "before": "2024-01-08",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-09",
+            "before": "2024-01-11",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-16",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-27",
+            "before": "2024-01-29",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-30",
+            "before": "2024-02-01",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-16",
+            "before": "2024-02-20",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-21",
+            "before": "2024-02-25",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-03-01",
+            "before": "2024-03-04",
+            "missing_calendar_days": 2
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Kheda",
+          "market": "Nadiyad (Piplag)",
+          "commodity": "Tomato",
+          "variety": "Tomato",
+          "grade": "FAQ"
+        },
+        "series_id": "47fbad44425a9805",
+        "rows": 526,
+        "earliest": "2024-01-02",
+        "latest": "2025-11-05",
+        "observation_days": 526,
+        "positive_modal_observation_days": 526,
+        "calendar_span_days": 674,
+        "calendar_coverage": 0.780415,
+        "missing_calendar_days": 148,
+        "gap_intervals_count": 90,
+        "longest_gap_days": 8,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-09",
+            "before": "2024-01-11",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-16",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-27",
+            "before": "2024-01-29",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-30",
+            "before": "2024-02-01",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-16",
+            "before": "2024-02-20",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-21",
+            "before": "2024-02-25",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-03-01",
+            "before": "2024-03-04",
+            "missing_calendar_days": 2
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Kheda",
+          "market": "Nadiad",
+          "commodity": "Potato",
+          "variety": "Other",
+          "grade": "FAQ"
+        },
+        "series_id": "b234d23022016cae",
+        "rows": 528,
+        "earliest": "2024-01-02",
+        "latest": "2025-11-05",
+        "observation_days": 528,
+        "positive_modal_observation_days": 528,
+        "calendar_span_days": 674,
+        "calendar_coverage": 0.783383,
+        "missing_calendar_days": 146,
+        "gap_intervals_count": 90,
+        "longest_gap_days": 7,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-09",
+            "before": "2024-01-11",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-17",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-01-17",
+            "before": "2024-01-19",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-27",
+            "before": "2024-01-29",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-02",
+            "before": "2024-02-05",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-08",
+            "before": "2024-02-10",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-16",
+            "before": "2024-02-20",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-21",
+            "before": "2024-02-25",
+            "missing_calendar_days": 3
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      },
+      {
+        "series": {
+          "state": "Gujarat",
+          "district": "Morbi",
+          "market": "Morbi",
+          "commodity": "Onion",
+          "variety": "Onion",
+          "grade": "FAQ"
+        },
+        "series_id": "f9b2be8cf75270cd",
+        "rows": 516,
+        "earliest": "2024-01-01",
+        "latest": "2025-11-05",
+        "observation_days": 516,
+        "positive_modal_observation_days": 516,
+        "calendar_span_days": 675,
+        "calendar_coverage": 0.764444,
+        "missing_calendar_days": 159,
+        "gap_intervals_count": 117,
+        "longest_gap_days": 11,
+        "first_gap_intervals": [
+          {
+            "after": "2024-01-06",
+            "before": "2024-01-08",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-01-13",
+            "before": "2024-01-16",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-20",
+            "before": "2024-01-23",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-01-25",
+            "before": "2024-01-29",
+            "missing_calendar_days": 3
+          },
+          {
+            "after": "2024-02-03",
+            "before": "2024-02-05",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-10",
+            "before": "2024-02-13",
+            "missing_calendar_days": 2
+          },
+          {
+            "after": "2024-02-17",
+            "before": "2024-02-19",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-02-24",
+            "before": "2024-02-26",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-02",
+            "before": "2024-03-04",
+            "missing_calendar_days": 1
+          },
+          {
+            "after": "2024-03-07",
+            "before": "2024-03-09",
+            "missing_calendar_days": 1
+          }
+        ],
+        "gap_intervals_truncated": true,
+        "invalid_or_missing_date_rows": 0,
+        "nonpositive_price_rows": 0,
+        "price_order_violation_rows": 0,
+        "incomplete_or_unparseable_price_rows": 0,
+        "conflicting_key_rows": 0,
+        "price_units": [
+          "INR/quintal"
+        ],
+        "quantity_units": [],
+        "missing_price_unit_rows": 0,
+        "missing_quantity_unit_with_arrivals_rows": 0,
+        "unit_conflict": false,
+        "missing_variety_or_grade": false
+      }
+    ],
+    "state_candidates": [
+      {
+        "state": "Gujarat",
+        "price_unit": "INR/quintal",
+        "commodities": [
+          "Tomato",
+          "Potato",
+          "Onion"
+        ],
+        "available_combinations": 58,
+        "supports_desired_scope": true
+      }
+    ],
+    "note": "No series meets the original 700-day screen. This explicitly shorter-history option uses 600 days minimum; it does not fulfill the two-year target. Keep each listed variety/grade separate; do not join FAQ and Non-FAQ. The project state remains Gujarat. All other quality, unit, observation-count and gap screens still apply.",
+    "state_candidates_truncated": false,
+    "price_unit": "INR/quintal",
+    "strict_target_status": "pending",
+    "strict_target_eligible_series_count": 0,
+    "strict_target_minimum_span_days": 700,
+    "strict_target_rejection_reason_counts": {
+      "history shorter than screening span": 229,
+      "unresolved data quality flags": 3,
+      "too few positive modal observation days": 164,
+      "calendar coverage below screening threshold": 110,
+      "long internal calendar gap requires review": 24
+    }
+  },
+  "commodity_grade_coverage": [
+    {
+      "commodity": "Onion",
+      "grade": "FAQ",
+      "rows": 12086,
+      "earliest": "2024-01-01",
+      "latest": "2025-12-29",
+      "observation_days": 690
+    },
+    {
+      "commodity": "Onion",
+      "grade": "Grade A",
+      "rows": 18,
+      "earliest": "2025-11-29",
+      "latest": "2025-12-29",
+      "observation_days": 16
+    },
+    {
+      "commodity": "Onion",
+      "grade": "Grade B",
+      "rows": 4,
+      "earliest": "2025-12-03",
+      "latest": "2025-12-26",
+      "observation_days": 4
+    },
+    {
+      "commodity": "Onion",
+      "grade": "Local",
+      "rows": 29,
+      "earliest": "2025-12-03",
+      "latest": "2025-12-29",
+      "observation_days": 18
+    },
+    {
+      "commodity": "Onion",
+      "grade": "Non-FAQ",
+      "rows": 530,
+      "earliest": "2025-01-18",
+      "latest": "2025-12-27",
+      "observation_days": 271
+    },
+    {
+      "commodity": "Potato",
+      "grade": "FAQ",
+      "rows": 11824,
+      "earliest": "2024-01-01",
+      "latest": "2025-12-29",
+      "observation_days": 697
+    },
+    {
+      "commodity": "Potato",
+      "grade": "Grade A",
+      "rows": 16,
+      "earliest": "2025-12-05",
+      "latest": "2025-12-29",
+      "observation_days": 15
+    },
+    {
+      "commodity": "Potato",
+      "grade": "Grade B",
+      "rows": 5,
+      "earliest": "2025-12-20",
+      "latest": "2025-12-27",
+      "observation_days": 5
+    },
+    {
+      "commodity": "Potato",
+      "grade": "Local",
+      "rows": 41,
+      "earliest": "2025-12-04",
+      "latest": "2025-12-29",
+      "observation_days": 22
+    },
+    {
+      "commodity": "Potato",
+      "grade": "Medium",
+      "rows": 6,
+      "earliest": "2025-12-04",
+      "latest": "2025-12-27",
+      "observation_days": 6
+    },
+    {
+      "commodity": "Potato",
+      "grade": "Non-FAQ",
+      "rows": 1110,
+      "earliest": "2025-01-17",
+      "latest": "2025-12-27",
+      "observation_days": 276
+    },
+    {
+      "commodity": "Tomato",
+      "grade": "FAQ",
+      "rows": 12533,
+      "earliest": "2024-01-01",
+      "latest": "2025-12-29",
+      "observation_days": 698
+    },
+    {
+      "commodity": "Tomato",
+      "grade": "Grade A",
+      "rows": 8,
+      "earliest": "2025-12-04",
+      "latest": "2025-12-27",
+      "observation_days": 7
+    },
+    {
+      "commodity": "Tomato",
+      "grade": "Grade B",
+      "rows": 1,
+      "earliest": "2025-12-26",
+      "latest": "2025-12-26",
+      "observation_days": 1
+    },
+    {
+      "commodity": "Tomato",
+      "grade": "Local",
+      "rows": 79,
+      "earliest": "2025-12-03",
+      "latest": "2025-12-29",
+      "observation_days": 27
+    },
+    {
+      "commodity": "Tomato",
+      "grade": "Medium",
+      "rows": 7,
+      "earliest": "2025-12-05",
+      "latest": "2025-12-26",
+      "observation_days": 7
+    },
+    {
+      "commodity": "Tomato",
+      "grade": "Non-FAQ",
+      "rows": 1337,
+      "earliest": "2025-01-17",
+      "latest": "2025-11-06",
+      "observation_days": 284
+    }
+  ]
+}

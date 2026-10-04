@@ -34,8 +34,16 @@ coverage/
 # Data and generated models stay local; keep the directory placeholders.
 data/raw/*
 !data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+# Row-level samples and detailed coverage stay local; commit compact reports only.
+reports/data/local/
+# Also protect row-level outputs when --output-dir selects another folder.
+**/local/samples.json
+**/local/file_profiles.json
+**/local/series_coverage.csv
 *.pkl
 *.pickle
 *.joblib

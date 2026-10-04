@@ -1,0 +1,9 @@
+State,District,Market,Commodity,Variety,Arrival_Date,Min Price,Max Price,Modal Price,Price Unit
+Bihar,TEST District A,TEST Market,Potato,TEST Variety,01/02/2025,100,200,150,INR/quintal
+Bihar,TEST District A,TEST Market,Potato,TEST Variety,01/02/2025,100,200,150,INR/quintal
+Bihar,TEST District A,TEST Market,Potato,TEST Variety,01/02/2025,100,200,160,INR/quintal
+Bihar,TEST District A,TEST Market,Potato,TEST Variety,03/02/2025,100,120,150,INR/quintal
+Bihar,TEST District A,TEST Market,Potato,TEST Variety,04/02/2025,0,200,100,INR/quintal
+Bihar,TEST District A,TEST Market,Potato,TEST Variety,not-a-date,100,200,not-a-number,INR/quintal
+Bihar,TEST District B,TEST Market,Potato,TEST Variety,01/02/2025,100,200,150,INR/quintal
+Bihar,TEST District A,TEST Market,Potato,,05/02/2025,100,200,150,

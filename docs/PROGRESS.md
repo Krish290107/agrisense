@@ -10,11 +10,76 @@
 
 **Updated:** October 4, 2026 (Asia/Calcutta)
 
+## Day 2 status: complete with an explicit history limitation
+
+The project state is **Gujarat**. The supplied real Kaggle files have been imported, profiled and documented. No observations were fabricated, production-cleaned, or silently merged. The original two-year same-series target is unmet; an explicitly provisional shorter-history scope is supplied instead.
+
+Source: [Daily Commodity Prices India](https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india), republished by Manas Khandelwal. Public Kaggle metadata was accessed successfully and identifies INR/quintal price units, ISO dates, upstream OGD provenance, and prior cleaning/deduplication. Its license field is Other while its description states GODL-India; that distinction is recorded. The user-supplied files' exact Kaggle release and original acquisition time remain unknown.
+
+### Completed changes
+
+- Added the separate local `requirements-data.txt` with pandas 3.0.6 in the existing Python 3.13.10 `.venv`; backend dependencies are unchanged.
+- Added `configs/data_sources.json` with Kaggle provenance, source checks, mappings and Gujarat scope policy.
+- Completed the importer/profiler and shared utilities. Fixed full-file memory loading with chunked scanning/streaming hashes and copies. Fixed rejection of originals already under `data/raw`; managed bundle folders are excluded from discovery.
+- Created per-file, checksum-verified, immutable CSV/provenance bundles while preserving `data/raw/2024.csv` and `2025.csv`.
+- Generated compact real-data reports and a 15-combination recommendation. Full per-series coverage and small samples remain local and ignored.
+- Added `docs/DAY_02.md`, `DATA_SOURCES.md`, `DATA_DICTIONARY.md`; updated README and this progress record.
+- Added 14 meaningful offline tests using a separately labeled synthetic fixture. Those invented test values are never imported into the real dataset or used in its reported statistics.
+- Preserved the working frontend/backend, deployment configuration and source files. No GitHub push or Vercel changes performed.
+
+### Actual real-data results
+
+| Measurement | Result |
+| --- | --- |
+| 2024 original | 5,544,500 rows; 2024-01-01 to 2024-12-31; 366 distinct dates |
+| 2025 original | 5,819,482 rows; 2025-01-01 to 2025-12-30; 342 distinct dates |
+| Combined originals | 11,363,982 rows, 1,106,091,120 bytes; all dates parse under `%Y-%m-%d` |
+| Gujarat across all commodities | 523,868 rows; 2024-01-01 to 2025-12-29; 707 distinct dates |
+| Gujarat Onion / Potato / Tomato | 12,667 / 13,002 / 13,965 rows; 39,634 total |
+| Detailed selected-subset series | 229, identified by state/district/market/commodity/variety/grade |
+| Date and numeric parse failures in selected subset | 0 |
+| Exact duplicates / repeated candidate keys | 1 beyond-first duplicate / 1 repeated key |
+| Conflicting candidate keys | 0 |
+| Nonpositive prices | 1 minimum-price value and 2 maximum-price values; modal prices all positive |
+| Price-order violations | 2 rows; nonpositive/order flags affect 3 distinct series |
+| Units | INR/quintal from publisher declaration; no row-level unit fields; arrivals absent |
+| Original 700-day span screen | 0 qualifying series; maximum unchanged-identity span is 675 days |
+| Explicit shorter-history option | 600-day minimum span; 60 eligible series; 15 selected combinations, five per commodity |
+| Recommended series | 516-633 observation days; 76.4%-94.1% calendar coverage; longest internal gaps 3-18 days |
+
+Recommended markets: Dahod (Veg. Market), Bilimora and Kapadvanj for all three commodities; Nadiyad (Piplag) for Onion/Tomato; Navsari for Tomato; Ankleshwar and Nadiad for Potato; Morbi for Onion. Exact variety/grade/date identities are in [recommended_scope.csv](../reports/data/recommended_scope.csv). All selected grades are FAQ; different varieties remain separate.
+
+Later records contain changed market strings such as APMC suffixes, sometimes with changed varieties/grades. No identity equivalence is assumed. This explains why pooled state/commodity dates can extend beyond the longest unchanged series; further source-label investigation belongs to Day 3. The incomplete 2025 date set is not treated as zero prices.
+
+### Actual commands and verification
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-data.txt
+.\.venv\Scripts\python.exe scripts\import_market_data.py data\raw --source kaggle_daily_india --kind historical --date-format "%Y-%m-%d"
+.\.venv\Scripts\python.exe scripts\profile_market_data.py --state Gujarat --commodities Onion Potato Tomato
+.\.venv\Scripts\python.exe -m unittest discover -s tests -p "test_market_data.py" -v
+.\.venv\Scripts\python.exe -m pip check
+```
+
+- Import: both real files successfully imported, originals/copies checksum-verified. Repeat import returned `duplicate_skipped` for both with original provenance retained.
+- Real profile: success, reports contain measured data and the explicit shorter-history limitation. Human-readable tables were refreshed from the verified aggregate results after formatting improvements.
+- Tests: **14 passed**, including explicit/ambiguous dates, absent fields, duplicate/conflict and price-order checks, per-series gaps, units, tamper detection, raw-directory discovery, chunk validation, state audit before commodity filtering, scope/shorter-history selection, redaction and different-working-directory execution.
+- `pip check`: passed. Python compilation of the data scripts: passed.
+- Backend regression: temporary local Uvicorn instance returned HTTP 200 with exact `{"status":"ok","service":"agrisense-api"}` and expected localhost CORS; only that verification process was stopped afterward.
+- `git diff -- backend frontend`: no changes. Bulk data, local samples/coverage, intermediate/processed output and actual environment files are ignored; compact reports and synthetic tests are eligible for review/commit.
+- Earlier sandbox test attempts were blocked by Windows temporary-directory permissions. Approved runs outside that sandbox passed; this was not a dataset/test logic failure.
+
+### Remaining limitations and next action
+
+Day 2 code and profiling are complete. Full two-year unchanged-series coverage is a **data limitation**, not claimed complete. Use the documented shorter-history recommendation or obtain more compatible data/verify a valid label crosswalk. The raw duplicate/price anomalies are preserved for Day 3 review. Arrivals are unavailable. Exact Kaggle release/acquisition time and independent upstream reconciliation remain unverified.
+
+Read [DATA_PROFILE.md](../reports/data/DATA_PROFILE.md), [DATA_SOURCES.md](DATA_SOURCES.md) and [DAY_02.md](DAY_02.md). No further download or Vercel action is needed to reproduce the present profile. The existing projects remain `agrisense-api` at https://agrisense-4lqq.vercel.app and `agrisense-web-v2` at https://agrisense-web-v2.vercel.app.
+
 ## Day 1 status
 
 Day 1 implementation is complete. Local command-line and HTTP verification passed.
 Browser interaction and visual verification remain manual because no browser is connected to this session.
-No Day 2 or later functionality has been implemented.
+This section records the Day 1 baseline; the completed Day 2 workflow is recorded above.
 
 ## Completed
 
@@ -91,7 +156,7 @@ There was no compatible patched release available during this check. Do not run 
 
 ESLint 9.39.5 is deprecated upstream but is retained for compatibility with the current Next.js React/import/accessibility plugins. ESLint 10.12.0 was tested and failed those plugins; it is not in the final dependency tree. Revisit the lint toolchain when compatible upstream updates are available. These limitations do not prevent today's lint, build, or local health checks from passing.
 
-## Remaining manual actions
+## Day 1 handoff record (historical)
 
 The `/docs` page now hides its visible `/openapi.json` link, as requested. The schema endpoint remains available for Swagger UI. Direct checks confirmed the custom docs HTML contains the hiding rule and the health/schema responses remain intact; browser visual confirmation is still manual.
 
@@ -102,7 +167,7 @@ The `/docs` page now hides its visible `/openapi.json` link, as requested. The s
 
 ## Next task
 
-**Day 2: real data.** Choose and document a genuine agricultural price source, its usage terms, commodities/markets, date coverage, units, and expected fields. Do not invent data.
+**Day 3: cleaning decisions.** Review the real-data duplicate/price flags and possible market-label changes, document any verified identity mapping and missing-date policy, then plan cleaning. No cleaning or model training has been done during Day 2.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

@@ -1,0 +1,16 @@
+state,district,market,commodity,variety,grade,series_id,rows,earliest,latest,observation_days,calendar_span_days,calendar_coverage,missing_calendar_days,longest_gap_days,price_unit,recommendation_status
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,633,2024-01-01,2025-11-03,633,673,0.940565,40,3,INR/quintal,provisional_shorter_history
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,627,2024-01-01,2025-11-03,627,673,0.931649,46,3,INR/quintal,provisional_shorter_history
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,612,2024-01-01,2025-11-04,612,674,0.908012,62,4,INR/quintal,provisional_shorter_history
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,559,2024-01-03,2025-11-05,559,673,0.830609,114,7,INR/quintal,provisional_shorter_history
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,547,2024-01-11,2025-11-05,547,665,0.822556,118,18,INR/quintal,provisional_shorter_history
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,552,2024-01-11,2025-11-05,552,665,0.830075,113,18,INR/quintal,provisional_shorter_history
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,558,2024-01-11,2025-11-05,558,665,0.839098,107,18,INR/quintal,provisional_shorter_history
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,540,2024-01-04,2025-11-04,540,671,0.804769,131,12,INR/quintal,provisional_shorter_history
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,526,2024-01-03,2025-11-04,526,672,0.782738,146,9,INR/quintal,provisional_shorter_history
+Gujarat,Kheda,Kapadvanj,Tomato,Other,FAQ,d1d741904e0897f0,540,2024-01-03,2025-11-03,540,671,0.804769,131,8,INR/quintal,provisional_shorter_history
+Gujarat,Bharuch,Ankleshwar,Potato,Potato,FAQ,4fb024087ad3ceaf,529,2024-01-02,2025-11-03,529,672,0.787202,143,11,INR/quintal,provisional_shorter_history
+Gujarat,Kheda,Nadiyad (Piplag),Onion,Onion,FAQ,6cbcdce792d0f92f,518,2024-01-02,2025-11-05,518,674,0.768546,156,8,INR/quintal,provisional_shorter_history
+Gujarat,Kheda,Nadiyad (Piplag),Tomato,Tomato,FAQ,47fbad44425a9805,526,2024-01-02,2025-11-05,526,674,0.780415,148,8,INR/quintal,provisional_shorter_history
+Gujarat,Kheda,Nadiad,Potato,Other,FAQ,b234d23022016cae,528,2024-01-02,2025-11-05,528,674,0.783383,146,7,INR/quintal,provisional_shorter_history
+Gujarat,Morbi,Morbi,Onion,Onion,FAQ,f9b2be8cf75270cd,516,2024-01-01,2025-11-05,516,675,0.764444,159,11,INR/quintal,provisional_shorter_history

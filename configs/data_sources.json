@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-04",
+  "sources": {
+    "data_gov_in": {
+      "url": "https://www.data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi",
+      "catalog_url": "https://www.data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi",
+      "publisher": "Directorate of Marketing and Inspection, Department of Agriculture and Farmers Welfare, Government of India",
+      "default_kind": "snapshot",
+      "price_unit": "unverified",
+      "quantity_unit": "unverified",
+      "license_status": "Catalog footer references GODL-India; resource-specific terms and attribution must be confirmed with the export",
+      "access_status": "HTTP 200 HTML; rendered resource details missing. Embedded metadata verifies resource endpoint and offset/limit parameters. API probes timed out; linked XML asset returned HTTP 403. No observations acquired; response contract not live-verified, fetcher deferred.",
+      "api_endpoint": "https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070",
+      "api_endpoint_evidence": "field_datafile_url and uuid in official resource page embedded metadata, checked 2026-10-04; query credential deliberately omitted",
+      "api_response_contract_verified": false,
+      "public_asset_url": "https://www.data.gov.in/files/ogdpv2dms/s3fs-public/Date-Wise-Prices-all-Commodity.xml",
+      "historical_availability": "unverified"
+    },
+    "agmarknet": {
+      "url": "https://agmarknet.gov.in/",
+      "publisher": "Directorate of Marketing and Inspection, Government of India",
+      "default_kind": "historical",
+      "price_unit": "unverified",
+      "quantity_unit": "unverified",
+      "license_status": "unverified; confirm export reuse and attribution terms",
+      "access_status": "HTTP 200 JavaScript application shell; historical export not obtained",
+      "api_endpoint": null,
+      "historical_availability": "unverified"
+    },
+    "enam_agmarknet": {
+      "url": "https://enam.gov.in/dashboard/agmarknet",
+      "publisher": "National Agriculture Market, Ministry of Agriculture and Farmers Welfare, Government of India",
+      "default_kind": "historical",
+      "price_unit": "unverified",
+      "quantity_unit": "unverified",
+      "license_status": "unverified; page displays copyright notice; confirm reuse terms",
+      "access_status": "HTTP 200; state, district, APMC, commodity, From date and To date controls visible; no observations obtained",
+      "api_endpoint": null,
+      "historical_availability": "date selection exists; actual available range unverified"
+    },
+    "kaggle_daily_india": {
+      "url": "https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india",
+      "publisher": "Manas Khandelwal (Kaggle republisher; upstream Government of India Open Data Platform per publisher)",
+      "default_kind": "historical",
+      "price_unit": "INR/quintal",
+      "quantity_unit": "unverified",
+      "license_status": "Publisher description states GODL-India; Kaggle license field is Other (specified in description). Retain attribution to publisher and upstream OGD; local file version not independently matched.",
+      "unit_evidence": "Kaggle public JSON-LD description explicitly labels all three prices INR per quintal; checked 2026-10-04. Units are not embedded in CSV rows.",
+      "upstream_transformations": "Publisher states cleaned, deduplicated and sorted; local CSVs preserved unchanged.",
+      "access_status": "User supplied 2024.csv and 2025.csv in data/raw; public Kaggle metadata HTTP 200 verified. Coverage must be measured locally."
+    }
+  },
+  "missing_tokens": [
+    "",
+    "na",
+    "n/a",
+    "null",
+    "nan",
+    "-",
+    "--"
+  ],
+  "aliases": {
+    "state": [
+      "state",
+      "state_name"
+    ],
+    "district": [
+      "district",
+      "district_name"
+    ],
+    "market": [
+      "market",
+      "market_name",
+      "apmc",
+      "apmcs",
+      "apmc_name"
+    ],
+    "commodity": [
+      "commodity",
+      "commodity_name"
+    ],
+    "variety": [
+      "variety",
+      "commodity_variety"
+    ],
+    "grade": [
+      "grade",
+      "commodity_grade"
+    ],
+    "date": [
+      "date",
+      "arrival_date",
+      "arrivals_date",
+      "reported_date",
+      "price_date"
+    ],
+    "min_price": [
+      "min_price",
+      "minimum_price",
+      "min price (rs./quintal)"
+    ],
+    "max_price": [
+      "max_price",
+      "maximum_price",
+      "max price (rs./quintal)"
+    ],
+    "modal_price": [
+      "modal_price",
+      "modal price (rs./quintal)"
+    ],
+    "arrivals": [
+      "arrivals",
+      "arrival_quantity",
+      "arrivals_quantity",
+      "commodity_arrivals"
+    ],
+    "price_unit": [
+      "price_unit",
+      "price_units"
+    ],
+    "quantity_unit": [
+      "quantity_unit",
+      "arrivals_unit",
+      "arrival_unit"
+    ],
+    "unit": [
+      "unit",
+      "units"
+    ]
+  },
+  "scope_screening": {
+    "preferred_state": "Gujarat",
+    "candidate_commodities": [
+      "Onion",
+      "Potato",
+      "Tomato"
+    ],
+    "desired_commodities": 3,
+    "min_combinations": 10,
+    "max_combinations": 15,
+    "minimum_span_days": 700,
+    "minimum_observation_days": 365,
+    "minimum_calendar_coverage": 0.5,
+    "maximum_internal_gap_days": 45,
+    "require_known_variety_and_grade": true,
+    "require_verified_price_unit": true,
+    "interpretation": "Conservative project screening choices, not forecasting-accuracy guarantees. Calendar gaps may be closures or non-reporting.",
+    "required_state": "Gujarat",
+    "shorter_history_minimum_span_days": 600,
+    "shorter_history_reason": "Actual Gujarat variety/grade series span at most 675 days. Preserve the strict 700-day result and offer a separately labeled 600-day-minimum scope without joining grades."
+  }
+}

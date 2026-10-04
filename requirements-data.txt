@@ -1,0 +1,2 @@
+# Local Day 2 tools only; do not install these in the Vercel backend.
+pandas==3.0.6

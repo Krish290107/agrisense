@@ -6,9 +6,32 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 establishes a Next.js frontend and a FastAPI backend. The homepage checks the actual backend connection and labels future features as planned. Market data, forecasts, model training, and a database belong to later days.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds local CSV import, provenance, quality checks and a Gujarat scope recommendation using the supplied Kaggle files. Forecasting, training, production cleaning and a database remain later-day work.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
+
+## Day 2: reproduce the real-data profile
+
+Source: [Daily Commodity Prices India on Kaggle](https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india), published by Manas Khandelwal. The supplied `2024.csv` and `2025.csv` contain 11,363,982 rows in total. Gujarat has 523,868 rows; its Onion, Potato and Tomato subset has 39,634 rows. The title does not establish complete history: the 2025 file has only 342 distinct dates.
+
+```powershell
+cd C:\Zekrui\agrisense
+.\.venv\Scripts\python.exe -m pip install -r requirements-data.txt
+.\.venv\Scripts\python.exe scripts\import_market_data.py data\raw --source kaggle_daily_india --kind historical --date-format "%Y-%m-%d"
+.\.venv\Scripts\python.exe scripts\profile_market_data.py --state Gujarat --commodities Onion Potato Tomato
+.\.venv\Scripts\python.exe -m unittest discover -s tests -p "test_market_data.py" -v
+```
+
+The original CSVs remain unchanged in `data/raw/`. Reimporting identical content safely skips it. Chunked reads handle the large input files; only the selected state/commodities are retained for detailed profiling. A fresh clone must obtain these ignored data files separately.
+
+Read [the data profile](reports/data/DATA_PROFILE.md), [the compact recommended scope](reports/data/recommended_scope.csv), and [Day 2 instructions](docs/DAY_02.md). The recommended scope has **15 combinations across three commodities**, explicitly using shorter history: no unchanged variety/grade series reaches the original 700-day screen. No grades are merged and no prices are fabricated. Price units are INR/quintal according to the Kaggle publisher; arrivals are absent.
+
+## Existing deployed applications
+
+- Backend project `agrisense-api`: https://agrisense-4lqq.vercel.app
+- Frontend project `agrisense-web-v2`: https://agrisense-web-v2.vercel.app
+
+These are the user-confirmed working deployments. Day 2 tools run locally and require no Vercel action.
 
 ## Start the existing workspace
 
@@ -122,12 +145,15 @@ If the frontend starts on port 3001 because 3000 is busy, stop the conflicting s
 ## Project guide
 
 - [Day 1 files, tools, and request flow](docs/DAY_01.md)
+- [Day 2 import, profiling and commands](docs/DAY_02.md)
+- [Data sources and provenance](docs/DATA_SOURCES.md)
+- [Data dictionary and future prediction rules](docs/DATA_DICTIONARY.md)
 - [Commit and GitHub upload](docs/GITHUB_SETUP.md)
 - [Future two-project Vercel deployment](docs/VERCEL_DEPLOYMENT.md)
 - [Progress and verification evidence](docs/PROGRESS.md)
 - [Day 1 presentation notes](docs/DAY_01_PRESENTATION.md)
 
-The directories `ml/`, `notebooks/`, `database/`, `tests/`, `data/raw/`, `data/processed/`, and `.github/workflows/` reserve space for future work. Empty-directory placeholders are intentional.
+The raw CSVs and immutable imports remain local and ignored. `tests/` contains synthetic tool-verification inputs only. `ml/`, `notebooks/`, `database/`, `data/interim/`, `data/processed/`, and `.github/workflows/` reserve space for future work.
 
 ## Roadmap
 
@@ -146,4 +172,4 @@ The directories `ml/`, `notebooks/`, `database/`, `tests/`, `data/raw/`, `data/p
 13. tests and refresh
 14. deployment and presentation
 
-Only Day 1 is implemented here.
+Days 1 and 2 are implemented. Day 3 cleaning decisions are next; full two-year per-series coverage remains a documented data limitation.
