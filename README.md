@@ -1,5 +1,9 @@
 # AgriSense
 
+**Project owner:** Krishkumar | **Roll No:** 2401CS83 | **Institution:** IIT Patna
+
+**GitHub repository:** https://github.com/Krish290107/agrisense
+
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
 Day 1 establishes a Next.js frontend and a FastAPI backend. The homepage checks the actual backend connection and labels future features as planned. Market data, forecasts, model training, and a database belong to later days.
@@ -118,9 +122,10 @@ If the frontend starts on port 3001 because 3000 is busy, stop the conflicting s
 ## Project guide
 
 - [Day 1 files, tools, and request flow](docs/DAY_01.md)
-- [First commit and GitHub upload](docs/GITHUB_SETUP.md)
+- [Commit and GitHub upload](docs/GITHUB_SETUP.md)
 - [Future two-project Vercel deployment](docs/VERCEL_DEPLOYMENT.md)
 - [Progress and verification evidence](docs/PROGRESS.md)
+- [Day 1 presentation notes](docs/DAY_01_PRESENTATION.md)
 
 The directories `ml/`, `notebooks/`, `database/`, `tests/`, `data/raw/`, `data/processed/`, and `.github/workflows/` reserve space for future work. Empty-directory placeholders are intentional.
 

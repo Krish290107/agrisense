@@ -1,5 +1,9 @@
 # Future deployment: two Vercel projects
 
+**Project owner:** Krishkumar | **Roll No:** 2401CS83 | **Institution:** IIT Patna
+
+**GitHub repository:** https://github.com/Krish290107/agrisense
+
 This is preparation for **Day 14**. No Vercel deployment is required for Day 1. Recheck the linked official documentation when deploying; platform settings may change. Guidance checked on October 3, 2026.
 
 Connect the same GitHub repository to two Vercel projects, selecting a different Root Directory for each. Vercel supports this [monorepo setup](https://vercel.com/docs/monorepos).

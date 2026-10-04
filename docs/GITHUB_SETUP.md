@@ -1,6 +1,10 @@
 # Upload AgriSense to GitHub from Windows
 
-Run these steps yourself after reviewing [Day 1 verification](PROGRESS.md). The local repository uses `main`. Day 1 preparation does not create a GitHub repository, push code, or make the first commit.
+**Project owner:** Krishkumar | **Roll No:** 2401CS83 | **Institution:** IIT Patna
+
+**GitHub repository:** https://github.com/Krish290107/agrisense
+
+Run these steps yourself after reviewing [Day 1 verification](PROGRESS.md). The local repository uses `main` and already has an initial commit. Its `origin` is `https://github.com/Krish290107/agrisense.git`. This completion pass does not commit or push changes.
 
 ## 1. Review the local repository
 
@@ -32,14 +36,14 @@ git config user.name
 git config user.email
 ```
 
-If either is missing, replace these example values with your name and the email address you want on commits. You may use your GitHub-provided private email address. These commands set identity for this repository only:
+If either is missing, use the supplied name below and replace `YOUR EMAIL` with your actual chosen commit email. No email address has been supplied or invented. You may use your GitHub-provided private email address. These commands set identity for this repository only:
 
 ```powershell
-git config user.name "YOUR NAME"
+git config user.name "Krishkumar"
 git config user.email "YOUR EMAIL"
 ```
 
-## 2. Check exclusions and create the first commit
+## 2. Check exclusions and commit the completed Day 1 work
 
 ```powershell
 git check-ignore -v backend/.env frontend/.env.local .venv/ frontend/node_modules/ frontend/.next/ .tools/
@@ -58,21 +62,20 @@ Commit after review:
 git commit -m "Complete Day 1: Next.js frontend and FastAPI health API"
 ```
 
-## 3. Create an empty GitHub repository
+## 3. Confirm the GitHub repository
 
-Sign in to [GitHub](https://github.com), choose **New repository**, and name it `agrisense`. Choose public or private visibility. Leave initialization options for README, `.gitignore`, and license unchecked because this local project already has its own files. Copy the new repository's HTTPS URL. This follows [GitHub's existing-code upload instructions](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
+Open [your repository](https://github.com/Krish290107/agrisense). If it has not been created yet, sign in to [GitHub](https://github.com), choose **New repository**, and name it `agrisense`. Choose public or private visibility. Leave initialization options for README, `.gitignore`, and license unchecked because this local project already has its own files. Copy the new repository's HTTPS URL. This follows [GitHub's existing-code upload instructions](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
 
 ## 4. Connect and push
 
-Replace `YOUR_GITHUB_USERNAME` in the following URL:
+The repository URL is already known. Since `origin` already exists locally, verify it, then push:
 
 ```powershell
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/agrisense.git
 git remote -v
 git push -u origin main
 ```
 
-If `origin` already exists, inspect `git remote -v` and use the intended existing remote. If it points to the wrong repository, change it deliberately with `git remote set-url origin https://github.com/YOUR_GITHUB_USERNAME/agrisense.git`.
+For a fresh local repository without `origin`, run `git remote add origin https://github.com/Krish290107/agrisense.git`. Otherwise inspect `git remote -v` and use the intended existing remote. If it points to the wrong repository, change it deliberately with `git remote set-url origin https://github.com/Krish290107/agrisense.git`.
 
 Complete the browser sign-in if Git Credential Manager prompts. Do not paste a token into the remote URL or store it in a project file. See [GitHub authentication](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github) if sign-in fails.
 

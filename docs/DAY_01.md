@@ -1,5 +1,9 @@
 # Day 1: the local foundation
 
+**Project owner:** Krishkumar | **Roll No:** 2401CS83 | **Institution:** IIT Patna
+
+**GitHub repository:** https://github.com/Krish290107/agrisense
+
 The goal is to run a web page and an API locally and prove that the browser can communicate with the API. [PROGRESS.md](PROGRESS.md) records the checks actually performed; this guide explains the implementation.
 
 ## Tools and their jobs
