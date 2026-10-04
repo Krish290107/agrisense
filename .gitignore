@@ -27,8 +27,14 @@ build/
 dist/
 .vercel/
 coverage/
+.coverage
+.coverage.*
+htmlcov/
 *.tsbuildinfo
 *.log
+*.tmp
+*.swp
+*.swo
 .artifacts/
 
 # Data and generated models stay local; keep the directory placeholders.
@@ -44,6 +50,7 @@ reports/data/local/
 **/local/samples.json
 **/local/file_profiles.json
 **/local/series_coverage.csv
+**/local/rejected_rows.csv
 *.pkl
 *.pickle
 *.joblib

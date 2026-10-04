@@ -10,6 +10,16 @@
 
 **Updated:** October 4, 2026 (Asia/Calcutta)
 
+## Day 3 status: complete
+
+The canonical cleaned CSV contains **39,630 rows across 229 separate series**, spanning **2024-01-01 through 2025-12-29** (704 observed dates). From 39,634 selected observations, the pipeline quarantined three invalid-price rows and removed one exact duplicate. Zero conflicting keys, invalid dates, numeric failures or missing identity rows were found. Commodity totals: Onion 12,666; Potato 13,000; Tomato 13,964. FAQ (36,440 rows) and Non-FAQ (2,977 rows) remain separate alongside the other source grades.
+
+The three invalid observations were inspected: Jamnagar Onion on 2024-02-07 has minimum price zero; Rajkot (Veg.Sub Yard) Potato on 2024-03-09 and Ahmedabad (Chimanbhai Patal Market Vasana) Potato on 2025-07-16 have maximum price zero. The latter two also violate price ordering. No corrected prices were invented. The exact duplicate is Gondal (Veg.market Gondal) APMC Tomato, Local grade, on 2025-12-28. All four exclusions retain original field values and source record references in the local audit.
+
+Verification: nine Day 3 tests and all 14 Day 2 regression tests pass. Independent output checks confirm positive ordered prices, valid dates, unique keys, deterministic sorting, row accounting and exactly the original 229 distinct series. Backend import, health handler, OpenAPI and docs smoke checks pass; frontend/backend and deployment files have no changes. Documentation links, ignore protections, Python compilation, dependency consistency and diff whitespace checks pass. The real pipeline ran twice; cleaned CSV, rejected-row CSV, JSON summary and Markdown report were byte-identical. Both original hashes match the Day 2 provenance before and after the rerun.
+
+Removed two obsolete setup guides and repaired their links; required files, framework-generated agent guidance, active runtime helpers, tests, configurations and raw data remain. No dependencies were added. See [Day 3](DAY_03.md), [cleaning summary](../reports/data/cleaning_summary.json) and [cleaning report](../reports/data/CLEANING_REPORT.md).
+
 ## Day 2 status: complete with an explicit history limitation
 
 The project state is **Gujarat**. The supplied real Kaggle files have been imported, profiled and documented. No observations were fabricated, production-cleaned, or silently merged. The original two-year same-series target is unmet; an explicitly provisional shorter-history scope is supplied instead.
@@ -162,12 +172,11 @@ The `/docs` page now hides its visible `/openapi.json` link, as requested. The s
 
 1. Start the services with [README.md](../README.md). Verification servers were stopped after checks to leave ports 3000 and 8000 free.
 2. Open the homepage and confirm **Backend connected**. Stop the backend, click **Retry connection**, confirm failure, then restart it and retry to confirm recovery. Inspect the browser Network panel for `/health`; inspect mobile and desktop layouts.
-3. Review changes and follow [GITHUB_SETUP.md](GITHUB_SETUP.md) to commit and push. No commit, push, or deployment was performed in this completion pass. Use your own actual commit email if Git needs one; none was invented.
-4. Follow [VERCEL_DEPLOYMENT.md](VERCEL_DEPLOYMENT.md) in Day 14; deployment is not performed today.
+The obsolete initial GitHub and future-deployment walkthroughs were removed during Day 3; the working deployments and local runtime instructions remain in README.
 
 ## Next task
 
-**Day 3: cleaning decisions.** Review the real-data duplicate/price flags and possible market-label changes, document any verified identity mapping and missing-date policy, then plan cleaning. No cleaning or model training has been done during Day 2.
+**Day 4: exploratory data analysis.** Use the canonical cleaned observations and inspect distributions, seasonal patterns and coverage within each exact series. See [Day 3](DAY_03.md) for cleaning rules and verification.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

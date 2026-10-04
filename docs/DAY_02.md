@@ -114,17 +114,7 @@ git check-ignore -v data/raw/2024.csv data/raw/2025.csv data/interim/example.csv
 
 The offline tests use only clearly labeled synthetic rows in temporary folders. They verify explicit dates, missing optional fields, duplicates/conflicts, price checks, gaps, units, provenance integrity, raw-directory discovery, chunk boundaries, filtering, shorter-history labeling, redaction and working-directory independence. Synthetic fixture statistics never enter the real-data report. See [PROGRESS.md](PROGRESS.md) for actual results.
 
-After reviewing the changes:
-
-```powershell
-git add .
-git diff --cached --name-only
-git diff --cached --stat
-git commit -m "Complete Day 2 Gujarat data import and profiling"
-git push origin main
-```
-
-Only code/config/docs, the tiny labeled synthetic fixture and compact aggregate reports should be staged. Bulk raw/intermediate/processed data, local samples, environments and credentials stay ignored. No commit/push was performed by this task. Use your own real Git commit email if one is required; none was invented.
+Bulk raw/intermediate/processed data, local samples, environments and credentials stay ignored. Compact aggregate reports retain the reproducible findings.
 
 ## Deployment and next step
 

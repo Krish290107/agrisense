@@ -25,7 +25,7 @@ The supplied Kaggle CSVs have been inspected. Their actual columns are `State`, 
 
 `Commodity Traded` is not mapped to arrivals: they are different measures. Other columns are retained and reported as unmapped. There are no invented rainfall, weather, soil, transport-cost or production fields.
 
-## Parsing is temporary, not cleaning
+## Day 2 profiling: parsing without cleaning
 
 - CSV bytes are copied unchanged. CSV parsing keeps every value as a string and retains blank records as missing-value rows. Different row widths, empty/duplicate headers, or ambiguous alias matches produce explicit errors instead of silently dropping data.
 - Missing markers for profiling are blank/whitespace, `NA`, `N/A`, `NULL`, `NaN`, `-`, and `--` (case-insensitive). Original marker strings remain untouched.
@@ -68,4 +68,10 @@ Weather, rainfall, soil, transport costs and production are only possible future
 
 The profile is restricted to Gujarat and exact Onion/Potato/Tomato labels. Full input row counts and Gujarat-wide commodity/date counts are reported separately before this filter. Quality metrics and all 229 detailed series refer to the filtered 39,634 rows. Import/profile reads are chunked; no full national dataframe is created for the default project scope. A caller explicitly choosing `--all-records` is responsible for enough memory.
 
-There are known price flags and one exact duplicate in this subset. They are retained for Day 3 decisions. Grade labels remain separate even when their observed periods differ; FAQ is never silently replaced by Non-FAQ. The shorter-history recommendation records its departure from the original 700-day target.
+The raw profile retains known price flags and one exact duplicate. Grade labels remain separate even when their observed periods differ; FAQ is never silently replaced by Non-FAQ. The shorter-history recommendation records its departure from the original 700-day target.
+
+## Day 3 canonical cleaned observations
+
+`data/processed/market_prices_clean.csv` uses `date`, the six series fields above, `min_price`, `modal_price`, `max_price`, `price_unit`, `source_sha256`, and `source_record`, in that order. Dates use ISO syntax. Valid price strings preserve exact decimal values; consumers should parse them numerically. `source_record` is the one-based CSV record number including the header (not a physical line number), and the hash identifies the immutable source bundle. `Commodity_Code` stays available in that original source and in rejected-row audit payloads; no arrivals are added.
+
+Unlike the permissive raw profiler, cleaning requires all six identity columns and rejects missing identity values, including unknown variety/grade. Only whitespace is normalized in categories. Prices must be finite decimals satisfying `0 < min_price <= modal_price <= max_price`; the source-declared unit must be INR/quintal without conflicting row units. Rejected rows retain original field strings in `raw_values` within the ignored local audit. Candidate-key conflicts are quarantined before duplicate removal, including otherwise-valid siblings. Exact copies keep the lowest source hash/record; nonconflicting equivalent keys keep one deterministic copy and are counted separately. No calendar rows, corrected prices, feature columns or forecasts are created. See [Day 3](DAY_03.md).

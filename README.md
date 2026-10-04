@@ -6,7 +6,7 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds local CSV import, provenance, quality checks and a Gujarat scope recommendation using the supplied Kaggle files. Forecasting, training, production cleaning and a database remain later-day work.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning and rejected-row auditing. Forecasting, training and a database remain later-day work.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
 
@@ -148,12 +148,11 @@ If the frontend starts on port 3001 because 3000 is busy, stop the conflicting s
 - [Day 2 import, profiling and commands](docs/DAY_02.md)
 - [Data sources and provenance](docs/DATA_SOURCES.md)
 - [Data dictionary and future prediction rules](docs/DATA_DICTIONARY.md)
-- [Commit and GitHub upload](docs/GITHUB_SETUP.md)
-- [Future two-project Vercel deployment](docs/VERCEL_DEPLOYMENT.md)
+- [Day 3 cleaning rules and command](docs/DAY_03.md)
 - [Progress and verification evidence](docs/PROGRESS.md)
 - [Day 1 presentation notes](docs/DAY_01_PRESENTATION.md)
 
-The raw CSVs and immutable imports remain local and ignored. `tests/` contains synthetic tool-verification inputs only. `ml/`, `notebooks/`, `database/`, `data/interim/`, `data/processed/`, and `.github/workflows/` reserve space for future work.
+The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests/` contains synthetic tool-verification inputs only. `ml/`, `notebooks/`, `database/`, `data/interim/`, and `.github/workflows/` reserve space for future work.
 
 ## Roadmap
 
@@ -172,4 +171,4 @@ The raw CSVs and immutable imports remain local and ignored. `tests/` contains s
 13. tests and refresh
 14. deployment and presentation
 
-Days 1 and 2 are implemented. Day 3 cleaning decisions are next; full two-year per-series coverage remains a documented data limitation.
+Days 1–3 are implemented. Day 4 exploratory analysis is next; full two-year per-series coverage remains a documented data limitation.
