@@ -8,7 +8,19 @@
 
 **GitHub repository:** https://github.com/Krish290107/agrisense
 
-**Updated:** October 4, 2026 (Asia/Calcutta)
+**Updated:** October 5, 2026 (Asia/Calcutta)
+
+## Day 4 status: complete — EDA and historical baseline readiness
+
+Analyzed all **39,630 rows, 229 series, 81 district-market combinations, 22 districts**, covering 2024-01-01 through 2025-12-29. Ten figures and deterministic aggregate tables accompany the [EDA report](../reports/data/EDA_REPORT.md). Median modal prices are Onion 1,607.5, Potato 1,600 and Tomato 2,000 INR/quintal; pooled Tomato variability is highest. These are descriptive comparisons, not joined forecasting targets.
+
+Readiness is **53 eligible, 30 limited, 146 insufficient**. The median series has 14 observations; the largest internal missing-calendar gap is 425 days. A transparent shorter-history screen uses 365 observations, 600-day span, 50% density, maximum 45-day internal gap and recency within 60 days of dataset end. No long-history series passes a 30-day recency screen. This supports historical evaluation only, not current-price forecasting.
+
+Nine exact candidates, three per commodity, are listed in [forecast_candidates.csv](../reports/data/forecast_candidates.csv): Dahod (Veg. Market) and Bilimora for all three commodities, Kapadvanj for Onion/Potato, and Navsari for Tomato. Variety and grade are explicit in each row. A conservative within-series outer-IQR screen flags 88 observations across 19 series without deleting them; 123 short/constant series are not screened.
+
+Reproduce with `.\.venv\Scripts\python.exe scripts/run_eda.py`. Existing pandas/NumPy/Matplotlib installations were reused; no downloads were needed. Redundant comments were removed or shortened while preserving provenance, integrity and generated tooling explanations. No additional files were safe/necessary to delete; existing ignore rules already protect local outlier audits. No features, splits, models, API/UI behavior or deployment changes were introduced.
+
+Verification: all five Day 4 tests and 23 Day 2/3 regression tests pass. Two final real-data runs produce byte-identical results across all 19 artifacts (nine tables/reports including the local audit, plus ten PNGs). Source CSV hashes still match provenance; the canonical cleaned CSV and Day 2/3 artifacts are unchanged. Figures were visually inspected, with gap/history counts shown as explicit categories and boxplot whiskers distinguished from the audit's outlier rule. Independent checks confirm row conservation, all 229 identities, nine eligible candidates and outlier accounting. Frontend type checking, backend import/health/schema/docs smoke checks, dependency consistency, compilation, documentation links and Git ignore/whitespace checks pass. Existing tracked Python files retain identical executable ASTs after comment cleanup.
 
 ## Day 3 status: complete
 
@@ -176,7 +188,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Day 4: exploratory data analysis.** Use the canonical cleaned observations and inspect distributions, seasonal patterns and coverage within each exact series. See [Day 3](DAY_03.md) for cleaning rules and verification.
+**Day 5: historical forecasting baselines.** Define chronological evaluation and observation-step/calendar-day horizons for the exact Day 4 candidates before comparing simple baselines.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

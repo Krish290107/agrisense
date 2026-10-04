@@ -73,7 +73,6 @@ export function BackendStatus() {
       controller.abort();
     }, TIMEOUT_MS);
 
-    // This effect runs only in the browser, never during the production build.
     requestHealth(controller.signal)
       .then(() => {
         if (active) setConnection({ status: "connected" });

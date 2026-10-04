@@ -35,7 +35,6 @@ def clean_unit(values: pd.Series) -> pd.Series:
 def prepare_file(data: bytes | pd.DataFrame, meta: dict, date_format: str | None) -> tuple:
     raw = data if isinstance(data, pd.DataFrame) else load_csv(data, meta["encoding"], meta["delimiter"])
     mapping = column_mapping(list(raw.columns), meta["column_mapping"])
-    # Reject header/mapping drift rather than make a different interpretation.
     if list(raw.columns) != meta["original_headers"] or len(raw) != meta["row_count"]:
         raise ValueError("Raw file shape differs from its provenance.")
     temporary = pd.DataFrame(index=raw.index)
@@ -67,8 +66,7 @@ def prepare_file(data: bytes | pd.DataFrame, meta: dict, date_format: str | None
         temporary[f"effective_{field}"] = observed.fillna(declared) if declared_known else observed
         temporary[f"{field}_declaration_conflict"] = (observed.notna() & observed.ne(declared)) if declared_known else False
     temporary["source_sha256"] = meta["sha256"]
-    # Exact duplicate means equal original headers and string field values;
-    # formatting in the immutable CSV bytes is still preserved separately.
+    # Exact duplicates use original headers and field strings.
     ordered_headers = sorted(raw.columns)
     temporary["raw_signature"] = [
         digest(json.dumps([ordered_headers, list(row)], ensure_ascii=False).encode("utf-8"))
@@ -226,7 +224,6 @@ def scope_recommendation(series: list[dict], kind: str, policy: dict | None = No
                      "supports_desired_scope": len(chosen_commodities) == policy["desired_commodities"]
                         and len(selected) >= policy["min_combinations"]}
         candidates.append(candidate)
-    # The user's required state takes precedence over geographic preferences.
     candidates.sort(key=lambda c: (not c["supports_desired_scope"],
                                   c["state"].casefold() != policy["preferred_state"].casefold(),
                                   -len(c["selected_series"]), c["state"], c["price_unit"]))

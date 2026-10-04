@@ -102,8 +102,7 @@ def missing(series: pd.Series) -> pd.Series:
 def load_csv(data: bytes, encoding: str = "utf-8-sig", delimiter: str = ",") -> pd.DataFrame:
     if len(delimiter) != 1:
         raise ValueError("Delimiter must be exactly one character.")
-    # Parse every field as text, including NA markers and leading zeroes. Validate
-    # width explicitly; pandas must not silently infer an index or drop bad rows.
+    # Preserve NA markers/leading zeroes and reject bad widths without pandas inference.
     try:
         rows = list(csv.reader(io.StringIO(data.decode(encoding), newline=""),
                                delimiter=delimiter, strict=True))

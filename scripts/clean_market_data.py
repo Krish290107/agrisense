@@ -90,7 +90,6 @@ def date_range(frame):
 
 def clean_observations(observations):
     frame = observations.copy().sort_values(["source_sha256", "source_record"], kind="stable").reset_index(drop=True)
-    # All required categories stay distinct; missing identities are quarantined.
     for field in SERIES_FIELDS:
         frame[field] = normalize(frame[field].fillna(""))
     frame["date"] = frame["parsed_date"].dt.strftime("%Y-%m-%d").fillna("")
@@ -112,7 +111,6 @@ def clean_observations(observations):
         "invalid_price_unit": ~frame["price_unit"].eq("INR/quintal") | frame["price_unit_declaration_conflict"],
     }
     # Detect conflicts BEFORE removing invalid observations or exact copies.
-    # Reuse Day 2's conservative raw price/arrivals/unit payload signature.
     identifiable = ~flags["invalid_date"] & ~flags["missing_identity"]
     conflict = pd.Series(False, index=frame.index)
     business = frame.loc[identifiable]

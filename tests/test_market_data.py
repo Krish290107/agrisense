@@ -58,7 +58,7 @@ class MarketDataTests(unittest.TestCase):
         self.assertEqual(keys["rows_in_conflicting_keys"], 3)
         self.assertEqual(report["price_order_violation_rows"], 1)
         self.assertEqual(report["nonpositive_prices"]["min_price"], 1)
-        self.assertEqual(len(series), 3)  # district and unknown variety stay separate
+        self.assertEqual(len(series), 3)
         main = next(s for s in series if s["series"]["district"] == "TEST District A" and s["series"]["variety"])
         self.assertEqual(main["observation_days"], 3)
         self.assertEqual(main["calendar_span_days"], 4)

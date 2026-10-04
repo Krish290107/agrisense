@@ -6,9 +6,11 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning and rejected-row auditing. Forecasting, training and a database remain later-day work.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds price/coverage analysis, figures and historical baseline candidates. Forecasting, training and a database remain later-day work.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
+
+Reproduce Day 4 using `.\.venv\Scripts\python.exe scripts/run_eda.py`. Results are in `reports/data/`; ten figures are in `reports/figures/`. [Series readiness](reports/data/series_readiness.csv) and [candidate identities](reports/data/forecast_candidates.csv) preserve markets, varieties and grades separately.
 
 ## Day 2: reproduce the real-data profile
 
@@ -171,4 +173,4 @@ The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests
 13. tests and refresh
 14. deployment and presentation
 
-Days 1–3 are implemented. Day 4 exploratory analysis is next; full two-year per-series coverage remains a documented data limitation.
+Days 1–4 are implemented. Day 5 historical forecasting baselines are next; full two-year per-series coverage remains a documented data limitation.
