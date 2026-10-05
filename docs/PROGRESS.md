@@ -8,7 +8,23 @@
 
 **GitHub repository:** https://github.com/Krish290107/agrisense
 
-**Updated:** October 5, 2026 (Asia/Calcutta)
+**Updated:** October 6, 2026 (Asia/Calcutta)
+
+## Day 11 status: dashboard implemented — visual verification pending
+
+Replaced the landing-page hero, milestone and planned-feature sections with a real forecast dashboard. API-driven commodity/market selectors, compact health status, next-observation generation, modal-price chart, recent observations and saved forecasts are connected. No forecast is generated on page load. Exact identities, history cutoffs, fallback and null unavailable results are preserved. The frontend adds no forecast calculations or dependencies.
+
+Typecheck, lint and production build pass; seven frontend contract/client tests and all 85 Python regression tests pass. The real frontend API module verified nine supported series, 30-record histories for Dahod Onion/Potato and predictions displayed as ₹1,442.86/₹1,428.57. Two real forecast rows were saved and reused on repeat requests. Historical data, policy, backend code and CORS remain unchanged during Day 11.
+
+Desktop/tablet/mobile CSS and accessibility states are implemented, but browser interaction and visual review could not run: the browser connector had no available browsers and the Windows helper's native pipe was unavailable. Do not treat this as a visual pass. See [Day 11 verification](DAY_11.md).
+
+## Day 10 status: complete — next-observation forecast service and API
+
+Added HTTP-independent baseline forecasting and typed `/api/v1/forecast` routes for supported-series discovery, recent observations, generation and stored history. All nine active policies remain: seven naive and two rolling mean 7. Results identify next-observation semantics, decimal-string prices, method/fallback, used-history cutoff and historical benchmark context. Missing history returns null; unsupported series cannot acquire an arbitrary forecast method. No production ML or frontend changes.
+
+Successful forecasts persist with a deterministic history/policy/request fingerprint; concurrent equivalent requests reuse one saved row. Added optional existing-file/read-only connection modes and immediate transactions to the repository without changing schema or default importer behavior. Health remains unchanged; configured CORS origins remain, with POST added. Missing/uninitialized storage fails clearly instead of creating an empty database. No new dependencies or downloads.
+
+**14 focused and 71 regression tests passed (85 total).** Read-only calculations verified all nine real candidates; GET smoke checks verified discovery/history/stored history, health and OpenAPI. The real database stays byte-identical with zero forecast records; persistence tests use isolated databases. Ninety protected historical paths remain unchanged. Day 9 reports and original implementation hashes remain historical records; the repository's small Day 10 extension is documented separately. See [Day 10](DAY_10.md) and the [API report](../reports/data/FORECAST_API_REPORT.md).
 
 ## Day 9 status: complete — local database and persistence
 
@@ -244,7 +260,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Day 10: forecast service and prediction API.** Build service logic and FastAPI endpoints on top of the persistence layer, preserving exact series identities and explicit insufficient-history states.
+**Finish Day 11 visual verification**, then **Day 12: evidence-based market decision support** on top of the integrated dashboard.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

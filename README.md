@@ -6,7 +6,7 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological forecasting benchmarks. [Day 6](reports/data/FEATURE_ENGINEERING_REPORT.md) prepares historical features. [Day 7](reports/data/ML_MODEL_REPORT.md) evaluates classical ML: the simple baselines remain better on all nine test series. Day 8 freezes the forecast policy; [Day 9](docs/DAY_09.md) adds local persistence. Production prediction endpoints remain later-day work.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological forecasting benchmarks. [Day 6](reports/data/FEATURE_ENGINEERING_REPORT.md) prepares historical features. [Day 7](reports/data/ML_MODEL_REPORT.md) evaluates classical ML: the simple baselines remain better on all nine test series. Day 8 freezes the policy; [Day 9](docs/DAY_09.md) adds persistence; [Day 10](docs/DAY_10.md) exposes next-observation forecasts through FastAPI. Dashboard integration follows on Day 11.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
 
@@ -164,6 +164,8 @@ The raw CSVs, immutable imports, cleaned CSV, generated model bundle and SQLite 
 
 ## Roadmap
 
+[Day 11 dashboard](docs/DAY_11.md) now connects real market selection, recent prices, next-observation forecasts and saved forecast history. Typecheck, lint, build and API-client integration pass. Interactive desktop/mobile visual verification remains pending because browser automation was unavailable; the detailed verification record distinguishes completed checks from this limitation.
+
 1. setup
 2. real data
 3. cleaning
@@ -179,8 +181,10 @@ The raw CSVs, immutable imports, cleaned CSV, generated model bundle and SQLite 
 13. tests and refresh
 14. deployment and presentation
 
-Days 1–9 are implemented. [Day 8 robustness evaluation](reports/data/ROBUSTNESS_EVALUATION_REPORT.md) retains seven naive and two rolling-mean-7 series in the [forecast policy](configs/forecast_policy.json). Three chronological blocks per series give MAE **119.55 versus 135.86 INR/quintal** for block-refitted ML. These reuse previously examined historical dates; they are not a new untouched holdout. ML remains experimental. Full two-year per-series coverage remains a documented limitation.
+Days 1–10 are implemented. [Day 8 robustness evaluation](reports/data/ROBUSTNESS_EVALUATION_REPORT.md) retains seven naive and two rolling-mean-7 series in the [forecast policy](configs/forecast_policy.json). Three chronological blocks per series give MAE **119.55 versus 135.86 INR/quintal** for block-refitted ML. These reuse previously examined historical dates; they are not a new untouched holdout. ML remains experimental. Full two-year per-series coverage remains a documented limitation.
 
 Day 8 entry point: `.\.venv\Scripts\python.exe scripts/evaluate_robustness.py`. The [Day 8 guide](docs/DAY_08.md) describes artifacts, fallback behavior and verification.
 
-[Day 9 persistence](docs/DAY_09.md) uses standard-library SQLite. Run `.\.venv\Scripts\python.exe scripts/init_database.py` to initialize and idempotently import the canonical artifacts into the ignored local `data/agrisense.db`. It contains **39,630 observations, 229 exact series, nine policies, one experimental model bundle and 405 evaluation summaries**. Forecast storage remains empty. Price text is preserved exactly; repository queries return chronological histories and the unchanged policy. The [database report](reports/data/DATABASE_REPORT.md) records constraints and verification. Day 10 will add forecast-service logic and prediction endpoints; existing frontend/backend behavior is unchanged.
+[Day 9 persistence](docs/DAY_09.md) uses standard-library SQLite. Run `.\.venv\Scripts\python.exe scripts/init_database.py` to initialize and idempotently import the canonical artifacts into the ignored local `data/agrisense.db`. It contains **39,630 observations, 229 exact series, nine policies, one experimental model bundle and 405 evaluation summaries**. Price text is preserved exactly; repository queries return chronological histories and the unchanged policy. The [database report](reports/data/DATABASE_REPORT.md) records constraints and verification.
+
+[Day 10 API](reports/data/FORECAST_API_REPORT.md) provides supported-series discovery, bounded price history, persisted forecast generation and saved forecast history under `/api/v1/forecast`. Responses explicitly describe **next-observation estimates**, with decimal-string prices and safe fallback/unavailable states. Equivalent retries reuse saved results. Health and configured CORS origins remain intact; POST is allowed for generation. All 85 tests pass, and non-persisting real-data checks left the database unchanged with zero forecasts. Day 11 will connect the dashboard. Local SQLite is not durable serverless storage.

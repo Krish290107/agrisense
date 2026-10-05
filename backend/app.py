@@ -1,13 +1,17 @@
-"""AgriSense's Day 1 API and environment configuration."""
+"""AgriSense health and next-observation forecast API."""
 
 import os
 from pathlib import Path
+import sys
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.responses import HTMLResponse
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from backend.forecast_api import router as forecast_router
 
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env", override=False)
@@ -21,7 +25,7 @@ allowed_origins = [
 
 app = FastAPI(
     title="AgriSense API",
-    description="Agricultural Price Forecasting and Market Decision Support. Day 1 health API.",
+    description="Agricultural Price Forecasting and Market Decision Support. Next-observation estimates from validated baseline policies.",
     version="0.1.0",
     docs_url=None,
 )
@@ -30,9 +34,11 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["Accept", "Content-Type"],
 )
+
+app.include_router(forecast_router)
 
 
 @app.get("/docs", include_in_schema=False)

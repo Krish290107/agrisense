@@ -77,11 +77,14 @@ def database_path(url=None):
 
 
 class Repository:
-    def __init__(self, url=None):
+    def __init__(self, url=None, *, must_exist=False, read_only=False):
         self.path = database_path(url)
-        if isinstance(self.path, Path):
+        if (must_exist or read_only) and not isinstance(self.path, Path):
+            raise ValueError("Existing-database mode requires a file-backed SQLite database")
+        if isinstance(self.path, Path) and not (must_exist or read_only):
             self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.connection = sqlite3.connect(str(self.path), timeout=30, isolation_level=None)
+        location = self.path.resolve().as_uri() + ("?mode=ro" if read_only else "?mode=rw") if must_exist or read_only else str(self.path)
+        self.connection = sqlite3.connect(location, uri=must_exist or read_only, timeout=30, isolation_level=None)
         self.connection.row_factory = sqlite3.Row
         self.connection.execute("PRAGMA foreign_keys = ON")
         for name, count, function in [("decimal_positive", 1, decimal_positive), ("decimal_le", 2, decimal_le),
@@ -95,7 +98,19 @@ class Repository:
         self.connection.close()
 
     @contextmanager
-    def transaction(self):
+    def transaction(self, *, immediate=False):
+        if immediate:
+            if self.connection.in_transaction:
+                raise ValueError("An immediate transaction must be outermost")
+            self.connection.execute("BEGIN IMMEDIATE")
+            try:
+                yield
+            except BaseException:
+                self.connection.rollback()
+                raise
+            else:
+                self.connection.commit()
+            return
         self.connection.execute("SAVEPOINT operation")
         try:
             yield
