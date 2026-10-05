@@ -10,6 +10,16 @@
 
 **Updated:** October 5, 2026 (Asia/Calcutta)
 
+## Day 8 status: complete — robustness evaluation and frozen policy
+
+Reconstructed all 126 baseline metric rows and 540 ML predictions within numeric tolerance. A nonwinning Bilimora Onion validation rank tie changes order after CSV roundtrip; original ranks and all historical artifacts remain intact. Evaluated three chronological 20-observation blocks per exact series (27 origins, 540 targets), with all seven baseline methods, original fixed ML and block-refitted frozen ML configurations. No new dependencies, tuning, API or frontend changes.
+
+Retained baseline MAE is **119.55 INR/quintal**, against **135.86** for block-refitted ML; baseline wins all nine series and all three pooled blocks. ML wins three individual series-block comparisons and reduces shock/long-gap error, so superiority is not universal. Tomato remains the hardest commodity. The 46 shock observations account for 31.2% of baseline absolute error. Long-gap estimates have only 17 observations.
+
+The reloadable `configs/forecast_policy.json` retains seven naive series and two rolling-mean-7 series. Invalid/missing trailing history falls back to the last valid observation; no valid history yields explicit insufficient_history with null prediction. Unknown identities are rejected explicitly. All 540 historical policy predictions reproduce after reload. ML remains experimental, preserved for research. No uncertainty bands are claimed without an independent calibration period.
+
+Nine focused tests and 52 prior regression tests pass. Eight figures and new evaluation tables/report are in `reports/figures/evaluation/` and `reports/data/`. Full real-data rerun and historical hash checks are described in [Day 8](DAY_08.md). Existing test dates were already examined: the robustness blocks are descriptive evidence, not fresh independent validation.
+
 ## Day 7 status: complete — ML validation and honest baseline comparison
 
 Evaluated five scikit-learn families with seven modest configurations per exact series: Ridge alpha 1/10, Random Forest (100 trees, depth 6, leaf 3/8), Extra Trees (100 trees, depth 6, leaf 3), Gradient Boosting (100 trees, learning rate .05, depth 2, leaf 8), and HistGradientBoosting (100 iterations, .05 learning rate, 15 leaves, minimum leaf 15, L2=1, no early stopping). Scikit-learn 1.9.1 was installed in the existing environment and `scikit-learn>=1.6` was added to requirements-data.txt; no external dataset or manual download was needed.
@@ -226,7 +236,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Day 8: rigorous evaluation and robustness analysis.** Investigate validation-supported model behavior and final selection while preserving Day 5/7 results and acknowledging reuse of the historical test period.
+**Day 9: persistence/database layer.** Store market data, forecasts, the frozen forecasting policy and model/evaluation metadata.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

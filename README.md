@@ -179,4 +179,6 @@ The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests
 13. tests and refresh
 14. deployment and presentation
 
-Days 1–7 are implemented. Day 8 robustness analysis is next; ML has not beaten the baselines and full two-year per-series coverage remains a documented data limitation.
+Days 1–8 are implemented. [Day 8 robustness evaluation](reports/data/ROBUSTNESS_EVALUATION_REPORT.md) retains seven naive and two rolling-mean-7 series in the [forecast policy](configs/forecast_policy.json). Three chronological blocks per series give MAE **119.55 versus 135.86 INR/quintal** for block-refitted ML. These reuse previously examined historical dates; they are not a new untouched holdout. ML remains experimental. Full two-year per-series coverage remains a documented limitation.
+
+Day 8 entry point: `.\.venv\Scripts\python.exe scripts/evaluate_robustness.py`. The [Day 8 guide](docs/DAY_08.md) describes artifacts, fallback behavior and verification. Day 9 is the persistence/database layer; frontend/backend behavior is unchanged.

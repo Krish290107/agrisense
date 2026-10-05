@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "evaluation_version": "day8-v1",
+  "unit": "INR/quintal",
+  "horizon": "next observed record",
+  "selection_basis": "Retain Day 5 validation-selected per-series choices; no test-driven reselection",
+  "ml_status": "experimental_not_selected",
+  "fallback_status": "fallback",
+  "unknown_identity": "unrecognized_series",
+  "empty_history": "insufficient_history",
+  "series": [
+    {
+      "series_id": "240bef14621574cd",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Dahod",
+        "market": "Dahod (Veg. Market)",
+        "commodity": "Onion",
+        "variety": "Onion",
+        "grade": "FAQ"
+      },
+      "selected_method": "rolling_mean_7",
+      "window": 7,
+      "minimum_history": 7,
+      "fallback_method": "naive",
+      "benchmark_mae": 185.952380952381,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "314b4dfffac5b7bc",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Dahod",
+        "market": "Dahod (Veg. Market)",
+        "commodity": "Potato",
+        "variety": "Potato",
+        "grade": "FAQ"
+      },
+      "selected_method": "rolling_mean_7",
+      "window": 7,
+      "minimum_history": 7,
+      "fallback_method": "naive",
+      "benchmark_mae": 85.0,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "518f332aced6b913",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Dahod",
+        "market": "Dahod (Veg. Market)",
+        "commodity": "Tomato",
+        "variety": "Tomato",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 240.0,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "a71c104fe631e8bb",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Kheda",
+        "market": "Kapadvanj",
+        "commodity": "Onion",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 23.3333333333333,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "d6e713530bb54f8c",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Kheda",
+        "market": "Kapadvanj",
+        "commodity": "Potato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 30.8333333333333,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "106cbf2f08373602",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Navsari",
+        "market": "Bilimora",
+        "commodity": "Onion",
+        "variety": "Nasik",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 31.6666666666667,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "deff683fe4455392",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Navsari",
+        "market": "Bilimora",
+        "commodity": "Potato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 40.0,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "f17a4491dc2d8470",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Navsari",
+        "market": "Bilimora",
+        "commodity": "Tomato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 148.333333333333,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    },
+    {
+      "series_id": "a756f343bb8d8ca0",
+      "identity": {
+        "state": "Gujarat",
+        "district": "Navsari",
+        "market": "Navsari",
+        "commodity": "Tomato",
+        "variety": "Other",
+        "grade": "FAQ"
+      },
+      "selected_method": "naive",
+      "window": null,
+      "minimum_history": 1,
+      "fallback_method": "naive",
+      "benchmark_mae": 290.833333333333,
+      "evaluation_version": "day8-v1",
+      "status": "selected"
+    }
+  ]
+}
