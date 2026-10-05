@@ -6,13 +6,17 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological statistical forecasting benchmarks. Advanced ML, production predictions and a database remain later-day work.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological forecasting benchmarks. [Day 6](reports/data/FEATURE_ENGINEERING_REPORT.md) prepares historical features. [Day 7](reports/data/ML_MODEL_REPORT.md) evaluates classical ML: the simple baselines remain better on all nine test series. Production predictions and a database remain later-day work.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
 
 Reproduce Day 4 using `.\.venv\Scripts\python.exe scripts/run_eda.py`. Results are in `reports/data/`; ten figures are in `reports/figures/`. [Series readiness](reports/data/series_readiness.csv) and [candidate identities](reports/data/forecast_candidates.csv) preserve markets, varieties and grades separately.
 
 Reproduce Day 5 using `.\.venv\Scripts\python.exe scripts/run_baselines.py`. [Selected baselines](reports/data/best_baselines.csv) are chosen on validation and scored on later test observations; [fixed evaluation boundaries](reports/data/baseline_splits.csv) support future comparisons. The benchmark refuses silent replacement after its inputs, policy or implementation change.
+
+Reproduce Day 6 using `.\.venv\Scripts\python.exe scripts/build_features.py`. The local `data/processed/forecast_features.csv` contains 5,091 rows across the unchanged evaluation regions. [Feature metadata](reports/data/feature_metadata.json) lists 27 features: 21 strictly historical and six requiring a known target date. Use the historical-only list to preserve Day 5's original information constraints.
+
+Day 7 entry point: `.\.venv\Scripts\python.exe scripts/train_models.py`. Completed results are verified/reused without retuning or rescoring the test. [ML comparison](reports/data/ml_baseline_comparison.csv) records macro test MAE **136.20 versus 119.55 INR/quintal** for Day 5. The local `ml/models/agrisense_price_model.joblib` bundle contains nine validation-selected pipelines; metadata and limitations are in the [model report](reports/data/ML_MODEL_REPORT.md).
 
 ## Day 2: reproduce the real-data profile
 
@@ -175,4 +179,4 @@ The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests
 13. tests and refresh
 14. deployment and presentation
 
-Days 1–5 are implemented. Day 6 historical feature engineering is next; full two-year per-series coverage remains a documented data limitation.
+Days 1–7 are implemented. Day 8 robustness analysis is next; ML has not beaten the baselines and full two-year per-series coverage remains a documented data limitation.

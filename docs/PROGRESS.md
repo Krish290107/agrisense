@@ -10,6 +10,32 @@
 
 **Updated:** October 5, 2026 (Asia/Calcutta)
 
+## Day 7 status: complete — ML validation and honest baseline comparison
+
+Evaluated five scikit-learn families with seven modest configurations per exact series: Ridge alpha 1/10, Random Forest (100 trees, depth 6, leaf 3/8), Extra Trees (100 trees, depth 6, leaf 3), Gradient Boosting (100 trees, learning rate .05, depth 2, leaf 8), and HistGradientBoosting (100 iterations, .05 learning rate, 15 leaves, minimum leaf 15, L2=1, no early stopping). Scikit-learn 1.9.1 was installed in the existing environment and `scikit-learn>=1.6` was added to requirements-data.txt; no external dataset or manual download was needed.
+
+All 27 features were inspected; the 21 historical-only features were used. Six target-date features were excluded to preserve Day 5's unknown-next-report-date information contract. Exact-series models avoid cross-market temporal leakage: nominal validation/test periods overlap across markets, making a single all-row pooled fit/selection unsafe without a different synchronized evaluation design. All existing splits remain unchanged: **4,011 train / 540 validation / 540 test**. Identity encoding and Ridge scaling fit on each allowed training region only.
+
+Validation-only selection yields Ridge alpha 10 for four series, Ridge alpha 1 for one, Random Forest leaf 8 for two, Random Forest leaf 3 for one, and Extra Trees for one. Selected macro validation MAE is **147.59**, mean per-series RMSE 214.75 INR/quintal. Selection was repeated deterministically, frozen before test, then each selected pipeline was refitted on its own train+validation history (4,551 total rows). All fit dates precede the corresponding series' test start; weights stay fixed while historical inputs update one observed step at a time.
+
+**ML did not beat the simple baselines.** ML macro test MAE **136.20** versus Day 5 **119.55** gives improvement **−16.65 INR/quintal (−13.93%)**. ML wins **0/9**, baseline wins **9/9**, ties **0/9**. Mean per-series RMSE is 192.70; pooled RMSE is 225.51 and pooled sMAPE 8.69%. Commodity MAE (ML vs baseline): Onion 101.72 vs 80.32; Potato 68.49 vs 51.94; Tomato 238.38 vs 226.39. The worst absolute deterioration is Bilimora Potato (+38.63); the smallest is Dahod Potato (+3.75). Navsari Tomato's largest shock miss falls from 2,000 to 1,494.91, but its overall MAE still worsens. No test-driven retuning or switching to baselines was performed.
+
+The [ML report](../reports/data/ML_MODEL_REPORT.md), [comparison](../reports/data/ml_baseline_comparison.csv), frozen selection, validation scores and model metadata record the evidence. Nine figures were visually inspected. The saved local `ml/models/agrisense_price_model.joblib` bundle includes preprocessing and nine exact-series models; reload reproduces all 540 test predictions. Top normalized explanatory features: modal lag 1, rolling median 3, rolling mean 3, rolling mean 7, modal lag 2. These model-specific importance measures are not causal feature rankings or test-based selections.
+
+All **seven Day 7 tests and 45 regression tests pass**. Independent checks verify exact test identities/dates, metrics, baseline joins, validation-only selections, fit-only scaler statistics/categories, finite predictions and reload equality. Re-running from another directory verifies byte-identical stored artifacts without retraining/rescoring. Dependencies, compilation, report links and ignore protections pass. Every prior report, figure, local audit, raw source hash, cleaned dataset and feature dataset remains unchanged; no files were removed. Existing ignored paths cover the model and prediction rows.
+
+The historical test had already been examined in earlier days, so it is not a pristine project-wide holdout despite Day 7's isolated selection. Cohort selection, limited/stale history and unknown publication timing also limit generalization. Keep these negative results unchanged; Day 8 should study robustness and validation-supported choices without presenting repeated test optimization as independent evidence.
+
+## Day 6 status: complete — causal historical features
+
+Processed all nine exact candidate series: **5,154 observations → 5,091 usable rows**, removing only the first seven training rows per series (63 total). Output regions contain **4,011 train / 540 validation / 540 test rows**. All 1,080 Day 5 validation/test identities, dates and target values match the immutable baseline predictions exactly. The [feature report](../reports/data/FEATURE_ENGINEERING_REPORT.md), [metadata](../reports/data/feature_metadata.json) and [summary](../reports/data/feature_summary.json) document the local `data/processed/forecast_features.csv`.
+
+The 27 features cover observation lags, shifted rolling mean/median, historical volatility/range, previous changes, expanding statistics, prior min/max/spread, completed historical gaps and calendar/timing fields. No same-row target/min/max enters the explicit feature list. Twenty-one features require only historical records; six additionally assume the target date is known. That date-known assumption is new relative to Day 5's unknown next reporting date, so strict benchmark-information comparisons should use the historical-only list. Full-feature results must disclose the extra date information.
+
+All **nine Day 6 tests and 36 regression tests pass**. Tests cover exact formulas, irregular dates, separated markets/varieties/grades, missing warm-up history, fixed splits, deterministic ordering and current/future-price mutations. Independent prefix reconstruction verifies every feature across all 5,091 retained rows. This check exposed incremental rolling-variance residuals on constant windows; short-window sample standard deviation now recomputes directly, correctly returning genuine zero variance without filling unavailable values. Retained features contain no missing/infinite values.
+
+The real pipeline ran twice; all five artifacts were byte-identical, including a run from another working directory. Original raw hashes still match provenance, and canonical cleaned data plus every existing Day 2–5 report, figure and local audit are unchanged. No dependencies were added, no models or correlations were fitted, no missing observations were generated, and no files were removed. Feature definitions were not optimized against test scores. Supervised ML loses early warm-up rows while preserving all baseline evaluation targets; later modeling must keep training/preprocessing/tuning chronological.
+
 ## Day 5 status: complete — statistical baselines and chronological backtesting
 
 Evaluated all nine exact Day 4 candidates with seven univariate baselines: naive, historical mean/median, rolling means over 3/5/7 observations, and rolling median over 5 observations. Each series retains 406–513 initial observations, followed by 60 validation and 60 test records. Expanding-history evaluation produces **7,560 forecast comparisons**: 3,780 validation and 3,780 test, covering 1,080 distinct series/date targets. Forecast horizon is the next observed record, with no calendar filling.
@@ -200,7 +226,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Day 6: historical feature engineering.** Build per-series features using only information available before each target and test against leakage while preserving the Day 5 benchmark.
+**Day 8: rigorous evaluation and robustness analysis.** Investigate validation-supported model behavior and final selection while preserving Day 5/7 results and acknowledging reuse of the historical test period.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

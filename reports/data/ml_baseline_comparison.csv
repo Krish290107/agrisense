@@ -1,0 +1,10 @@
+state,district,market,commodity,variety,grade,series_id,test_observations,model,config_id,baseline_name,baseline_mae,ml_mae,ml_rmse,ml_smape,absolute_improvement,percentage_improvement,winner
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,60,ExtraTrees,extra_trees,rolling_mean_7,185.952380952381,197.540179068217,237.937323158615,15.9633567713422,-11.5877981158364,-6.23159437727435,baseline
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,60,RandomForest,rf_leaf8,rolling_mean_7,85,88.7518809707896,119.344926138182,6.95077016472248,-3.75188097078959,-4.41397761269363,baseline
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,60,Ridge,ridge_10,naive,240,249.012339974771,331.193373124024,15.9062584724973,-9.01233997477084,-3.75514165615452,baseline
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,60,Ridge,ridge_10,naive,23.3333333333333,46.8133449635734,73.1726574187851,3.78466473147319,-23.4800116302401,-100.628621272457,baseline
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,60,Ridge,ridge_1,naive,30.8333333333333,38.0891366236683,91.1339008100622,3.03499468215961,-7.25580329033498,-23.532334995681,baseline
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,60,RandomForest,rf_leaf8,naive,31.6666666666667,60.8178205763265,90.7684589122285,4.57085162867558,-29.1511539096599,-92.056275504189,baseline
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,60,RandomForest,rf_leaf3,naive,40,78.6282757006025,124.724758606293,4.0144423823975,-38.6282757006025,-96.5706892515062,baseline
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,60,Ridge,ridge_10,naive,148.333333333333,167.070647741815,238.465851175498,8.96376344627953,-18.7373144084812,-12.6318973540323,baseline
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,60,Ridge,ridge_10,naive,290.833333333333,299.059605267669,427.55826275424,15.0591593729293,-8.22627193433618,-2.82851757054539,baseline
