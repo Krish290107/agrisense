@@ -10,6 +10,18 @@
 
 **Updated:** October 5, 2026 (Asia/Calcutta)
 
+## Day 5 status: complete — statistical baselines and chronological backtesting
+
+Evaluated all nine exact Day 4 candidates with seven univariate baselines: naive, historical mean/median, rolling means over 3/5/7 observations, and rolling median over 5 observations. Each series retains 406–513 initial observations, followed by 60 validation and 60 test records. Expanding-history evaluation produces **7,560 forecast comparisons**: 3,780 validation and 3,780 test, covering 1,080 distinct series/date targets. Forecast horizon is the next observed record, with no calendar filling.
+
+Validation MAE selects naive for seven candidates and the seven-observation rolling mean for Dahod Onion and Potato; selections are frozen before test. Selected-model mean test MAE is **119.55 INR/quintal**, median 85.00. The all-naive reference mean test MAE is 126.20. Retrospective test rankings remain separately labeled; the validation-selected Dahod models were not the test-period winners. [Best baselines](../reports/data/best_baselines.csv), [all metrics](../reports/data/baseline_metrics.csv) and [report](../reports/data/BASELINE_FORECAST_REPORT.md) retain exact identities and scores.
+
+Selected-model test MAE by commodity is Onion 80.32, Potato 51.94, Tomato 226.39 INR/quintal. The largest miss is 2,000 INR/quintal for Navsari Tomato on 2025-08-25 after a 44.4% observed price drop, despite a one-day elapsed gap. Longer-gap pooled MAE is 153.84 over 93 observations versus 112.42 over 447 consecutive-day observations; differing commodities/markets and sparse gap buckets prevent a causal interpretation. No difficult observations are removed.
+
+Eight figures in `reports/figures/baselines/` were visually inspected. Prediction rows stay in ignored `reports/data/local/baseline_predictions.csv`; compact reports include fixed splits, metrics, error examples and input/code/output hashes. All **eight Day 5 tests and 28 data regression tests pass**. Independent verification reconstructs all 7,560 predictions using only past modal prices and checks dates, phase boundaries, metrics and validation-only selection. A rerun from another working directory produced byte-identical results across all 17 artifacts. Original CSV hashes match provenance; canonical cleaned data and Day 3/4 artifacts are unchanged. Compilation, dependency consistency, links and ignore protections pass; frontend/backend/configuration/dependencies are unchanged. No files were removed and no packages were added.
+
+The pipeline prevents silent benchmark replacement when inputs, implementation, policy or software versions change. Historical cohort selection used full-history Day 4 coverage; this limits generalization even though individual forecasts are leakage-safe. Seasonal baselines are omitted because exact series have fewer than two full annual cycles and irregular dates. Future models must use comparable past-only data and fixed boundaries, with validation tuning and explicit limits on repeated test-set use.
+
 ## Day 4 status: complete — EDA and historical baseline readiness
 
 Analyzed all **39,630 rows, 229 series, 81 district-market combinations, 22 districts**, covering 2024-01-01 through 2025-12-29. Ten figures and deterministic aggregate tables accompany the [EDA report](../reports/data/EDA_REPORT.md). Median modal prices are Onion 1,607.5, Potato 1,600 and Tomato 2,000 INR/quintal; pooled Tomato variability is highest. These are descriptive comparisons, not joined forecasting targets.
@@ -188,7 +200,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Day 5: historical forecasting baselines.** Define chronological evaluation and observation-step/calendar-day horizons for the exact Day 4 candidates before comparing simple baselines.
+**Day 6: historical feature engineering.** Build per-series features using only information available before each target and test against leakage while preserving the Day 5 benchmark.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

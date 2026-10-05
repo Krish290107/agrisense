@@ -6,11 +6,13 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds price/coverage analysis, figures and historical baseline candidates. Forecasting, training and a database remain later-day work.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological statistical forecasting benchmarks. Advanced ML, production predictions and a database remain later-day work.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
 
 Reproduce Day 4 using `.\.venv\Scripts\python.exe scripts/run_eda.py`. Results are in `reports/data/`; ten figures are in `reports/figures/`. [Series readiness](reports/data/series_readiness.csv) and [candidate identities](reports/data/forecast_candidates.csv) preserve markets, varieties and grades separately.
+
+Reproduce Day 5 using `.\.venv\Scripts\python.exe scripts/run_baselines.py`. [Selected baselines](reports/data/best_baselines.csv) are chosen on validation and scored on later test observations; [fixed evaluation boundaries](reports/data/baseline_splits.csv) support future comparisons. The benchmark refuses silent replacement after its inputs, policy or implementation change.
 
 ## Day 2: reproduce the real-data profile
 
@@ -173,4 +175,4 @@ The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests
 13. tests and refresh
 14. deployment and presentation
 
-Days 1–4 are implemented. Day 5 historical forecasting baselines are next; full two-year per-series coverage remains a documented data limitation.
+Days 1–5 are implemented. Day 6 historical feature engineering is next; full two-year per-series coverage remains a documented data limitation.

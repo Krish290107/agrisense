@@ -1,0 +1,127 @@
+state,district,market,commodity,variety,grade,series_id,phase,baseline,train_observations,last_train_observations,evaluation_observations,evaluation_start,evaluation_end,mae,rmse,smape,rank,is_phase_best,is_phase_worst,selected_on_validation
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,rolling_median_5,552,611,60,2025-08-14,2025-11-04,175.833333333333,216.890909598966,14.296230961801,1,True,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,rolling_mean_5,552,611,60,2025-08-14,2025-11-04,182.5,220.843081545849,14.8434524925709,2,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,rolling_mean_7,552,611,60,2025-08-14,2025-11-04,185.952380952381,222.026841547023,15.0623640392952,3,False,False,True
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,rolling_mean_3,552,611,60,2025-08-14,2025-11-04,191.111111111111,229.169191905279,15.5386629344323,4,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,naive,552,611,60,2025-08-14,2025-11-04,228.333333333333,293.399613723899,18.7203199621712,5,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,historical_median,552,611,60,2025-08-14,2025-11-04,614.166666666667,655.267121104058,40.4873483415299,6,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,test,historical_mean,552,611,60,2025-08-14,2025-11-04,884.470006447562,911.915836465398,53.279877652372,7,False,True,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,rolling_mean_7,492,551,60,2025-06-10,2025-08-13,218.809523809524,324.414700590438,15.5224110103751,1,True,False,True
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,rolling_median_5,492,551,60,2025-06-10,2025-08-13,219.166666666667,324.22985673747,15.4278472885378,2,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,rolling_mean_5,492,551,60,2025-06-10,2025-08-13,232.833333333333,338.247936677619,16.2929617688886,3,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,rolling_mean_3,492,551,60,2025-06-10,2025-08-13,246.666666666667,331.746221614588,17.3275708670821,4,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,naive,492,551,60,2025-06-10,2025-08-13,255,366.742416417845,17.7482889590413,5,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,historical_median,492,551,60,2025-06-10,2025-08-13,669.166666666667,731.123564568033,41.6091229206635,6,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Onion,Onion,FAQ,240bef14621574cd,validation,historical_mean,492,551,60,2025-06-10,2025-08-13,890.011984625573,939.7703970691,51.3348260516061,7,False,True,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,rolling_median_5,567,626,60,2025-08-20,2025-11-03,77.5,119.895788082818,6.06269164355195,1,True,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,rolling_mean_5,567,626,60,2025-08-20,2025-11-03,83.5,118.666198500949,6.55527916044491,2,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,rolling_mean_3,567,626,60,2025-08-20,2025-11-03,85,117.811839938224,6.68664934565383,3,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,rolling_mean_7,567,626,60,2025-08-20,2025-11-03,85,120.542989198451,6.67048303097841,4,False,False,True
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,naive,567,626,60,2025-08-20,2025-11-03,102.5,142.156017576933,7.97278609940775,5,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,historical_median,567,626,60,2025-08-20,2025-11-03,240,263.904970270234,17.664664422438,6,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,test,historical_mean,567,626,60,2025-08-20,2025-11-03,487.724461575226,504.575602701415,32.6074843103523,7,False,True,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,rolling_mean_7,507,566,60,2025-06-16,2025-08-19,97.6190476190476,121.820097087557,7.24613456428177,1,True,False,True
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,rolling_mean_5,507,566,60,2025-06-16,2025-08-19,107.166666666667,131.497781983829,7.95227457054112,2,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,rolling_mean_3,507,566,60,2025-06-16,2025-08-19,107.222222222222,134.50870824074,7.97120549746257,3,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,rolling_median_5,507,566,60,2025-06-16,2025-08-19,110,137.840487520902,8.15621211755272,4,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,naive,507,566,60,2025-06-16,2025-08-19,127.5,160.597841413472,9.43065619656325,5,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,historical_median,507,566,60,2025-06-16,2025-08-19,349.166666666667,373.385413034128,23.0355443909547,6,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Potato,Potato,FAQ,314b4dfffac5b7bc,validation,historical_mean,507,566,60,2025-06-16,2025-08-19,462.010776390332,475.828252948824,29.5847698115551,7,False,True,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,naive,573,632,60,2025-08-26,2025-11-03,240,357.887319324579,15.1051683659049,1,True,False,True
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,rolling_mean_3,573,632,60,2025-08-26,2025-11-03,272.5,364.189867046379,17.0874347495715,2,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,rolling_median_5,573,632,60,2025-08-26,2025-11-03,311.666666666667,423.182387787268,19.4617405671013,3,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,rolling_mean_5,573,632,60,2025-08-26,2025-11-03,313.166666666667,403.205902734571,19.5219414510942,4,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,rolling_mean_7,573,632,60,2025-08-26,2025-11-03,342.142857142857,436.238950311303,21.0744830013096,5,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,historical_median,573,632,60,2025-08-26,2025-11-03,427.916666666667,511.136397321367,27.160416938536,6,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,test,historical_mean,573,632,60,2025-08-26,2025-11-03,524.607608128149,639.968044895694,31.9784100540952,7,False,True,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,naive,513,572,60,2025-06-22,2025-08-25,335,441.871021905714,12.2894615518662,1,True,False,True
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,rolling_mean_3,513,572,60,2025-06-22,2025-08-25,353.055555555555,437.199632340329,12.7402957737867,2,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,rolling_median_5,513,572,60,2025-06-22,2025-08-25,389.166666666667,489.685273075132,14.2719449598667,3,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,rolling_mean_5,513,572,60,2025-06-22,2025-08-25,393.5,477.631308298217,14.1534571633686,4,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,rolling_mean_7,513,572,60,2025-06-22,2025-08-25,426.190476190476,525.133607877509,15.2482883804741,5,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,historical_mean,513,572,60,2025-06-22,2025-08-25,970.949980978831,1223.64584669787,36.5374512713396,6,False,False,False
+Gujarat,Dahod,Dahod (Veg. Market),Tomato,Tomato,FAQ,518f332aced6b913,validation,historical_median,513,572,60,2025-06-22,2025-08-25,1221.66666666667,1452.12487984562,49.6187126032966,7,False,True,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,naive,466,525,60,2025-08-07,2025-11-04,23.3333333333333,64.8716681867619,1.95999753684187,1,True,False,True
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,rolling_mean_3,466,525,60,2025-08-07,2025-11-04,41.1111111111111,74.8455199183749,3.45997290062473,2,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,rolling_mean_5,466,525,60,2025-08-07,2025-11-04,48.8333333333333,79.2517087092344,4.10097809053175,3,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,rolling_median_5,466,525,60,2025-08-07,2025-11-04,50.8333333333333,90.2542704437487,4.25079062879707,4,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,rolling_mean_7,466,525,60,2025-08-07,2025-11-04,54.1071428571429,81.9031180621307,4.49957544236941,5,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,historical_median,466,525,60,2025-08-07,2025-11-04,539.233333333333,549.026896730327,35.2031507509315,6,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,test,historical_mean,466,525,60,2025-08-07,2025-11-04,848.150628169647,854.607812718528,50.1473923657806,7,False,True,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,naive,406,465,60,2025-06-06,2025-08-06,13.3333333333333,53.2290647422377,0.982037965798699,1,True,False,True
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,rolling_mean_3,406,465,60,2025-06-06,2025-08-06,28.3333333333333,67.0820393249937,2.08672963758952,2,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,rolling_mean_5,406,465,60,2025-06-06,2025-08-06,42.8333333333333,80.4466697052567,3.15500506688905,3,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,rolling_median_5,406,465,60,2025-06-06,2025-08-06,43.3333333333333,93.9858145324779,3.22389167517388,4,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,rolling_mean_7,406,465,60,2025-06-06,2025-08-06,54.5833333333333,90.6854566113902,4.01923753723172,5,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,historical_median,406,465,60,2025-06-06,2025-08-06,546.3,561.92848744302,33.2386075168391,6,False,False,False
+Gujarat,Kheda,Kapadvanj,Onion,Other,FAQ,a71c104fe631e8bb,validation,historical_mean,406,465,60,2025-06-06,2025-08-06,849.687564650902,858.676112558522,47.2354017785716,7,False,True,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,naive,480,539,60,2025-08-04,2025-11-04,30.8333333333333,96.5703543191871,2.36546155810365,1,True,False,True
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,rolling_mean_3,480,539,60,2025-08-04,2025-11-04,44.4444444444444,91.5585220662881,3.5580656605881,2,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,rolling_median_5,480,539,60,2025-08-04,2025-11-04,56.25,108.932318436725,4.57489570159928,3,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,rolling_mean_5,480,539,60,2025-08-04,2025-11-04,58.3333333333333,100.009832849909,4.71789679148189,4,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,rolling_mean_7,480,539,60,2025-08-04,2025-11-04,66.7857142857143,102.209435511028,5.47537446874011,5,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,historical_median,480,539,60,2025-08-04,2025-11-04,119.75,151.684293847451,10.0631430280151,6,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,test,historical_mean,480,539,60,2025-08-04,2025-11-04,446.089642083172,465.90280476088,32.7049259119633,7,False,True,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,naive,420,479,60,2025-06-04,2025-08-03,6.66666666666667,21.4087209644419,0.562447445253652,1,True,False,True
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,rolling_mean_3,420,479,60,2025-06-04,2025-08-03,12.5,26.2643258968285,1.05126347075725,2,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,rolling_mean_5,420,479,60,2025-06-04,2025-08-03,18.1666666666667,30.9838667696593,1.52555856479212,3,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,rolling_median_5,420,479,60,2025-06-04,2025-08-03,18.3333333333333,35.939764421413,1.53919418761281,4,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,rolling_mean_7,420,479,60,2025-06-04,2025-08-03,20.5952380952381,32.6416327789556,1.73101040793742,5,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,historical_median,420,479,60,2025-06-04,2025-08-03,476.25,493.784281510324,33.3654322241416,6,False,False,False
+Gujarat,Kheda,Kapadvanj,Potato,Other,FAQ,d6e713530bb54f8c,validation,historical_mean,420,479,60,2025-06-04,2025-08-03,496.257609629347,497.053185362097,34.9816696556136,7,False,True,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,naive,492,551,60,2025-08-17,2025-11-05,31.6666666666667,71.8795288428261,2.29925444278268,1,True,False,True
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,rolling_mean_3,492,551,60,2025-08-17,2025-11-05,54.4444444444444,87.1354841186562,3.97559689580886,2,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,rolling_median_5,492,551,60,2025-08-17,2025-11-05,65,110.302614051829,4.81351424409895,3,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,rolling_mean_5,492,551,60,2025-08-17,2025-11-05,71,104.083299973307,5.23037341366981,4,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,rolling_mean_7,492,551,60,2025-08-17,2025-11-05,83.5714285714286,115.396388724311,6.18029393364405,5,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,historical_median,492,551,60,2025-08-17,2025-11-05,680.833333333333,694.232189784753,40.5958070941292,6,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,test,historical_mean,492,551,60,2025-08-17,2025-11-05,1052.76508113935,1060.13956016676,56.4004124485383,7,False,True,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,naive,432,491,60,2025-06-16,2025-08-16,33.3333333333333,79.5822425754221,2.16506083356778,1,True,False,True
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,rolling_mean_3,432,491,60,2025-06-16,2025-08-16,58.8888888888889,94.2809041582063,3.81467618163816,2,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,rolling_mean_5,432,491,60,2025-06-16,2025-08-16,68.3333333333333,95.8123165360279,4.47977133713024,3,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,rolling_median_5,432,491,60,2025-06-16,2025-08-16,78.3333333333333,121.792172709634,5.03272057859671,4,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,rolling_mean_7,432,491,60,2025-06-16,2025-08-16,78.3333333333333,100.728637950691,5.18026712427961,5,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,historical_median,432,491,60,2025-06-16,2025-08-16,839.166666666667,849.043579564677,43.8882573083397,6,False,False,False
+Gujarat,Navsari,Bilimora,Onion,Nasik,FAQ,106cbf2f08373602,validation,historical_mean,432,491,60,2025-06-16,2025-08-16,1036.16467432143,1041.08593573075,51.6695992305338,7,False,True,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,naive,487,546,60,2025-08-13,2025-11-05,40,103.279555898864,2.01653274824007,1,True,False,True
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,rolling_mean_3,487,546,60,2025-08-13,2025-11-05,53.3333333333333,109.036181558641,2.65821252080379,2,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,rolling_mean_5,487,546,60,2025-08-13,2025-11-05,61.6666666666667,117.671860130902,3.07881965609417,3,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,rolling_median_5,487,546,60,2025-08-13,2025-11-05,63.3333333333333,134.164078649987,3.1581133532353,4,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,rolling_mean_7,487,546,60,2025-08-13,2025-11-05,69.5238095238095,127.108074428944,3.48510184177453,5,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,historical_mean,487,546,60,2025-08-13,2025-11-05,428.102978502122,450.350601195815,20.7959096546336,6,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,test,historical_median,487,546,60,2025-08-13,2025-11-05,520,568.624070307733,24.5401004060327,7,False,True,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,naive,427,486,60,2025-06-10,2025-08-12,10,31.6227766016838,0.561132561132561,1,True,False,True
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,rolling_mean_3,427,486,60,2025-06-10,2025-08-12,16.6666666666667,35.4860431614918,0.930072598164241,2,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,rolling_mean_5,427,486,60,2025-06-10,2025-08-12,19.3333333333333,35.9629438913631,1.07781584654809,3,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,rolling_mean_7,427,486,60,2025-06-10,2025-08-12,20.4761904761905,35.7618730581306,1.1411125971214,4,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,rolling_median_5,427,486,60,2025-06-10,2025-08-12,21.6666666666667,46.5474668125631,1.20720720720721,5,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,historical_mean,427,486,60,2025-06-10,2025-08-12,548.183578717742,549.370035384357,26.4628005690466,6,False,False,False
+Gujarat,Navsari,Bilimora,Potato,Other,FAQ,deff683fe4455392,validation,historical_median,427,486,60,2025-06-10,2025-08-12,705.833333333333,706.856303171538,32.8224824897005,7,False,True,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,naive,498,557,60,2025-08-22,2025-11-05,148.333333333333,247.318957353994,8.04156448547843,1,True,False,True
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,rolling_mean_3,498,557,60,2025-08-22,2025-11-05,250.555555555556,319.345395272081,12.9338705437435,2,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,rolling_mean_5,498,557,60,2025-08-22,2025-11-05,298.333333333333,373.193426165753,14.8350195015518,3,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,rolling_median_5,498,557,60,2025-08-22,2025-11-05,318.333333333333,418.13076104651,15.9302448281369,4,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,rolling_mean_7,498,557,60,2025-08-22,2025-11-05,346.428571428571,426.522881809972,16.7551344398025,5,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,historical_median,498,557,60,2025-08-22,2025-11-05,461.666666666667,565.538091849995,23.7304236102469,6,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,test,historical_mean,498,557,60,2025-08-22,2025-11-05,616.719039558033,682.746618153925,30.7146368763206,7,False,True,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,naive,438,497,60,2025-06-21,2025-08-21,248.333333333333,415.331193145904,9.36101761182346,1,True,False,True
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,rolling_mean_3,438,497,60,2025-06-21,2025-08-21,327.222222222222,481.33687287095,12.1683943910568,2,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,rolling_mean_5,438,497,60,2025-06-21,2025-08-21,385,525.198375219624,14.1842689932909,3,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,rolling_median_5,438,497,60,2025-06-21,2025-08-21,395,546.656503970577,14.8099183587625,4,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,rolling_mean_7,438,497,60,2025-06-21,2025-08-21,461.666666666667,597.992673947798,17.0038637660504,5,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,historical_mean,438,497,60,2025-06-21,2025-08-21,1218.51576473834,1474.08166273218,41.3693922071156,6,False,False,False
+Gujarat,Navsari,Bilimora,Tomato,Other,FAQ,f17a4491dc2d8470,validation,historical_median,438,497,60,2025-06-21,2025-08-21,1358.33333333333,1656.92989189847,47.4094950463328,7,False,True,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,naive,499,558,60,2025-08-23,2025-11-05,290.833333333333,458.303029301211,14.7969061861042,1,True,False,True
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,rolling_mean_3,499,558,60,2025-08-23,2025-11-05,294.166666666667,407.822810108072,15.1671849608243,2,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,rolling_median_5,499,558,60,2025-08-23,2025-11-05,310.833333333333,435.435605648719,16.2503085460942,3,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,rolling_mean_5,499,558,60,2025-08-23,2025-11-05,316.666666666667,449.158472405156,16.0843009228288,4,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,rolling_mean_7,499,558,60,2025-08-23,2025-11-05,348.214285714286,481.317194266524,17.6110402550617,5,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,historical_median,499,558,60,2025-08-23,2025-11-05,392.916666666667,602.088379448289,20.5149638186347,6,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,test,historical_mean,499,558,60,2025-08-23,2025-11-05,507.492321121783,631.224528282587,26.447461537104,7,False,True,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,naive,439,498,60,2025-06-24,2025-08-22,268.75,532.53521010352,11.133883924968,1,True,False,True
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,rolling_mean_3,439,498,60,2025-06-24,2025-08-22,320.833333333333,493.944816231005,12.9052278028256,2,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,rolling_median_5,439,498,60,2025-06-24,2025-08-22,331.25,518.662141154207,13.573914453049,3,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,rolling_mean_5,439,498,60,2025-06-24,2025-08-22,360.416666666667,524.712222715144,14.5032072723987,4,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,rolling_mean_7,439,498,60,2025-06-24,2025-08-22,405.357142857143,580.196864314643,16.2247414294027,5,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,historical_mean,439,498,60,2025-06-24,2025-08-22,1025.57701107953,1261.88191733281,39.046581805515,6,False,False,False
+Gujarat,Navsari,Navsari,Tomato,Other,FAQ,a756f343bb8d8ca0,validation,historical_median,439,498,60,2025-06-24,2025-08-22,1124.375,1439.2245090673,43.5862601279321,7,False,True,False
