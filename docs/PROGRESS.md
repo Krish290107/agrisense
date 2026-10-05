@@ -10,6 +10,14 @@
 
 **Updated:** October 5, 2026 (Asia/Calcutta)
 
+## Day 9 status: complete — local database and persistence
+
+Added standard-library SQLite schema version 1, a small reusable repository and one transactional import command. The ignored local `data/agrisense.db` stores **39,630 observations, 229 exact historical series, nine active policy entries, one experimental model bundle, 405 concise evaluation metrics and seven ingestion records**. Coverage is **2024-01-01 through 2025-12-29**. No generated forecast rows, new dependencies or external downloads.
+
+All source price text and provenance roundtrip exactly; decimal CHECK functions reject nonfinite/nonpositive prices and invalid ordering without floating-point conversion. Six-field identity and series/date uniqueness, foreign keys, policy requirements, date formats and explicit null forecast failure states are enforced. Policy import preserves seven naive and two rolling-mean-7 series. ML remains experimental. Exact lookup, latest observation, chronological latest-N/as-of history and policy reload pass for all nine candidates.
+
+Ten focused database tests and 61 regression tests pass using only temporary/in-memory databases. Repeated real imports preserve row counts and summaries, leave existing forecast rows intact and produce no duplicate observations. The finalized full rerun preserves deterministic reports; protected historical hashes remain unchanged. See [Day 9](DAY_09.md) and the [database report](../reports/data/DATABASE_REPORT.md). No API endpoints, frontend changes, retraining, policy changes or deployment were introduced.
+
 ## Day 8 status: complete — robustness evaluation and frozen policy
 
 Reconstructed all 126 baseline metric rows and 540 ML predictions within numeric tolerance. A nonwinning Bilimora Onion validation rank tie changes order after CSV roundtrip; original ranks and all historical artifacts remain intact. Evaluated three chronological 20-observation blocks per exact series (27 origins, 540 targets), with all seven baseline methods, original fixed ML and block-refitted frozen ML configurations. No new dependencies, tuning, API or frontend changes.
@@ -236,7 +244,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Day 9: persistence/database layer.** Store market data, forecasts, the frozen forecasting policy and model/evaluation metadata.
+**Day 10: forecast service and prediction API.** Build service logic and FastAPI endpoints on top of the persistence layer, preserving exact series identities and explicit insufficient-history states.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

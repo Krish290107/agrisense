@@ -61,6 +61,10 @@ reports/data/local/
 *.onnx
 *.keras
 ml/models/
+data/agrisense.db
+data/agrisense.db-journal
+data/agrisense.db-wal
+data/agrisense.db-shm
 
 # OS/editor local state.
 .DS_Store

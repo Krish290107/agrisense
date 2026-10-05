@@ -6,7 +6,7 @@
 
 Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological forecasting benchmarks. [Day 6](reports/data/FEATURE_ENGINEERING_REPORT.md) prepares historical features. [Day 7](reports/data/ML_MODEL_REPORT.md) evaluates classical ML: the simple baselines remain better on all nine test series. Production predictions and a database remain later-day work.
+Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological forecasting benchmarks. [Day 6](reports/data/FEATURE_ENGINEERING_REPORT.md) prepares historical features. [Day 7](reports/data/ML_MODEL_REPORT.md) evaluates classical ML: the simple baselines remain better on all nine test series. Day 8 freezes the forecast policy; [Day 9](docs/DAY_09.md) adds local persistence. Production prediction endpoints remain later-day work.
 
 See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
 
@@ -160,7 +160,7 @@ If the frontend starts on port 3001 because 3000 is busy, stop the conflicting s
 - [Progress and verification evidence](docs/PROGRESS.md)
 - [Day 1 presentation notes](docs/DAY_01_PRESENTATION.md)
 
-The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests/` contains synthetic tool-verification inputs only. `ml/`, `notebooks/`, `database/`, `data/interim/`, and `.github/workflows/` reserve space for future work.
+The raw CSVs, immutable imports, cleaned CSV, generated model bundle and SQLite database remain local and ignored. `tests/` uses synthetic fixtures and isolated temporary databases. `database/` contains the schema and repository; `notebooks/`, `data/interim/`, and `.github/workflows/` reserve space for future work.
 
 ## Roadmap
 
@@ -179,6 +179,8 @@ The raw CSVs, immutable imports and cleaned CSV remain local and ignored. `tests
 13. tests and refresh
 14. deployment and presentation
 
-Days 1–8 are implemented. [Day 8 robustness evaluation](reports/data/ROBUSTNESS_EVALUATION_REPORT.md) retains seven naive and two rolling-mean-7 series in the [forecast policy](configs/forecast_policy.json). Three chronological blocks per series give MAE **119.55 versus 135.86 INR/quintal** for block-refitted ML. These reuse previously examined historical dates; they are not a new untouched holdout. ML remains experimental. Full two-year per-series coverage remains a documented limitation.
+Days 1–9 are implemented. [Day 8 robustness evaluation](reports/data/ROBUSTNESS_EVALUATION_REPORT.md) retains seven naive and two rolling-mean-7 series in the [forecast policy](configs/forecast_policy.json). Three chronological blocks per series give MAE **119.55 versus 135.86 INR/quintal** for block-refitted ML. These reuse previously examined historical dates; they are not a new untouched holdout. ML remains experimental. Full two-year per-series coverage remains a documented limitation.
 
-Day 8 entry point: `.\.venv\Scripts\python.exe scripts/evaluate_robustness.py`. The [Day 8 guide](docs/DAY_08.md) describes artifacts, fallback behavior and verification. Day 9 is the persistence/database layer; frontend/backend behavior is unchanged.
+Day 8 entry point: `.\.venv\Scripts\python.exe scripts/evaluate_robustness.py`. The [Day 8 guide](docs/DAY_08.md) describes artifacts, fallback behavior and verification.
+
+[Day 9 persistence](docs/DAY_09.md) uses standard-library SQLite. Run `.\.venv\Scripts\python.exe scripts/init_database.py` to initialize and idempotently import the canonical artifacts into the ignored local `data/agrisense.db`. It contains **39,630 observations, 229 exact series, nine policies, one experimental model bundle and 405 evaluation summaries**. Forecast storage remains empty. Price text is preserved exactly; repository queries return chronological histories and the unchanged policy. The [database report](reports/data/DATABASE_REPORT.md) records constraints and verification. Day 10 will add forecast-service logic and prediction endpoints; existing frontend/backend behavior is unchanged.
