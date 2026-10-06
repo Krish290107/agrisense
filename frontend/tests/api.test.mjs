@@ -6,6 +6,17 @@ const series = {series_id:"0123456789abcdef",state:"Gujarat",district:"Fixture",
 const row = {date:"2025-01-01",min_price:"100",modal_price:"150",max_price:"200"};
 const forecast = {status:"ok",series,forecast_type:"next_observation",price_unit:"INR/quintal",prediction:"142.857143",selected_method:"rolling_mean_7",method_used:"rolling_mean_7",fallback_used:false,history_observations_used:7,history_cutoff_date:"2025-01-01",latest_observed_price:"150",generated_at:"2026-10-06T06:00:00+00:00",historical_benchmark_mae:10};
 
+test("invalid API configuration fails before sending credentials or ambiguous URLs", async () => {
+  const original = globalThis.fetch, env = process.env.NEXT_PUBLIC_API_BASE_URL;
+  globalThis.fetch = async () => {assert.fail("Invalid configuration must not make requests");};
+  try {
+    for (const base of ["", "invalid", "ftp://example.com", "https://private:secret@example.com", "https://example.com?key=secret", "https://example.com#fragment"]) {
+      process.env.NEXT_PUBLIC_API_BASE_URL = base;
+      await assert.rejects(api.health(new AbortController().signal), /not configured|address is unavailable/);
+    }
+  } finally {globalThis.fetch=original; if (env===undefined) delete process.env.NEXT_PUBLIC_API_BASE_URL; else process.env.NEXT_PUBLIC_API_BASE_URL=env;}
+});
+
 test("decision contract and GET client preserve exact identity, dates and unavailable values", async () => {
   const comparison = {selected_series_id:series.series_id,scope:"commodity",warning:"Compare varieties carefully",markets:[{forecast:{...forecast,latest_observation_date:"2025-01-01"},difference:"-7.142857",percentage:"-4.7619046667",signal:"below"}]};
   assert.ok(isComparison(comparison));

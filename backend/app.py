@@ -3,6 +3,7 @@
 import os
 from pathlib import Path
 import sys
+from urllib.parse import urlsplit
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -18,11 +19,24 @@ from backend.decision_api import router as decision_router
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env", override=False)
 
 DEFAULT_ALLOWED_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
-allowed_origins = [
-    origin.strip().rstrip("/")
-    for origin in os.getenv("ALLOWED_ORIGINS", DEFAULT_ALLOWED_ORIGINS).split(",")
-    if origin.strip()
-]
+def parse_origins(value):
+    origins = [origin.strip().rstrip("/") for origin in value.split(",") if origin.strip()]
+    try:
+        if not origins:
+            raise ValueError()
+        for origin in origins:
+            url = urlsplit(origin)
+            if (url.scheme not in {"http", "https"} or not url.hostname or url.username is not None
+                    or url.password is not None or url.path or url.query or url.fragment
+                    or "*" in origin or any(c.isspace() for c in origin)):
+                raise ValueError()
+            _ = url.port
+    except ValueError:
+        raise ValueError("ALLOWED_ORIGINS must contain explicit HTTP(S) origins without credentials, paths or wildcards") from None
+    return list(dict.fromkeys(origins))
+
+
+allowed_origins = parse_origins(os.getenv("ALLOWED_ORIGINS", DEFAULT_ALLOWED_ORIGINS))
 
 app = FastAPI(
     title="AgriSense API",

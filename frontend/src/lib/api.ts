@@ -40,7 +40,7 @@ async function request<T>(path: string, validate: (x: unknown) => x is T, signal
   const base = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
   if (!base) throw new Error("The market service is not configured. Please try again later.");
   let url: URL;
-  try {url = new URL(`${base.replace(/\/+$/, "")}${path}`); if (!["http:","https:"].includes(url.protocol)) throw new Error();}
+  try {const configured = new URL(base); if (!["http:","https:"].includes(configured.protocol) || configured.username || configured.password || configured.search || configured.hash) throw new Error(); url = new URL(`${base.replace(/\/+$/, "")}${path}`);}
   catch {throw new Error("The market service address is unavailable. Please try again later.");}
   try {
     const response = await fetch(url, {method: body ? "POST" : "GET", body: body ? JSON.stringify(body) : undefined,
