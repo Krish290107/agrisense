@@ -3,6 +3,7 @@ import {useCallback,useEffect,useRef,useState} from "react";
 import {api,dateLabel,methodLabel,money,timeLabel,type Forecast,type Supported} from "@/lib/api";
 import {useResource} from "@/lib/use-resource";
 import {PriceHistoryChart} from "./price-history-chart";
+import {DecisionSupport} from "./decision-support";
 
 function ErrorNotice({message,retry}: {message: string; retry?: () => void}) {
   return <div className="error-notice" role="alert"><p>{message}</p>{retry && <button className="text-button" onClick={retry}>Retry</button>}</div>;
@@ -61,6 +62,7 @@ function SeriesDashboard({series}: {series: Supported}) {
           <ul className="saved-list">{saved.data.map(r => <li key={r.forecast_id}><div className="saved-top"><strong>{money(r.prediction)} <small>/ quintal</small></strong><span className="small-tag">{r.status === "available" ? "Saved" : r.status === "fallback" ? "Fallback" : "Unavailable"}</span></div><p>{methodLabel(r.method)} · Cutoff: {r.history_cutoff ? dateLabel(r.history_cutoff) : "Not available"}</p><time dateTime={r.generated_at}>{timeLabel(r.generated_at)} IST</time></li>)}</ul>}
       </section>
     </div>
+    <DecisionSupport seriesId={series.series_id}/>
   </>;
 }
 export function ForecastDashboard() {

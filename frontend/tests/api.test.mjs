@@ -1,10 +1,27 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import {api,isSupported,isHistory,isForecast,isSaved,money,methodLabel} from "../src/lib/api.ts";
+import {api,isSupported,isHistory,isForecast,isSaved,isComparison,money,methodLabel} from "../src/lib/api.ts";
 
 const series = {series_id:"0123456789abcdef",state:"Gujarat",district:"Fixture",market:"Fixture",commodity:"Onion",variety:"Other",grade:"FAQ",price_unit:"INR/quintal",selected_method:"rolling_mean_7",policy_version:"test-v1"};
 const row = {date:"2025-01-01",min_price:"100",modal_price:"150",max_price:"200"};
 const forecast = {status:"ok",series,forecast_type:"next_observation",price_unit:"INR/quintal",prediction:"142.857143",selected_method:"rolling_mean_7",method_used:"rolling_mean_7",fallback_used:false,history_observations_used:7,history_cutoff_date:"2025-01-01",latest_observed_price:"150",generated_at:"2026-10-06T06:00:00+00:00",historical_benchmark_mae:10};
+
+test("decision contract and GET client preserve exact identity, dates and unavailable values", async () => {
+  const comparison = {selected_series_id:series.series_id,scope:"commodity",warning:"Compare varieties carefully",markets:[{forecast:{...forecast,latest_observation_date:"2025-01-01"},difference:"-7.142857",percentage:"-4.7619046667",signal:"below"}]};
+  assert.ok(isComparison(comparison));
+  assert.equal(isComparison({...comparison,markets:[comparison.markets[0],comparison.markets[0]]}), false);
+  assert.equal(isComparison({...comparison,markets:[{...comparison.markets[0],difference:null}]}), false);
+  const original = globalThis.fetch, env = process.env.NEXT_PUBLIC_API_BASE_URL;
+  process.env.NEXT_PUBLIC_API_BASE_URL = "http://localhost:8000";
+  globalThis.fetch = async (url,options) => {
+    assert.equal(url.pathname,"/api/v1/decision/markets");
+    assert.equal(url.searchParams.get("series_id"),series.series_id);
+    assert.equal(options.method,"GET"); assert.equal(options.body,undefined);
+    return new Response(JSON.stringify(comparison));
+  };
+  try {assert.deepEqual(await api.decision(series.series_id,new AbortController().signal),comparison);}
+  finally {globalThis.fetch=original; if (env===undefined) delete process.env.NEXT_PUBLIC_API_BASE_URL; else process.env.NEXT_PUBLIC_API_BASE_URL=env;}
+});
 
 test("supported series require exact identities and unique IDs", () => {
   assert.ok(isSupported([series])); assert.ok(isSupported([]));

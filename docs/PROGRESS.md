@@ -10,6 +10,12 @@
 
 **Updated:** October 6, 2026 (Asia/Calcutta)
 
+## Day 12 status: implemented and programmatically verified
+
+Added price signals, read-only active-market comparison, quantity/gross proceeds calculations and deterministic summaries to the existing dashboard. Exact variety/grade comparisons are preferred; broader comparisons carry a warning. No downloads, dependencies, policy/schema changes or comparison persistence. Details and real-data results: [DAY_12.md](DAY_12.md).
+
+All 89 Python tests and 10 frontend tests pass, alongside typecheck, lint and production build. The real HTTP endpoint and frontend client verified Dahod Potato and both comparison scopes. Browser visual verification remains unperformed.
+
 ## Day 11 status: dashboard implemented — visual verification pending
 
 Replaced the landing-page hero, milestone and planned-feature sections with a real forecast dashboard. API-driven commodity/market selectors, compact health status, next-observation generation, modal-price chart, recent observations and saved forecasts are connected. No forecast is generated on page load. Exact identities, history cutoffs, fallback and null unavailable results are preserved. The frontend adds no forecast calculations or dependencies.
@@ -260,7 +266,7 @@ The obsolete initial GitHub and future-deployment walkthroughs were removed duri
 
 ## Next task
 
-**Finish Day 11 visual verification**, then **Day 12: evidence-based market decision support** on top of the integrated dashboard.
+**Day 13: end-to-end reliability, automation and project cleanup**, including outstanding browser visual checks.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

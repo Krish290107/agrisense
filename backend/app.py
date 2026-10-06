@@ -12,6 +12,7 @@ from fastapi.responses import HTMLResponse
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from backend.forecast_api import router as forecast_router
+from backend.decision_api import router as decision_router
 
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env", override=False)
@@ -39,6 +40,7 @@ app.add_middleware(
 )
 
 app.include_router(forecast_router)
+app.include_router(decision_router)
 
 
 @app.get("/docs", include_in_schema=False)
