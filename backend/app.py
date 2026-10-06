@@ -1,6 +1,8 @@
 """AgriSense health and next-observation forecast API."""
 
 import os
+import shutil
+import tempfile
 from pathlib import Path
 import sys
 from urllib.parse import urlsplit
@@ -17,6 +19,19 @@ from backend.decision_api import router as decision_router
 
 
 load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env", override=False)
+# Vercel's deployed filesystem is read-only except for /tmp.
+# Use the bundled Day 9 database as the seed for an ephemeral writable copy.
+if os.getenv("VERCEL"):
+    bundled_db = Path(__file__).resolve().parents[1] / "data" / "agrisense.db"
+    runtime_db = Path(tempfile.gettempdir()) / "agrisense.db"
+
+    if not bundled_db.is_file():
+        raise RuntimeError("Bundled AgriSense database is missing")
+
+    if not runtime_db.exists():
+        shutil.copy2(bundled_db, runtime_db)
+
+    os.environ["DATABASE_URL"] = f"sqlite:///{runtime_db}"
 
 DEFAULT_ALLOWED_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
 def parse_origins(value):
