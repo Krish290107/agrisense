@@ -10,6 +10,12 @@
 
 **Updated:** October 6, 2026 (Asia/Calcutta)
 
+## Final status — Days 1–14 complete locally
+
+The final [README](../README.md) is the setup, run, dashboard and API usage guide. Day 14 reran 91 Python tests, 11 frontend tests, typecheck, lint, production build, fixture smoke and canonical temporary rebuild/HTTP checks successfully. Repeated imports preserve 39,630 observations, 229 series and 9 policies; 87 protected hashes remain unchanged. Scientific results and production policy are unchanged. See [DAY_14.md](DAY_14.md).
+
+Ready for academic submission/source review with documented limits: matching ignored data artifacts are needed for real-data setup, SQLite is not durable serverless storage, and hosted CI plus browser visual verification remain unperformed. Day 14 web requests could not access the previously confirmed deployment URLs, so fresh hosted functionality is not claimed. No video deliverable is required. The day entries below are historical snapshots, including their then-current counts and next steps.
+
 ## Day 13 status: reliability and automation complete locally
 
 91 Python tests (also in a clean source-only copy), 11 frontend tests, typecheck, lint and build pass. Added fixture-based cross-language HTTP smoke verification and one minimal CI workflow. Canonical temporary rebuild/import twice preserves 39,630 observations, 229 series and 9 active policies; 87 protected hashes remain unchanged. Configuration validation and regressions added. Hosted CI execution and browser visual checks remain unperformed. See [DAY_13.md](DAY_13.md).
@@ -268,9 +274,9 @@ The `/docs` page now hides its visible `/openapi.json` link, as requested. The s
 2. Open the homepage and confirm **Backend connected**. Stop the backend, click **Retry connection**, confirm failure, then restart it and retry to confirm recovery. Inspect the browser Network panel for `/health`; inspect mobile and desktop layouts.
 The obsolete initial GitHub and future-deployment walkthroughs were removed during Day 3; the working deployments and local runtime instructions remain in README.
 
-## Next task
+## Post-project follow-up
 
-**Day 14: final release polish, deployment verification and complete README usage guide**, including outstanding browser visual checks and observing hosted CI results.
+Local release documentation and verification are complete. Remaining optional/hosted follow-up: visual browser checks, observing hosted CI results, and verifying hosted functionality with appropriate durable persistence. The README documents current behavior and limitations.
 
 Roadmap: 1 setup; 2 real data; 3 cleaning; 4 exploration; 5 baselines; 6 features;
 7 training; 8 evaluation; 9 database; 10 API; 11 dashboard; 12 selling calculator;

@@ -1,190 +1,309 @@
 # AgriSense
 
-**Project owner:** Krishkumar | **Roll No:** 2401CS83 | **Institution:** IIT Patna
+AgriSense analyzes historical mandi prices and generates next-observation price estimates for selected Gujarat markets. It combines a reproducible research pipeline, FastAPI backend and Next.js dashboard with market comparison and quantity-based gross proceeds calculations.
 
-**GitHub repository:** https://github.com/Krish290107/agrisense
+**The estimate is for the next reported market observation, not tomorrow, a 7-day/30-day horizon or an arbitrary future date.** Records are historical, not live prices. The application does not guarantee where or when to sell.
 
-Agricultural Price Forecasting and Market Decision Support — a 14-day college project.
+## What AgriSense Does
 
-Day 1 provides the working Next.js frontend and FastAPI backend. Day 2 adds CSV import, provenance, profiling and Gujarat scope selection. [Day 3](docs/DAY_03.md) adds deterministic cleaning. [Day 4 EDA](reports/data/EDA_REPORT.md) adds analysis and candidate selection. [Day 5](reports/data/BASELINE_FORECAST_REPORT.md) establishes chronological forecasting benchmarks. [Day 6](reports/data/FEATURE_ENGINEERING_REPORT.md) prepares historical features. [Day 7](reports/data/ML_MODEL_REPORT.md) evaluates classical ML: the simple baselines remain better on all nine test series. Day 8 freezes the policy; [Day 9](docs/DAY_09.md) adds persistence; [Day 10](docs/DAY_10.md) exposes next-observation forecasts through FastAPI. Dashboard integration follows on Day 11.
+Choose a commodity and exact market series, inspect price history, generate an estimate, and compare its price and gross proceeds with other supported series. Dates, methods, fallback behavior and historical error remain visible.
 
-See [the progress record](docs/PROGRESS.md) for installed versions, actual verification results, and remaining manual steps.
+### Key Features
 
-Reproduce Day 4 using `.\.venv\Scripts\python.exe scripts/run_eda.py`. Results are in `reports/data/`; ten figures are in `reports/figures/`. [Series readiness](reports/data/series_readiness.csv) and [candidate identities](reports/data/forecast_candidates.csv) preserve markets, varieties and grades separately.
+- CSV import with provenance, deterministic cleaning, validation and exploratory analysis.
+- Chronological baseline benchmarks, historical features, classical ML experiments and robustness evaluation.
+- SQLite persistence for observations, policies, forecasts and research metadata.
+- Typed forecast/history APIs, saved forecasts and a historical price chart.
+- Neutral price signals, variety/grade-aware market comparisons and a gross proceeds calculator.
+- Deterministic summaries, error/empty states, regression tests and CI.
 
-Reproduce Day 5 using `.\.venv\Scripts\python.exe scripts/run_baselines.py`. [Selected baselines](reports/data/best_baselines.csv) are chosen on validation and scored on later test observations; [fixed evaluation boundaries](reports/data/baseline_splits.csv) support future comparisons. The benchmark refuses silent replacement after its inputs, policy or implementation change.
+## System Architecture
 
-Reproduce Day 6 using `.\.venv\Scripts\python.exe scripts/build_features.py`. The local `data/processed/forecast_features.csv` contains 5,091 rows across the unchanged evaluation regions. [Feature metadata](reports/data/feature_metadata.json) lists 27 features: 21 strictly historical and six requiring a known target date. Use the historical-only list to preserve Day 5's original information constraints.
-
-Day 7 entry point: `.\.venv\Scripts\python.exe scripts/train_models.py`. Completed results are verified/reused without retuning or rescoring the test. [ML comparison](reports/data/ml_baseline_comparison.csv) records macro test MAE **136.20 versus 119.55 INR/quintal** for Day 5. The local `ml/models/agrisense_price_model.joblib` bundle contains nine validation-selected pipelines; metadata and limitations are in the [model report](reports/data/ML_MODEL_REPORT.md).
-
-## Day 2: reproduce the real-data profile
-
-Source: [Daily Commodity Prices India on Kaggle](https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india), published by Manas Khandelwal. The supplied `2024.csv` and `2025.csv` contain 11,363,982 rows in total. Gujarat has 523,868 rows; its Onion, Potato and Tomato subset has 39,634 rows. The title does not establish complete history: the 2025 file has only 342 distinct dates.
-
-```powershell
-cd C:\Zekrui\agrisense
-.\.venv\Scripts\python.exe -m pip install -r requirements-data.txt
-.\.venv\Scripts\python.exe scripts\import_market_data.py data\raw --source kaggle_daily_india --kind historical --date-format "%Y-%m-%d"
-.\.venv\Scripts\python.exe scripts\profile_market_data.py --state Gujarat --commodities Onion Potato Tomato
-.\.venv\Scripts\python.exe -m unittest discover -s tests -p "test_market_data.py" -v
+```mermaid
+flowchart LR
+    A[Historical CSVs] --> B[Import and cleaning]
+    B --> C[EDA and baseline / ML evaluation]
+    C --> D[Frozen forecast policy]
+    B --> E[SQLite observations]
+    D --> E
+    E --> F[FastAPI baseline forecast service]
+    F --> G[Next.js dashboard]
+    G --> H[Price signals and gross proceeds]
 ```
 
-The original CSVs remain unchanged in `data/raw/`. Reimporting identical content safely skips it. Chunked reads handle the large input files; only the selected state/commodities are retained for detailed profiling. A fresh clone must obtain these ignored data files separately.
+Research and model training run offline. Production requests read the active baseline policy; they do not train or invoke experimental ML. Each request opens its own database connection. Comparison forecasts are read-only; only **Generate forecast** saves a result, and equivalent requests reuse it.
 
-Read [the data profile](reports/data/DATA_PROFILE.md), [the compact recommended scope](reports/data/recommended_scope.csv), and [Day 2 instructions](docs/DAY_02.md). The recommended scope has **15 combinations across three commodities**, explicitly using shorter history: no unchanged variety/grade series reaches the original 700-day screen. No grades are merged and no prices are fabricated. Price units are INR/quintal according to the Kaggle publisher; arrivals are absent.
+## Data Pipeline
 
-## Existing deployed applications
+Source: [Daily Commodity Prices India, published by Manas Khandelwal on Kaggle](https://www.kaggle.com/datasets/khandelwalmanas/daily-commodity-prices-india). The supplied `2024.csv` and `2025.csv` are preserved unchanged. See [data sources](docs/DATA_SOURCES.md), [profile](reports/data/DATA_PROFILE.md) and [cleaning report](reports/data/CLEANING_REPORT.md).
 
-- Backend project `agrisense-api`: https://agrisense-4lqq.vercel.app
-- Frontend project `agrisense-web-v2`: https://agrisense-web-v2.vercel.app
+| Scope | Verified value |
+| --- | --- |
+| State / commodities | Gujarat / Onion, Potato, Tomato |
+| Cleaned observations | 39,630 |
+| Historical series | 229 |
+| Overall cleaned date range | 2024-01-01 to 2025-12-29 |
+| Production-supported series | 9 selected candidates |
+| Price unit | INR/quintal (one quintal = 100 kg) |
 
-These are the user-confirmed working deployments. Day 2 tools run locally and require no Vercel action.
+An exact series is **state + district + market + commodity + variety + grade**. Varieties and grades stay separate. Missing dates are not zero and are not filled to invent daily coverage. The overall date range does not mean every series spans two complete years; supported series currently end in November 2025. The dataset title does not guarantee complete historical coverage.
 
-## Start the existing workspace
+Import, profiling, cleaning, EDA, baseline evaluation, feature engineering, ML experiments and robustness evaluation are separate scripts in `scripts/`. Their commands and provenance rules are documented in [Day 2](docs/DAY_02.md), [Day 3](docs/DAY_03.md), [EDA](reports/data/EDA_REPORT.md), [baselines](reports/data/BASELINE_FORECAST_REPORT.md), [features](reports/data/FEATURE_ENGINEERING_REPORT.md), [ML](reports/data/ML_MODEL_REPORT.md) and [Day 8](docs/DAY_08.md).
 
-Open two PowerShell terminals in VS Code. Keep both running. These commands assume this workspace is at `C:\Zekrui\agrisense`; change that path if you move the project.
+## Forecasting Approach
 
-**Terminal 1 — backend**
+The unchanged [forecast policy](configs/forecast_policy.json) selects **7 naive and 2 rolling-mean-7** series:
+
+- **Naive:** latest valid observed modal price.
+- **Rolling mean 7:** mean of the latest seven observations, not seven calendar days.
+- Fewer than seven observations but at least one: naive fallback.
+- No valid history: unavailable/null, never a fabricated INR 0.
+
+### Why Baselines Are Used in Production
+
+| Historical evaluation | Macro test MAE, INR/quintal |
+| --- | ---: |
+| Day 5 validation-selected baselines | 119.55 |
+| Day 7 validation-selected ML | 136.20 |
+
+Baselines won on **9/9 series**. ML remains `experimental_not_selected`; retaining the stronger observed baseline results is intentional. Day 8 robustness checks retained the policy. These are previously examined historical test periods, not a fresh untouched holdout. MAE describes past forecast error, not a guaranteed range for a new estimate. See the [ML comparison](reports/data/ml_baseline_comparison.csv) and [robustness report](reports/data/ROBUSTNESS_EVALUATION_REPORT.md).
+
+## Supported Markets / Commodities
+
+All entries are in Gujarat and grade FAQ. Exact identifiers are available from the supported-series API and policy file.
+
+| District / market | Commodity / variety | Method |
+| --- | --- | --- |
+| Dahod / Dahod (Veg. Market) | Onion / Onion | rolling_mean_7 |
+| Dahod / Dahod (Veg. Market) | Potato / Potato | rolling_mean_7 |
+| Dahod / Dahod (Veg. Market) | Tomato / Tomato | naive |
+| Kheda / Kapadvanj | Onion / Other; Potato / Other | naive (2 series) |
+| Navsari / Bilimora | Onion / Nasik; Potato / Other; Tomato / Other | naive (3 series) |
+| Navsari / Navsari | Tomato / Other | naive |
+
+The 229 historical series are not all forecast-supported. Unsupported identities do not receive an arbitrary model.
+
+## Project Structure
+
+| Folder | Purpose |
+| --- | --- |
+| `backend/` | FastAPI routes, response contracts and forecast service |
+| `frontend/` | Next.js dashboard, typed client and frontend tests |
+| `database/` | SQLite schema v1 and repository |
+| `scripts/` | Data/research workflows, imports and system verification |
+| `configs/` | Data configuration and frozen production policy |
+| `data/` | Local raw, intermediate, canonical and SQLite files |
+| `ml/` | Local experimental model artifacts |
+| `reports/` | Scientific metrics, metadata and figures |
+| `docs/` | Day-by-day evidence and project documentation |
+| `tests/` | Python tests and small synthetic fixtures |
+| `.github/workflows/` | Repository CI checks |
+
+## Tech Stack
+
+Python 3.13, FastAPI, Pydantic, standard-library SQLite, pandas, NumPy, scikit-learn and Matplotlib; Node.js 24, Next.js 16, React 19, TypeScript and Tailwind CSS. Tests use Python `unittest` and Node's built-in test runner. GitHub Actions provides CI configuration. The existing hosted project addresses use Vercel; current hosted functionality is not freshly verified.
+
+## Setup
+
+Use Python 3.13, Node.js 24 and Git. The commands below are PowerShell commands, run from the repository root unless a different directory is shown. They use the virtual environment executable directly, so activation is optional.
 
 ```powershell
-cd C:\Zekrui\agrisense
+git clone https://github.com/Krish290107/agrisense.git
+cd agrisense
+py -3.13 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r backend/requirements.txt -r requirements-data.txt
+```
+
+If needed, the existing `scripts/setup-node.ps1` and `scripts/use-node.ps1` support a project-local Node installation; see [Day 1](docs/DAY_01.md). With system Node 24 installed, those scripts are unnecessary. On Unix, create the environment with `python3.13 -m venv .venv`, use `.venv/bin/python` in place of the Windows executable, and use `npm` instead of `npm.cmd`.
+
+### Backend Setup and Environment
+
+Copy example settings only when no local settings already exist:
+
+```powershell
+if (-not (Test-Path backend/.env)) { Copy-Item backend/.env.example backend/.env }
+if (-not (Test-Path frontend/.env.local)) { Copy-Item frontend/.env.example frontend/.env.local }
+```
+
+| Variable | Location / default | Meaning |
+| --- | --- | --- |
+| `ALLOWED_ORIGINS` | `backend/.env`; `http://localhost:3000,http://127.0.0.1:3000` | Explicit browser origins; no paths, credentials or wildcards |
+| `DATABASE_URL` | Backend; `sqlite:///data/agrisense.db` | Local SQLite path, relative to repository root unless absolute |
+| `NEXT_PUBLIC_API_BASE_URL` | `frontend/.env.local`; `http://127.0.0.1:8000` | Public backend base URL, without credentials/query/fragment |
+
+The API loads `backend/.env`; existing process variables take priority. Standalone database scripts use the process environment or their explicit CLI option, not that dotenv file. Restart services after configuration changes; public frontend variables are also embedded during production build. Never commit `.env` files or place secrets in `NEXT_PUBLIC_` variables. See [backend example](backend/.env.example) and [frontend example](frontend/.env.example).
+
+### Database Initialization
+
+**A fresh source clone does not include the real dataset, model binary or SQLite file.** Tests and the fixture smoke check work without them; the real dashboard needs populated storage.
+
+For the existing project workspace, retain the original raw CSVs, immutable import/provenance bundles, canonical `data/processed/market_prices_clean.csv`, local processed artifacts and `ml/models/agrisense_price_model.joblib`. The Day 9 initializer checks the frozen artifact hashes as well as tracked reports/configuration. On another computer, restore the matching project artifacts from the original workspace before initializing. Merely creating an empty database or downloading a newer Kaggle snapshot does not reproduce the frozen experiment.
+
+```powershell
+.\.venv\Scripts\python.exe scripts/init_database.py
+```
+
+This initializes schema v1 and imports observations, policies, experimental model metadata and evaluation summaries into ignored `data/agrisense.db`. Importing identical inputs twice is safe and preserves existing forecasts. Do not create SQL tables manually. For a different local destination, pass `--database-url sqlite:///data/alternate.db` and configure the backend to use the same URL.
+
+For source-data preparation, place the original `2024.csv` and `2025.csv` in `data/raw/`, then use the documented pipeline:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/import_market_data.py data/raw --source kaggle_daily_india --kind historical --date-format "%Y-%m-%d"
+.\.venv\Scripts\python.exe scripts/profile_market_data.py --state Gujarat --commodities Onion Potato Tomato
+.\.venv\Scripts\python.exe scripts/clean_market_data.py
+```
+
+These three commands prepare canonical data; they do not recreate every research/model artifact required by the frozen Day 9 import. The linked research guides explain the remaining stages. Existing completed results should be reused. Hash mismatches indicate different inputs or implementations: restore the matching artifacts rather than bypassing checks or overwriting published metrics. Raw data and research artifacts are large and intentionally ignored; a source-only clone is sufficient for CI, not a complete real-data distribution.
+
+### Frontend Setup
+
+```powershell
+cd frontend
+npm.cmd ci
+cd ..
+```
+
+`npm.cmd` avoids PowerShell's `npm.ps1` execution-policy issue. Installation uses `package-lock.json`.
+
+## Running the Application
+
+Open two terminals at the repository root.
+
+**Backend:**
+
+```powershell
 .\.venv\Scripts\python.exe -m uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
 ```
 
-**Terminal 2 — frontend**
+**Frontend:**
 
 ```powershell
-cd C:\Zekrui\agrisense
-. .\scripts\use-node.ps1
 cd frontend
 npm.cmd run dev
 ```
 
-The dot followed by a space in `. .\scripts\use-node.ps1` selects the project's Node.js 24 LTS for that terminal. Repeat it in each new frontend terminal. `npm.cmd` avoids PowerShell's `npm.ps1` execution-policy issue. Python activation is unnecessary because the command uses the root environment's executable directly.
+Open [the dashboard](http://localhost:3000), [API health](http://127.0.0.1:8000/health) and [interactive API docs](http://127.0.0.1:8000/docs). Health returns `{"status":"ok","service":"agrisense-api"}`; it checks reachability, not whether the real database is ready. Stop a service with Ctrl+C.
 
-Open:
+If the frontend uses a different port, its exact origin must be allowed by the backend. Database errors should be resolved using the initialization workflow; do not substitute zero prices. Connection errors have retry controls. A successful direct health response alone does not prove browser CORS works.
 
-| Address | Expected result |
+For a local production build, stop the frontend development server, then run `npm.cmd run build` and `npm.cmd start` inside `frontend/`. Keep the backend running separately.
+
+## Using the Dashboard
+
+1. Open the dashboard and check **Backend connected**.
+2. Choose Onion, Potato or Tomato, then the exact market/variety/grade series.
+3. Inspect recent history, latest modal price and its actual observation date.
+4. Click **Generate forecast**. Read the method used, history cutoff and any fallback.
+5. Review recent observations and saved forecasts; unchanged requests reuse the saved estimate.
+6. In **Market decision support**, read the latest-versus-estimate difference and percentage.
+7. Enter a positive quantity in quintals. Compare latest-price and forecast-price gross proceeds.
+8. Review **Estimated price comparison**, including variety, grade, record date, method and historical MAE for each series.
+9. Read the summary and limitations before interpreting a comparison as useful information.
+
+For example, the verified Dahod Potato record on 3 November 2025 is INR 1,500/quintal and its estimate is INR 1,428.571429: -4.76%. Ten quintals correspond to INR 15,000.00 versus INR 14,285.71 gross proceeds, a difference of INR -714.29. The calculator multiplies full-precision prices before currency rounding. This is a historical demonstration, not a current market quote.
+
+## Forecast API
+
+Base URL locally: `http://127.0.0.1:8000`. Prices are decimal strings in INR/quintal. Identities are exact series IDs from discovery; missing values are null.
+
+| Method / route | Purpose |
 | --- | --- |
-| <http://localhost:3000> | AgriSense homepage and backend connection indicator |
-| <http://127.0.0.1:8000/health> | `{"status":"ok","service":"agrisense-api"}` |
-| <http://127.0.0.1:8000/docs> | Interactive FastAPI API documentation |
+| `GET /health` | Service reachability |
+| `GET /api/v1/forecast/series` | Active supported series |
+| `GET /api/v1/forecast/series/{series_id}/history?limit=30` | Latest observations, chronological; limit 1-365 |
+| `POST /api/v1/forecast` | Generate/save next-observation estimate |
+| `GET /api/v1/forecast/series/{series_id}/forecasts?limit=20` | Saved results, newest first; limit 1-100 |
+| `GET /api/v1/decision/markets?series_id={series_id}` | Non-persisting supported-market comparison |
 
-Press **Ctrl+C** in each terminal to stop its service.
-
-## Set up a fresh clone
-
-The original workspace already has installed dependencies. Use this section after cloning onto another computer or restoring dependencies.
-
-Install Python 3.13 and Git for Windows if missing, then reopen VS Code. Python's Windows installer should include the `py` launcher. Official downloads: [Python for Windows](https://www.python.org/downloads/windows/) and [Git for Windows](https://git-scm.com/downloads/win).
-
-Check the tools:
+Discover series and generate Dahod Potato with PowerShell:
 
 ```powershell
-cd C:\Zekrui\agrisense
-git --version
-py -0p
-py -3.13 --version
+Invoke-RestMethod http://127.0.0.1:8000/api/v1/forecast/series
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/api/v1/forecast -ContentType 'application/json' -Body '{"series_id":"314b4dfffac5b7bc"}'
 ```
 
-Install the portable project Node.js and verify it:
+Selected fields from the verified response (not the full schema):
 
-```powershell
-.\scripts\setup-node.ps1
-. .\scripts\use-node.ps1
-node --version
-npm.cmd --version
+```json
+{"status":"ok","forecast_type":"next_observation","prediction":"1428.571429","method_used":"rolling_mean_7","fallback_used":false,"history_observations_used":7,"history_cutoff_date":"2025-11-03","latest_observed_price":"1500.0"}
 ```
 
-The setup script downloads Node.js 24 into the ignored `.tools/node/` directory and checks its download checksum. It does not replace a system-wide Node.js installation. If PowerShell blocks this project's scripts, permit scripts for this terminal only and rerun them:
+The optional `as_of_date` applies the current policy to records on/before an ISO date, capped at today UTC. It is a history cutoff, not a target forecast date. Unknown series return 404; malformed inputs return 422; unavailable storage/policy returns sanitized 503. Known unsupported or empty-history forecast requests return explicit domain statuses with null predictions; unsupported decision requests return 422. See `/docs` for complete response contracts.
+
+## Decision Support
+
+Price difference is estimate minus latest modal price; percentage divides this by the latest price. Absolute change below 2% is **Near**; otherwise the signal is **Above** or **Below**. The fixed threshold was not tuned against historical outcomes.
+
+Comparisons prefer matching commodity, variety and grade across multiple supported markets. If exact matches are limited, a broader commodity comparison displays a warning. Estimates sort descending with deterministic series-ID ties; unavailable estimates appear last. A higher price does not establish the best place to sell.
+
+Gross proceeds = quantity in quintals multiplied by price. **Gross proceeds are not profit:** transport, handling, market access and other costs are not modeled. Invalid, nonfinite, zero or negative quantities and missing prices remain unavailable. Summaries are deterministic descriptions of actual values, without invented weather/supply/demand explanations. Historical MAE is not a confidence interval.
+
+## Testing
+
+From the repository root:
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\python.exe -m unittest discover -s tests
+.\.venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe scripts/verify_system.py
 ```
 
-Install Python dependencies into one root environment:
+The smoke command launches a temporary fixture database/API, exercises the actual frontend client over HTTP, checks calculation/persistence behavior and cleans up. It requires Node 24 but no real data or running services.
+
+With the full matching local artifacts available, optionally verify two imports and the real-data HTTP flow in a disposable database:
 
 ```powershell
-if (-not (Test-Path .\.venv\Scripts\python.exe)) {
-    py -3.13 -m venv .venv
-}
-.\.venv\Scripts\python.exe -m pip install -r backend\requirements.txt
+.\.venv\Scripts\python.exe scripts/verify_system.py --rebuild
 ```
 
-Create local settings only when absent, then install the frontend's locked dependencies:
+Frontend checks:
 
 ```powershell
-if (-not (Test-Path backend\.env)) {
-    Copy-Item backend\.env.example backend\.env
-}
-if (-not (Test-Path frontend\.env.local)) {
-    Copy-Item frontend\.env.example frontend\.env.local
-}
 cd frontend
-npm.cmd ci
-```
-
-Use the two startup terminals above after installation.
-
-## Configuration and checks
-
-`frontend/.env.local` uses `NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000`. Restart the frontend after changing it. This address is public browser configuration; never put a secret in a `NEXT_PUBLIC_` variable.
-
-`backend/.env` uses `ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000`. These are the browser addresses allowed to call the API. The backend loads this file relative to `backend/app.py`, and environment variables already set by the host take priority. Restart the backend after changing it.
-
-Run frontend checks in a separate terminal, with the development server stopped before building:
-
-```powershell
-cd C:\Zekrui\agrisense
-. .\scripts\use-node.ps1
-cd frontend
-npm.cmd run lint
+npm.cmd test
 npm.cmd run typecheck
+npm.cmd run lint
 npm.cmd run build
+cd ..
 ```
 
-The build can run while the backend is stopped. The health request happens in the browser after the page opens.
+Final local verification: **91 Python tests, 11 frontend tests**, typecheck, lint, production build and HTTP/OpenAPI smoke passed. [CI](.github/workflows/ci.yml) runs isolated tests and fixture smoke without ignored data. Workflow configuration is checked locally; hosted execution has not been observed. [Day 13](docs/DAY_13.md) and [Day 14](docs/DAY_14.md) record evidence and boundaries.
 
-For a manual connection check, open the homepage with both services running, confirm the successful connection, stop the backend, and click **Retry**. You should see a loading state followed by a failed connection. Restart the backend and retry to recover. Check the browser's Network panel for the `/health` request.
+## Deployment
 
-If the frontend starts on port 3001 because 3000 is busy, stop the conflicting server and restart on 3000, or explicitly add the new frontend origin to `ALLOWED_ORIGINS` and restart the backend. A successful direct `/health` response alone does not verify browser CORS.
+Previously user-confirmed project addresses are retained for reference:
 
-## Project guide
+- [Frontend: agrisense-web-v2](https://agrisense-web-v2.vercel.app)
+- [Backend: agrisense-api](https://agrisense-4lqq.vercel.app)
 
-- [Day 1 files, tools, and request flow](docs/DAY_01.md)
-- [Day 2 import, profiling and commands](docs/DAY_02.md)
-- [Data sources and provenance](docs/DATA_SOURCES.md)
-- [Data dictionary and future prediction rules](docs/DATA_DICTIONARY.md)
-- [Day 3 cleaning rules and command](docs/DAY_03.md)
-- [Progress and verification evidence](docs/PROGRESS.md)
-- [Day 1 presentation notes](docs/DAY_01_PRESENTATION.md)
+The Day 14 web checks could not access these addresses. This does not establish an outage, and **current hosted dashboard/forecast functionality is not freshly verified**. No deployment settings were changed. There is no tracked Vercel deployment configuration to reproduce remote project settings automatically.
 
-The raw CSVs, immutable imports, cleaned CSV, generated model bundle and SQLite database remain local and ignored. `tests/` uses synthetic fixtures and isolated temporary databases. `database/` contains the schema and repository; `notebooks/`, `data/interim/`, and `.github/workflows/` reserve space for future work.
+The frontend uses the standard Next.js build and must receive the correct public backend URL at build time. The backend uses `backend.app:app`, backend requirements, explicit frontend origins and a populated database path. Environment names are listed above. A hosted health response alone would not verify data availability or end-to-end browser operation.
 
-## Roadmap
+**Local SQLite is suitable for local/project use, not durable serverless production persistence.** The ignored local database is not automatically included in deployment. Durable hosted production persistence requires an external database and an appropriate repository adapter; the current code supports only local SQLite URLs. A persistent-disk server can support a limited local-file deployment, but this project does not provision one. Do not describe the existing serverless URLs as a verified durable forecast service.
 
-[Day 11 dashboard](docs/DAY_11.md) now connects real market selection, recent prices, next-observation forecasts and saved forecast history. Typecheck, lint, build and API-client integration pass. Interactive desktop/mobile visual verification remains pending because browser automation was unavailable; the detailed verification record distinguishes completed checks from this limitation.
+## Current Limitations
 
-1. setup
-2. real data
-3. cleaning
-4. exploration
-5. baselines
-6. features
-7. training
-8. evaluation
-9. database
-10. API
-11. dashboard
-12. selling calculator
-13. tests and refresh
-14. deployment and presentation
+- Only selected Gujarat Onion/Potato/Tomato markets; nine production-supported series.
+- Roughly two years of irregular historical data, incomplete per-series coverage and no live feed.
+- Next-observation estimates only; price shocks remain difficult.
+- Historical test dates were previously examined; ML did not outperform baselines.
+- No arrivals, weather or demand feeds; comparisons do not guarantee selling outcomes.
+- Frozen real-data rebuild needs ignored original artifacts; source-only clones support fixture verification.
+- Local SQLite is not durable serverless storage; hosted CI and visual browser checks remain unverified.
+- Existing dependency caveats are recorded in [progress](docs/PROGRESS.md); final checks are not a comprehensive security audit.
 
-Days 1–10 are implemented. [Day 8 robustness evaluation](reports/data/ROBUSTNESS_EVALUATION_REPORT.md) retains seven naive and two rolling-mean-7 series in the [forecast policy](configs/forecast_policy.json). Three chronological blocks per series give MAE **119.55 versus 135.86 INR/quintal** for block-refitted ML. These reuse previously examined historical dates; they are not a new untouched holdout. ML remains experimental. Full two-year per-series coverage remains a documented limitation.
+## Future Improvements
 
-Day 8 entry point: `.\.venv\Scripts\python.exe scripts/evaluate_robustness.py`. The [Day 8 guide](docs/DAY_08.md) describes artifacts, fallback behavior and verification.
+Longer data history, arrivals/weather features, nearby-market signals, a genuinely fresh out-of-time holdout and further validated modeling experiments could improve evidence. Durable external storage, broader coverage and separately validated fixed-horizon forecasts are future work, not implemented features.
 
-[Day 9 persistence](docs/DAY_09.md) uses standard-library SQLite. Run `.\.venv\Scripts\python.exe scripts/init_database.py` to initialize and idempotently import the canonical artifacts into the ignored local `data/agrisense.db`. It contains **39,630 observations, 229 exact series, nine policies, one experimental model bundle and 405 evaluation summaries**. Price text is preserved exactly; repository queries return chronological histories and the unchanged policy. The [database report](reports/data/DATABASE_REPORT.md) records constraints and verification.
+## Project Progress / Final Status
 
-[Day 10 API](reports/data/FORECAST_API_REPORT.md) provides supported-series discovery, bounded price history, persisted forecast generation and saved forecast history under `/api/v1/forecast`. Responses explicitly describe **next-observation estimates**, with decimal-string prices and safe fallback/unavailable states. Equivalent retries reuse saved results. Health and configured CORS origins remain intact; POST is allowed for generation. All 85 tests pass, and non-persisting real-data checks left the database unchanged with zero forecasts. Day 11 will connect the dashboard. Local SQLite is not durable serverless storage.
+Days 1-14 local implementation, verification and README-based release documentation are complete. The project is ready for academic submission/source review with the documented data-distribution and hosting limitations. Hosted CI execution and visual/deployment confirmation are separate outstanding verification items, not claimed passes. This README is the complete usage/demo guide; no video is required.
+
+See [final release record](docs/DAY_14.md) and [historical progress](docs/PROGRESS.md). Earlier day records describe the state at that time and do not supersede this final guide.
+
+## Author / Academic Context
+
+**Krishkumar** | **Roll No. 2401CS83** | **IIT Patna**
+Repository: https://github.com/Krish290107/agrisense
