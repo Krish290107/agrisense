@@ -40,8 +40,7 @@ htmlcov/
 # Data and generated models stay local; keep the directory placeholders.
 data/raw/*
 !data/raw/.gitkeep
-data/interim/*
-!data/interim/.gitkeep
+
 data/processed/*
 !data/processed/.gitkeep
 # Row-level samples and detailed coverage stay local; commit compact reports only.
@@ -61,7 +60,7 @@ reports/data/local/
 *.onnx
 *.keras
 ml/models/
-data/agrisense.db
+
 data/agrisense.db-journal
 data/agrisense.db-wal
 data/agrisense.db-shm
@@ -71,6 +70,3 @@ data/agrisense.db-shm
 Thumbs.db
 .idea/
 .vscode/
-
-frontend/AGENTS.md
-frontend/CLAUDE.md

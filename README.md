@@ -90,7 +90,6 @@ agrisense/
 ├── configs/          Data configuration and forecast policy
 ├── data/             Deployment SQLite database + local data directories
 ├── database/         SQLite schema and repository layer
-├── ml/               Experimental ML workspace
 ├── reports/          EDA, evaluation metrics and figures
 ├── scripts/          Data, training and verification scripts
 ├── tests/            Python regression tests
