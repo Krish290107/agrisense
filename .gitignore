@@ -71,3 +71,6 @@ data/agrisense.db-shm
 Thumbs.db
 .idea/
 .vscode/
+
+frontend/AGENTS.md
+frontend/CLAUDE.md
