@@ -190,5 +190,5 @@ This is suitable for the current **portfolio/demo deployment**, but new forecast
 ## Author
 
 **Krishkumar**  
-B.Tech CSE, IIT Patna  
+B.Tech - CSE, IIT Patna  
 GitHub: [Krish290107](https://github.com/Krish290107)
