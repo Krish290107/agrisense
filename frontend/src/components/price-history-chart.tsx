@@ -13,5 +13,5 @@ export function PriceHistoryChart({rows}: {rows: Observation[]}) {
     <polyline points={rows.map((r,i) => `${x(i)},${y(Number(r.modal_price))}`).join(" ")} fill="none" stroke="#286349" strokeWidth="2.5"/>
     {rows.map((r,i) => <circle key={r.date} cx={x(i)} cy={y(Number(r.modal_price))} r="3.5" fill="#286349"><title>{dateLabel(r.date)}: {money(r.modal_price)} / quintal</title></circle>)}
     <text x={x(0)} y="234">{dateLabel(rows[0].date)}</text>{rows.length > 1 && <text x={x(rows.length-1)} y="234" textAnchor="end">{dateLabel(rows.at(-1)!.date)}</text>}
-  </svg><figcaption><span className="legend-line"/>Modal price · observed dates only. Lines connect records; gaps are not filled.</figcaption></figure>;
+  </svg></figure>;
 }
